@@ -59,7 +59,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 mx-auto text-center">
-                    <img src="assets/ghost1.png" width="400" class="img-fluid rounded rounded-5" style="filter: drop-shadow(0 3px 6px #333);">
+                    <img src="assets/ghost1.png" width="400" class="img-fluid rounded rounded-5" style="filter: drop-shadow(0 3px 6px #333);" id="ghost1">
                 </div>
             </div>
         </div>
@@ -220,5 +220,14 @@
             </p>
         </div>
     </footer>
+    <script>
+        let taps = 0;
+        const element = document.getElementById('ghost1');        
+        element.addEventListener('click', function() {
+            taps++;
+            if (clickCount >= 10) 
+                window.location.href = 'https://rad.ringtail.quest/';
+        });
+    </script>
 </body>
 </html>
