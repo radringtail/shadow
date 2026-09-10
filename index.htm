@@ -221,13 +221,15 @@
         </div>
     </footer>
     <script>
-        let taps = 0;
-        const element = document.getElementById('ghost1');        
-        element.addEventListener('click', function() {
+        function tap() {
             taps++;
-            if (clickCount >= 10) 
-                window.location.href = 'https://rad.ringtail.quest/';
-        });
+            if (taps >= 10) window.location.href = 'https://rad.ringtail.quest/';
+        };
+
+        let taps = 0;
+        const secretGhost = document.getElementById('ghost1');
+        secretGhost.addEventListener('click', tap);
+        secretGhost.addEventListener('touchend', tap);
     </script>
 </body>
 </html>
