@@ -216,20 +216,15 @@
             <p class="my-2">
                 &copy; 2026 BFC
                 &bull; <b>Peek-a-BOO! Festival</b>
-                &bull; Built on <a href="https://getbootstrap.com/" class="link-light">Bootstrap 5</a>
             </p>
         </div>
     </footer>
     <script>
-        function tap() {
-            taps++;
-            if (taps >= 10) window.location.href = 'https://rad.ringtail.quest/';
-        };
-
         let taps = 0;
-        const secretGhost = document.getElementById('ghost1');
-        secretGhost.addEventListener('click', tap);
-        secretGhost.addEventListener('touchend', tap);
+        $("#ghost1").on("click", function(){
+            taps++;
+            if (taps >= 10) window.location.href = 'https://www.babyfurcon.com/';
+        });
     </script>
 </body>
 </html>
