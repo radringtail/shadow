@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="G.H.O.S.T.">   
+    <meta property="og:type" content="website">
+    
+    <title>G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/ghosts.js"></script>
+</head>
+<body class="scanlines">
+    <div class="container py-5">
+        <div class="row text-center">
+            <div class="col-md-6 mx-auto">
+                <div id="gutter" class="px-3">
+                    <img src="../assets/images/ghost1.png" width="300" class="img-fluid mb-4 ghost-appear" id="ghostSpeaker">
+                    <h1 class="scanlines-text-strong mb-5 ghost-appear" id="ghostMessage">
+                        "<span id="ghostClue"></span>"
+                    </h1>
+                    <div class="btn btn-outline-secondary btn-lg scanlines-text-strong ghost-appear" id="closeButton">Depart</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+            var ghostKey = params.key;
+            foundGhost = ghostData.find(x => x.key === ghostKey);
+            $("#ghostClue").html(foundGhost.clue);   
+            updateStoredClues(ghostKey);
+
+            $("#closeButton").on("click", function(){
+                window.close()
+            });
+        })
+
+        function updateStoredClues(newClue){
+            if(newClue == null){
+                return;
+            }
+
+            // get clues from localstorage
+            var cluesFound = localStorage.getItem("cluesFound");
+            var cluesFoundArray = JSON.parse(cluesFound);
+            if(cluesFound == null) cluesFoundArray = [];
+
+            // write clues back to localstorage
+            if(!cluesFoundArray.find(x => x == newClue)){
+                cluesFoundArray.push(newClue);
+                var cluesFoundJson = JSON.stringify(cluesFoundArray);
+                localStorage.setItem("cluesFound", cluesFoundJson);
+            }
+        }
+    
+        function randomVal(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/">
+    <meta property="og:image" content="#">
+    <meta property="og:type" content="website">
+    
+    <title>Field Notes &bull; G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+</head>
+<body class="scanlines">
+    <div id="ghostsGuide" class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 mx-auto text-center">
+                    <h2 class="display-2">Field Notes</h2>
+                    <hr>
+                    <p class="text-body-secondary pb-3 pb-md-5">
+                        Good job ghost researcher! Here's all the ghosts you've talked to and where you talked to them.
+                    </p>
+                </div>
+            </div>
+            <div class="row row-cols-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-4 justify-content-center">
+                <div class="col" v-for="ghost in foundClues">
+                    <div class="card h-100 bg-body-tertiary shadow-sm">
+                        <img :src="`../assets/signs/${ghost.slug}.jpg`" class="card-img-top shadow sign-thumb mb-3">
+                        <div class="card-body">
+                            <p>
+                                <span v-html="ghost.clue"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer py-4 mt-5 text-center">
+            <div class="container">
+                <p class="my-2">
+                    <a href="../" class="link-light">Back to G.H.O.S.T. Home Page</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../assets/packages/vue.min.js"></script>
+    <script src="../assets/ghosts.js"></script>
+    <script>
+        // get clues from localstorage
+        var cluesFound = localStorage.getItem("cluesFound");
+        var cluesFoundArray = JSON.parse(cluesFound);
+        if(cluesFound == null) cluesFoundArray = [];
+
+        console.log(cluesFoundArray);
+
+        var app = new Vue({
+            el: "#ghostsGuide",
+            data: {
+                search: '',
+                ghostClues: ghostData
+            },
+            computed: {
+                foundClues() {
+                    return this.ghostClues
+                    .filter(x => { 
+                        return cluesFoundArray.includes(x.key)
+                    })
+                    .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
+                }
+            }
+        });
+    </script>
+</body>
+</html>

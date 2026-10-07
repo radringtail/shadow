@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+body{
+  background-color: black;
+}
+
+#hero {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url(images/hero.jpg);
+}
+
+.scanlines {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: auto, auto;
+  background-size: 100% 4px, 2px 100%;
+}
+
+.scanlines-text-strong {
+  text-shadow: 3.4px 0 1px rgba(0,30,255,0.5), -3.4px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+}
+
+.ghost-appear {
+  animation: ghostAppear 3s ease-in-out forwards;
+}
+
+@keyframes ghostAppear {
+  from {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translate(0, 10%);
+  }
+  to {
+    opacity: 0.75;
+    filter: blur(0px);
+    transform: translate(0,0);
+  }
+}
+
+.print-appear {
+  animation: printAppear 3s ease-in forwards;
+}
+
+@keyframes printAppear {
+  0% {
+    opacity: 0;
+    filter: blur(30px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.print-test-appear {
+  animation: printTestAppear 6s ease-in forwards;
+}
+
+@keyframes printTestAppear {
+  0% {
+    opacity: 0;
+    filter: blur(30px);
+  }
+  40% {
+    opacity: 0;
+    filter: blur(30px);
+  }
+  100% {
+    opacity: .8;
+    filter: blur(0px);
+  }
+}
+
+.print-submit-appear {
+  animation: printSubmitAppear 9s ease-in forwards;
+}
+
+@keyframes printSubmitAppear {
+  0% {
+    opacity: 0;
+    filter: blur(30px);
+  }
+  67% {
+    opacity: 0;
+    filter: blur(30px);
+  }
+  100% {
+    opacity: .8;
+    filter: blur(0px);
+  }
+}
+
+.sign-thumb {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 992px) { 
+  .sign-thumb {
+    height: 200px;
+  }
+}
+
+#footer {
+  height: 100vh;
+  background-image: url(images/hero.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* FONTS */ 
+
+#ghostMessage, .ghost-font{
+  font-family: "DynaPuff", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-bfc-blue{
+  color: #00c4ee;
+}
+
+.text-bfc-teal{
+  color: #16b9ac;
+}
+
+.text-bfc-orange{
+  color: #fea92b;
+}
+
+.text-bfc-pink{
+  color: #dc4583;
+}
+
+.card-hover:hover{
+  transform: scale(1.1);
+  transition: transform .1s ease-out;
+}
+
+.card-swap{
+  transform: scale(1.1);
+  transition: transform .1s ease-out;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/">
+    <meta property="og:image" content="#">
+    <meta property="og:type" content="website">
+    
+    <title>Bond | G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
+    
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/jquery.validate.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/prints.js"></script>
+</head>
+<body class="scanlines">
+    <div class="container py-3 text-center">
+        <div class="row text-center">
+            <div class="col-md-5 mx-auto">
+                <div id="gutter" class="px-3 ghost-font scanlines-text-strong">
+                    <img src="#" width="200" class="img-fluid mb-3 ghost-appear" id="newFriend">
+                    <section id="ghostWelcome">
+                        <p class="fs-3 ghost-appear">
+                            Wow, great job kiddo! You did so much work to pass my test. That makes me feel really special. 💙
+                        </p>
+                        <p class="fs-5 print-test-appear">
+                            I've been looking for a 
+                            <span class="text-bfc-orange affi">AFFI</span>
+                            friend at the <i>Peek-a-BOO! Festival</i>, and I was drawn to the
+                            <span class="text-bfc-teal" id="attr">ATTR</span>
+                            happening all over. I tried to use my magic to enhance the
+                            <span class="text-bfc-blue" id="aura">AURA</span>
+                            in all the kiddos. And finally, someone noticed me. You!
+                        </p>
+                        <div class="print-submit-appear">
+                            <p class="fs-2">
+                                I know we just met, but I can tell you are a <span class="text-bfc-orange affi">AFFI</span> soul. Do you...want to be friends?
+                            </p>
+                            <p>
+                                <button class="btn btn-lg btn-block btn-light mx-3" id="friendYes">Yes</button>
+                                <button class="btn btn-lg btn-block btn-dark mx-3" id="friendNo">No</button>
+                            </p>
+                        </div>
+                    </section>
+                    <section id="answerYes" class="d-none ghost-appear">
+
+                    </section>
+                    <section id="answerNo" class="d-none">
+                        <p class="fs-4 ghost-appear">
+                            Aww, I understand. A true friendship needs to be mutual, and I appreciate you being honest with me. I'm sure you will find the perfect ghost for you. 🧡
+                        </p>
+                        <p class="fs-2 print-test-appear">
+                            Thank you for all you are doing for us festival ghosts. It makes us so happy! Good luck!
+                        </p>
+                        <p class="print-submit-appear">
+                            <a class="btn btn-lg btn-danger text-white" href="../">Bid Farewell</a>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var friendKey = localStorage.getItem("newFriend");
+            if(friendKey == null) window.location.href = '../';
+            friend = ghostFriends.find(x => x.key == friendKey);
+            if(friend == null) window.location.href = '../';
+            
+            $("#newFriend").attr("src", `../assets/ghosts/${friend.ghost}`);
+            $("#attr").html(friend.attr);
+            $("#aura").html(friend.aura);
+            $(".affi").html(friend.affi);
+
+            $("#friendYes").on("click", function(){
+                $("#ghostWelcome").fadeOut()
+                setTimeout(() => { $("#answerYes").removeClass("d-none") }, 1500);
+            });
+            $("#friendNo").on("click", function(){
+                $("#ghostWelcome").fadeOut()
+                setTimeout(() => { $("#answerNo").removeClass("d-none") }, 1500);
+
+                localStorage.removeItem("newFriend");
+                localStorage.removeItem("ghostFriend");
+                localStorage.removeItem("attemptsLeft");
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Art Postcards | G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/cards/">
+    <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
+    <meta property="og:type" content="website">
+    
+    <title>Art Postcards | G.H.O.S.T.</title>
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.7/Sortable.min.js"></script>
+</head>
+<body class="scanlines">
+    <div id="ghostsGuide" class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 mx-auto text-center">
+                    <h2 class="display-2">Art Postcards</h2>
+                    <hr>
+                    <p class="text-body-secondary pb-3 pb-md-5">
+                        Quia quibusdam occaecati quisquam illum placeat consectetur dolores adipisci. Aperiam quos inventore ab voluptas aliquid. Recusandae qui dolorem distinctio. Asperiores eligendi in in laboriosam hic pariatur est facilis.
+                    </p>
+                </div>
+            </div>
+            <div class="row row-cols-4 g-1" id="postcards">
+                <div class="col">
+                    <img src="../assets/cards/back-01.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-02.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-03.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-04.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-05.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-06.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-07.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-08.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-09.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-10.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-11.png" class="img-fluid rounded card-hover">
+                </div>
+                <div class="col">
+                    <img src="../assets/cards/back-12.png" class="img-fluid rounded card-hover">
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer py-4 mt-5 text-center">
+            <div class="container">
+                <p class="my-2">
+                    <a href="../" class="link-light">Back to G.H.O.S.T. Home Page</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        var cards = document.querySelector('#postcards');
+        for (var i = cards.children.length; i >= 0; i--) {
+            cards.appendChild(cards.children[Math.random() * i | 0]);
+        }
+
+        new Sortable(postcards, {
+            swap: true,
+            swapClass: 'card-swap',
+            animation: 150
+        });
+    </script>
+</body>
+</html>
+
