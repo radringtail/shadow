@@ -17,7 +17,7 @@ body{
   background-size: 100% 4px, 2px 100%;
 }
 
-.scanlines-text-strong {
+.scanlines-text-strong, .highlight b {
   text-shadow: 3.4px 0 1px rgba(0,30,255,0.5), -3.4px 0 1px rgba(255,0,80,0.3), 0 0 3px;
 }
 
@@ -169,4 +169,19 @@ body{
 
 .scanlines-image {
   filter: drop-shadow(3.4px 0 1px rgba(0,30,255,0.5)) drop-shadow(-3.4px 0 1px rgba(255,0,80,0.3));
+}
+
+.square-image{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
+}
+
+.square-image img{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }

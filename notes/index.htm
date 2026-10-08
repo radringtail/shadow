@@ -23,37 +23,40 @@
 <body class="scanlines bg-danger-subtle">
     <div id="ghostsGuide" class="pt-5">
         <div class="container">
-            <div class="row">
+            <div class="row scanlines-text-strong mb-5">
                 <div class="col-sm-8 mx-auto text-center">
-                    <h2 class="display-2">Field Notes</h2>
-                    <hr>
-                    <p class="text-body-secondary pb-3 pb-md-5">
-                        Good job ghost researcher! Here's all the ghosts you've talked to and where you talked to them.
+                    <h2 class="display-2 ghost-font">Field Notes</h2>
+                    <hr class="border border-2 opacity-100 border-orange">
+                    <p class="fs-5 ghost-font">
+                        Good job Seeker! Here's all the ghosts you've talked to and where you talked to them.
+                    </p>
+                    <p>
+                        <a href="../" class="btn btn-outline-light border-light-subtle btn-sm">Back to Home</a>
                     </p>
                 </div>
             </div>
-            <div class="row row-cols-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3 g-lg-4 justify-content-center">
                 <div class="col" v-for="ghost in foundClues">
-                    <div class="card h-100 bg-body-tertiary shadow-sm">
-                        <img :src="`../assets/signs/${ghost.slug}.jpg`" class="card-img-top shadow sign-thumb mb-3">
-                        <div class="card-body">
-                            <p>
-                                <span v-html="ghost.clue"></span>
-                            </p>
+                    <div class="card h-100 bg-dark shadow">
+                        <div class="row g-0">
+                            <div class="col-3">
+                                <div class="square-image my-3">
+                                    <img :src="`../assets/signs/${ghost.slug}.jpg`" class="img-fluid rounded-3 shadow-sm">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="card-body">
+                                    <h2 class="h3 card-title ghost-font">{{ghost.sign}}</h2>
+                                    <p class="card-text lead highlight lh-sm">"<span v-html="ghost.clue"></span>"</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="site-footer py-4 mt-5 text-center">
-            <div class="container">
-                <p class="my-2">
-                    <a href="../" class="link-light">Back to G.H.O.S.T. Home Page</a>
-                </p>
-            </div>
-        </footer>
     </div>
-        <script>
+    <script>
         var cluesFound = localStorage.getItem("cluesFound");
         var cluesFoundArray = JSON.parse(cluesFound);
         if(cluesFound == null) cluesFoundArray = [];
@@ -66,9 +69,7 @@
             computed: {
                 foundClues() {
                     return this.ghostClues
-                    .filter(x => { 
-                        return cluesFoundArray.includes(x.key)
-                    })
+                    .filter(x => { return cluesFoundArray.includes(x.key) })
                     .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
                 }
             }
