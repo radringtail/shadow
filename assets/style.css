@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Mozilla+Text:wght@200..700&display=swap');
 
 body{
   background-color: black;
+  font-family: "Mozilla Text", sans-serif;
 }
 
 #hero {
@@ -135,11 +136,37 @@ body{
 }
 
 .card-hover:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: transform .1s ease-out;
+  cursor: grab;
 }
 
 .card-swap{
   transform: scale(1.1);
   transition: transform .1s ease-out;
+  cursor: grabbing;
+}
+
+.theme-green {
+  background-color: #0c2617;
+}
+
+.theme-orange {
+  background-color: #331a00;
+}
+
+.border-orange {
+  border-color: #663500 !important; 
+}
+
+.theme-purple {
+  background-color: #200c49;
+}
+
+.border-purple {
+  border-color: #381480 !important; 
+}
+
+.scanlines-image {
+  filter: drop-shadow(3.4px 0 1px rgba(0,30,255,0.5)) drop-shadow(-3.4px 0 1px rgba(255,0,80,0.3));
 }
