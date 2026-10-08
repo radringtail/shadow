@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Encounter &bull; G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/encounter/">
+    <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
+    <meta property="og:type" content="website">
+    
+    <title>Encounter &bull; G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/jquery.validate.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/prints.js"></script>
+</head>
+<body class="scanlines">
+    <div class="container py-5 text-center">
+        <div class="row text-center mb-4 print-appear">
+            <div class="col-md-6 mx-auto">
+                <div id="gutter" class="px-3">
+                    <img src="#" class="img-fluid mb-4 p-3" id="ghostPrint">
+                </div>
+                <form id="friendship" onsubmit="return false;">
+                    <div class="row g-2 row-cols-3 mb-3 print-test-appear">
+                        <div class="col">
+                            <label for="qual1" class="fs-4 mb-2">Attraction</label>
+                            <select name="Attraction" class="form-control form-control-lg required" id="qual1">
+                                <option></option>
+                                <option>Aid</option>
+                                <option>Cameras</option>
+                                <option>Laughter</option>
+                                <option>Learning</option>
+                                <option>Music</option>
+                                <option>Scents</option>
+                                <option>Shopping</option>
+                                <option>Surprise</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="qual2" class="fs-4 mb-2">Aura</label>
+                            <select name="Aura" class="form-control form-control-lg required" id="qual2">
+                                <option></option>
+                                <option>Clarity</option>
+                                <option>Comfort</option>
+                                <option>Curiosity</option>
+                                <option>Focus</option>
+                                <option>Gratitude</option>
+                                <option>Imagination</option>
+                                <option>Satsifaction</option>
+                                <option>Confidence</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="qual3" class="fs-4 mb-2">Affinity</label>
+                            <select name="Affinity" class="form-control form-control-lg required" id="qual3">
+                                <option></option>
+                                <option>Adventurous</option>
+                                <option>Brave</option>
+                                <option>Creative</option>
+                                <option>Generous</option>
+                                <option>Kind</option>
+                                <option>Patient</option>
+                                <option>Practical</option>
+                                <option>Silly</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn btn-lg btn-block btn-info print-submit-appear" id="identify">
+                        Identify Ghost
+                        <span id="attemptsRemaining d-none"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            checkAttempts();
+            var ghostPrintVal = getFriend();
+            friend = ghostFriends.find(x => x.key == ghostPrintVal);
+            
+            $("#ghostPrint").attr("src", `../assets/prints/${friend.print}`);
+            
+            $("#friendship").validate({
+                errorClass: "border-danger",
+                errorPlacement: function(error, element) {}
+            });
+            
+            $("#identify").on("click", function(){
+                $("#friendship").submit(); //trigger jquery validate
+                
+                var attr = $("#qual1").val();
+                var aura = $("#qual2").val();
+                var affi = $("#qual3").val();
+                
+                if(attr == "" || aura == "" || affi == "") return;                
+                if(friend.attr == attr && friend.aura == aura && friend.affi == affi){
+                    localStorage.setItem("newFriend", friend.key);
+                    window.location.href = '../bond/';
+                }
+                else loseAttempt();
+            })
+        })
+        
+        function getFriend(friendCount = 2){
+            var friendKey = localStorage.getItem("ghostFriend");
+            if(friendKey != null) return friendKey;
+
+            localStorage.setItem("ghostFriend", randomVal(1, friendCount));
+            localStorage.setItem("attemptsLeft", 3);
+            return randomFriend;
+        }
+
+        function loseAttempt(){
+            var attemptsLeft = localStorage.getItem("attemptsLeft");
+            attemptsLeft--;
+            localStorage.setItem("attemptsLeft", attemptsLeft);
+            $("attemptRemaining").html(`(${attemptsLeft})`);
+            checkAttempts();
+        }
+
+        function checkAttempts(){
+            if(localStorage.getItem("newFriend") != null) window.location.href = '../bond/';
+            if(localStorage.getItem("attemptsLeft") > 0) return;
+            localStorage.removeItem("ghostFriend");
+            localStorage.removeItem("attemptsLeft");
+            location.reload();
+        }
+
+        function randomVal(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
