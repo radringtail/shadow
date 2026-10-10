@@ -23,12 +23,12 @@
 <body class="scanlines bg-danger-subtle">
     <div id="ghostsGuide" class="pt-5">
         <div class="container">
-            <div class="row scanlines-text-strong mb-5">
+            <div class="row mb-5">
                 <div class="col-sm-8 mx-auto text-center">
-                    <h2 class="display-2 ghost-font">Field Notes</h2>
+                    <h2 class="display-2 ghost-font scanlines-text-strong">Field Notes</h2>
                     <hr class="border border-2 opacity-100 border-orange">
                     <p class="fs-5 ghost-font">
-                        Good job Seeker! Here's all the ghosts you've talked to and where you talked to them.
+                        Good job <span class="scanlines-text-strong">Seeker</span>! Here's all the ghosts you've found and talked to.
                     </p>
                     <p>
                         <a href="../" class="btn btn-outline-light border-light-subtle btn-sm">Back to Home</a>
@@ -54,6 +54,7 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-danger text-center" v-if="foundClues.length == 0">No ghosts discovered.</div>
         </div>
     </div>
     <script>
@@ -68,9 +69,9 @@
             },
             computed: {
                 foundClues() {
-                    return this.ghostClues
-                    .filter(x => { return cluesFoundArray.includes(x.key) })
-                    .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
+                    return cluesFoundArray.reverse()
+                        .map(key => this.ghostClues.find(x => x.key == key))
+                        .filter(x => x !== undefined);
                 }
             }
         });

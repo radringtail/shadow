@@ -18,65 +18,148 @@
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/packages/sortable.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 </head>
-<body class="scanlines">
-    <div id="ghostsGuide" class="pt-5">
+<body class="scanlines bg-primary-subtle">
+    <div id="ghostsGuide" class="py-5">
         <div class="container">
-            <div class="row ghost-font scanlines-text-strong">
+            <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto text-center">
-                    <h2 class="display-2">Art Postcards</h2>
-                    <hr>
-                    <p class="fs-3 pb-3 pb-md-5">
-                        Below are all of the Art Postcards created for BFC 2026!
-                    </p>
+                    <div class="mb-5">
+                        <h2 class="display-2 ghost-font scanlines-text-strong">Art Postcards</h2>
+                        <hr class="border border-2 opacity-100 border-primary-subtle">
+                        <p class="fs-4 ghost-font">
+                            Below are all the postcards created for the <span class="scanlines-text-strong">Peek-a-BOO! Festival</span>.
+                        </p>
+                        <p>
+                            <a href="../" class="btn btn-outline-light border-light-subtle btn-sm">Back to Home</a>
+                        </p>
+                    </div>
                     <div class="row row-cols-4 g-1 g-md-2" id="postcards">
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-01.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-01-tavi-harvest.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-01.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-02.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-02-kircai-festival.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-02.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-03.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-03-akko-scarves.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-03.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-04.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-04-smokey-changing.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-04.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-05.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-05-madshy-cozy.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-05.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-06.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-06-paco-festival-night.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-06.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-07.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-07-moku-shirt.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-07.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-08.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-08-alby-onesie.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-08.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-09.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-09-paco-trickortreat.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-09.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-10.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-10-yookey-spooky.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-10.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-11.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-11-neas-nursery.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-11.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                         <div class="col shadow-sm">
-                            <img src="../assets/cards/back-12.png" class="img-fluid rounded card-hover">
+                            <div class="art-postcard">
+                                <div class="front">
+                                    <img src="../assets/cards/front-12-tavi-tot.png" class="img-fluid rounded card-hover">
+                                </div>
+                                <div class="back">
+                                    <img src="../assets/cards/back-12.png" class="img-fluid rounded card-hover">
+                                </div>
+                            </div>
                         </div>
                     </div>                    
                 </div>
             </div>
         </div>
-        <footer class="site-footer py-4 mt-5 text-center">
-            <div class="container">
-                <p class="my-2">
-                    <a href="../" class="link-light">Back to G.H.O.S.T. Home Page</a>
-                </p>
-            </div>
-        </footer>
     </div>
     <script>
         var cards = document.querySelector('#postcards');
@@ -84,6 +167,14 @@
             cards.appendChild(cards.children[Math.random() * i | 0]);
         }        
         new Sortable(postcards, { swap: true, swapClass: 'card-swap', animation: 150 });
+        
+        $(".art-postcard").flip({
+            'trigger': 'manual'
+        });
+        
+        $(".art-postcard").on("click", function(){
+            $(this).flip('toggle');
+        });
     </script>
 </body>
 </html>
