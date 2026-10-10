@@ -105,10 +105,22 @@ body{
 }
 
 #footer {
-  height: 100vh;
-  background-image: url(images/hero.jpg);
+  height: 110vh;
+  background-image: url(images/footer.jpg);
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 50% 0%;
+}
+
+@media (max-width: 992px) { 
+  #footer {
+    height: 75vh;
+  }
+}
+
+@media (max-width: 576px) { 
+  #footer {
+    height: 50vh;
+  }
 }
 
 /* FONTS */ 
@@ -188,4 +200,11 @@ body{
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+}
+
+.paper {
+  background-color: #ccc;
+  background-image: url(images/paper-texture.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
 }

@@ -49,12 +49,12 @@
                                 <option></option>
                                 <option>Clarity</option>
                                 <option>Comfort</option>
+                                <option>Confidence</option>
                                 <option>Curiosity</option>
                                 <option>Focus</option>
                                 <option>Gratitude</option>
                                 <option>Imagination</option>
-                                <option>Satsifaction</option>
-                                <option>Confidence</option>
+                                <option>Satisfaction</option>
                             </select>
                         </div>
                         <div class="col">
@@ -74,8 +74,8 @@
                     </div>
                     <div class="btn btn-lg btn-block btn-info print-submit-appear" id="identify">
                         Identify Ghost
-                        <span id="attemptsRemaining d-none"></span>
                     </div>
+                    <div id="attemptsRemaining" class="print-submit-appear mt-2" style="visibility: hidden; font-size: 0.8em;"></div>
                 </form>
             </div>
         </div>
@@ -122,16 +122,24 @@
             var attemptsLeft = localStorage.getItem("attemptsLeft");
             attemptsLeft--;
             localStorage.setItem("attemptsLeft", attemptsLeft);
-            $("attemptRemaining").html(`(${attemptsLeft})`);
             checkAttempts();
         }
 
         function checkAttempts(){
             if(localStorage.getItem("newFriend") != null) window.location.href = '../bond/';
-            if(localStorage.getItem("attemptsLeft") > 0) return;
-            localStorage.removeItem("ghostFriend");
-            localStorage.removeItem("attemptsLeft");
-            location.reload();
+            var attemptsLeft = localStorage.getItem("attemptsLeft");
+            if(attemptsLeft > 0){
+                if(attemptsLeft < 3){
+                    $("#attemptsRemaining").show()
+                        .html(`Attempts Remaining: ${attemptsLeft}`);
+                }
+                return;
+            }
+            else{
+                localStorage.removeItem("ghostFriend");
+                localStorage.removeItem("attemptsLeft");
+                location.reload();
+            }
         }
 
         function randomVal(min, max){
