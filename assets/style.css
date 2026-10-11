@@ -188,18 +188,18 @@ body{
 }
 
 .square-image{
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
 }
 
 .square-image img{
-    position: absolute;
-    max-width: 100%;
-    max-height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .paper {
@@ -207,4 +207,38 @@ body{
   background-image: url(images/paper-texture.jpg);
   background-size: cover;
   background-position: 50% 50%;
+}
+
+.tapper{
+    touch-action: manipulation;
+}
+
+.spin{
+  animation: spin 1.5s ease-in-out;
+}
+
+@keyframes spin {  
+from {  
+    -webkit-transform: rotate(0deg);  
+}  
+to {  
+    -webkit-transform: rotate(360deg);  
+    } 
+}
+
+.blur-in {
+  animation: blurIn 3s ease-in-out forwards;
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translate(0, 10%);
+  }
+  to {
+    opacity: 0.75;
+    filter: blur(0px);
+    transform: translate(0,0);
+  }
 }
