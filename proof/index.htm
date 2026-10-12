@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Proof &bull; G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/bond/">
+    <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
+    <meta property="og:type" content="website">
+    
+    <title>Proof &bull; G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/prints.js"></script>
+</head>
+<body class="scanlines">
+    <div class="container py-3 text-center">
+        <div class="row">
+            <div class="col-lg-5 mx-auto">
+                <div class="card shadow rounded-5 mb-4">
+                    <div class="card-header">
+                        Official Friendship Certificate
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <img src="#" class="img-fluid rounded-circle border border-4 mb-2" id="playerIcon">
+                                <p class="h3" id="playerName"></p>
+                            </div>
+                            <div class="col">
+                                <img src="#" class="img-fluid rounded-circle border border-4 mb-2 theme-purple" id="ghostIcon">
+                                <p class="h3 ghost-font" id="ghostName"></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col text-end">
+                                <p id="playerAttr"></p>
+                            </div>
+                            <div class="col">
+                                <p>
+                                    <b class="ghost-font scanlines-text-strong">Attraction</b>
+                                </p>
+                            </div>
+                            <div class="col text-start">
+                                <p id="ghostAttr"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-end">
+                                <p id="playerAura"></p>
+                            </div>
+                            <div class="col">
+                                <p>
+                                    <b class="ghost-font scanlines-text-strong">Aura</b>
+                                </p>
+                            </div>
+                            <div class="col text-start">
+                                <p id="ghostAura"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-end">
+                                <p id="playerAffi"></p>
+                            </div>
+                            <div class="col">
+                                <p>
+                                    <b class="ghost-font scanlines-text-strong">Affinity</b>
+                                </p>
+                            </div>
+                            <div class="col text-start">
+                                <p id="ghostAffi"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small>Babyfur Con 2026 &bull; Peek-a-BOO! Festival</small>
+                    </div>
+                </div>
+
+                <p>
+                    <a href="#" id="emailLink" class="btn btn-primary">Email Proof to G.H.O.S.T.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var friendKey = localStorage.getItem("newFriend");
+            if(friendKey == null) window.location.href = '../';
+            friend = ghostFriends.find(x => x.key == friendKey);
+            if(friend == null) window.location.href = '../';
+            
+            // pull all available data
+            var playerName = localStorage.getItem("preferredName");
+            var playerIcon = localStorage.getItem("avatarUrl");
+            var playerBsky = localStorage.getItem("bskyHandle");
+            var playerAttr = localStorage.getItem("playerAttr");
+            var playerAura = localStorage.getItem("playerAura");
+            var playerAffi = localStorage.getItem("playerAffi");
+            
+            var ghostName = localStorage.getItem("newFriendName");
+            var ghostIcon = friend.ghost;
+            var ghostAttr = friend.attr;
+            var ghostAura = friend.aura;
+            var ghostAffi = friend.affi;
+            var ghostPrint = friend.print;
+
+            var cluesFound = localStorage.getItem("cluesFound");
+            var cluesFoundArray = JSON.parse(cluesFound);
+            if(cluesFound == null) cluesFoundArray = [];
+
+            if(playerIcon == null || playerIcon == undefined) playerBsky = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
+            if(ghostName == null || ghostName == undefined) ghostName = 'Gamma';
+            
+            $("#playerIcon").attr("src", playerIcon);
+            $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
+            
+            $("#playerName").html(playerName);
+            $("#ghostName").html(ghostName);
+            
+            $("#playerAttr").html(playerAttr);
+            $("#playerAura").html(playerAura);
+            $("#playerAffi").html(playerAffi);
+            $("#ghostAttr").html(ghostAttr);
+            $("#ghostAura").html(ghostAura);
+            $("#ghostAffi").html(ghostAffi);
+
+            const cardVars = { playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint };
+            var cardVarsString = btoa(JSON.stringify(cardVars));
+
+            const emailTo = 'ghost@babyfurcon.com';
+            const emailSubject = `New Friendship | ${playerName} and ${ghostName}`;
+            var emailBody = 
+`New Friendship Report
+
+This email hereby certifies that I, "${playerName}":
+- Collected at least 8 Peek-a-BOO! Festival stamps
+- Personally located ${cluesFoundArray.length} festival ghosts for clues
+- Solved the riddle of the paper ghost
+- Correctly identified a mystery ghost print
+- Made a genuine friendship with "${ghostName}", a newly-named festival ghost.
+
+I am formally requesting to apply to G.H.O.S.T., using this encounter as proof of successful ghost research, contact and friendship.
+
+Authenticity Code: ${cardVarsString}`;
+
+            emailBody = emailBody.replace(/\r\n|\r|\n/g, "%0D%0A");
+
+            const tempElement = document.createElement('div');
+            tempElement.textContent = emailSubject;
+            var encodedSubject = tempElement.innerHTML;
+
+            var emailLink = `mailto:${emailTo}?subject=${encodedSubject}&body=${emailBody}`;
+            $("#emailLink").attr("href", emailLink);
+        })
+    </script>
+</body>
+</html>
