@@ -11,7 +11,7 @@ var ghostData = [
     "category": "Space",
     "sign": "Backyard",
     "slug": "backyard",
-    "clue": "I love being outside at night. Being under the gentle glow of the <b>moon</b> fills me with peace and <b>clarity</b>."
+    "clue": "I love being outside at night. The gentle glow of the <b>moon</b> fills me with peace and <b>clarity</b>."
   },
   {
     "key": "pwvsg2gy",
@@ -53,14 +53,14 @@ var ghostData = [
     "category": "Space",
     "sign": "Community Corner 4",
     "slug": "community-corner-4",
-    "clue": "I <b>generously</b> made everyone oatmeal for breakfast, and that blockhead on the 2nd floor dumped the whole bowl in their diaper. It's meant for eating! At least the delightful ghost on the 5th floor enjoyed it. Said it was the best oatmeal he had ever eaten. Made my cheeks blush a rosy <b>pink</b>!"
+    "clue": "I <b>generously</b> made everyone oatmeal for breakfast, and that blockhead on the 2nd floor dumped the whole bowl in their diaper. It's meant for eating! I was so flustered, my cheeks blushed a rosy <b>pink</b>!"
   },
   {
     "key": "kzfsg5yg",
     "category": "Space",
     "sign": "Community Corner 5",
     "slug": "community-corner-5",
-    "clue": "Don't mind those two on the 2nd and 4th floor, they're always arguing. You're here to decorate, right? When drawing on your festival tag, use solid lines and confident strokes. That way everyone will be able to read them!"
+    "clue": "Don't mind those two on the 2nd and 4th floor, they're always arguing. You're here to decorate, right? When drawing on your festival tag, use <b>solid lines</b> and <b>confident</b> strokes. That way everyone will be able to read them!"
   },
   {
     "key": "kuyc7skk",
@@ -95,7 +95,7 @@ var ghostData = [
     "category": "Space",
     "sign": "Con Ops",
     "slug": "con-ops",
-    "clue": "The shape of this stamp represents the fact that Con Ops has your back if you ever need <b>aid</b>!"
+    "clue": "The shape of this stamp represents the attraction that Con Ops has your back if you ever need <b>aid</b>!"
   },
   {
     "key": "cgirm74x",
@@ -109,35 +109,35 @@ var ghostData = [
     "category": "Wayfinding",
     "sign": "Elevators",
     "slug": "elevators",
-    "clue": "Be <b>kind</b> and give elevator priority to those who need it most! Otherwise they'll be <b>blue</b>..."
+    "clue": "Be <b>kind</b> and let folks skip the line if they need to! Otherwise they might feel <b>blue</b>..."
   },
   {
     "key": "ewgi2fon",
     "category": "Wayfinding",
     "sign": "Festival Map 1",
     "slug": "festival-map-1",
-    "clue": "This is the coolest ghost festival ever! A lot of us even volunteered to hide all over and give clues so that... Wait, that was supposed to be a secret. Nevermind!"
+    "clue": "This is the coolest ghost festival ever! A lot of us even hid all over so that...wait, that was supposed to be a secret!"
   },
   {
     "key": "iqtkecwi",
     "category": "Wayfinding",
     "sign": "Festival Map 2",
     "slug": "festival-map-2",
-    "clue": "I want to <b>venture</b> out to every area of the festival! First up, the vendor hall. I hope they have something in <b>purple</b>! "
+    "clue": "I'm feeling <b>adventurous</b>! I'm gonna try to do a little of everything. Hopefully there's a spot to relax in the <b>Nursery</b> when I'm done. "
   },
   {
     "key": "m0xuzczv",
     "category": "Space",
     "sign": "Fursuit Lounge",
     "slug": "fursuit-lounge",
-    "clue": "I was having a <b>comfy</b> time in the lounge, but then a puppy walked in and decapitated themselves! I was so scared, I <b>dashed</b> out!"
+    "clue": "I was having a <b>comfy</b> time in the lounge, but a puppy walked in and cleaved their head right off! I <b>dashed</b> out as fast as I could!"
   },
   {
     "key": "mec6n84x",
     "category": "Space",
     "sign": "Kidfur Space",
     "slug": "kidfur-space",
-    "clue": "Me and my best bud built the coolest <b>brick</b> tower that almost touched the ceiling! We were so <b>satisfied</b> with how it turned out!"
+    "clue": "Me and my best bud built the coolest <b>brick</b> tower that almost touched the ceiling! We were so <b>satisfied</b> with how it turned out."
   },
   {
     "key": "afzqzsj4",
@@ -151,7 +151,7 @@ var ghostData = [
     "category": "Misc",
     "sign": "Dance Schedule",
     "slug": "dance-schedule",
-    "clue": "The color of this stamp represents the <b>bravery</b> of DJ's for being able to perform on a stage!"
+    "clue": "The color of this stamp represents the affinity to <b>bravery</b> of DJ's for being able to perform on a stage!"
   },
   {
     "key": "b0p1ki7l",
@@ -214,14 +214,14 @@ var ghostData = [
     "category": "Space",
     "sign": "School",
     "slug": "school",
-    "clue": "In school today, we learned about how <b>stars</b> are just like our Sun on Earth! Makes my <b>imagination</b> run wild thinking that there might be other ghosts on other planets out there..."
+    "clue": "Today we learned that every <b>star</b> in the night sky could be a whole solar system! Makes my <b>imagination</b> run wild thinking there might be other ghosts out there..."
   },
   {
     "key": "cb9m4qor",
     "category": "Misc",
     "sign": "Silent Disco Schedule",
     "slug": "silent-disco-schedule",
-    "clue": "The outline of this stamp represents the <b>confidence</b> DJ's have in sharing their creativity so openly!"
+    "clue": "The outline of this stamp represents the aura of <b>confidence</b> DJ's have in sharing their creativity so openly!"
   },
   {
     "key": "a0zg5b92",
@@ -263,21 +263,14 @@ var ghostData = [
     "category": "Space",
     "sign": "Vendor Hall",
     "slug": "vendor-hall",
-    "clue": "O. M. G. I was <b>shopping</b> in the cute 'lil vendor hall when I saw the CUTEST pacifier! It was like seeing a <b>stop sign</b>, because I had to halt and buy it immediately."
+    "clue": "OMG! I was <b>shopping</b> earlier when I saw the CUTEST pacifier! I had to <b>stop</b> and buy it immediately."
   },
   {
     "key": "ttxucmgg",
     "category": "Rules",
     "sign": "Sit Spin Rules",
     "slug": "sit-spin-rules",
-    "clue": ""
-  },
-  {
-    "key": "98uh3jdm",
-    "category": "Temporary",
-    "sign": "5 Mins Left",
-    "slug": "5-mins-left",
-    "clue": "Hey, watch where you are waving that thing around! You're not even supposed to scan this!"
+    "clue": "Do you think if I spin fast enough, I can break the sound barrier?"
   },
   {
     "key": "l5jgyi1r",
@@ -298,7 +291,7 @@ var ghostData = [
     "category": "Space",
     "sign": "Con Store",
     "slug": "con-store",
-    "clue": ""
+    "clue": "I spent all my money at the Con Store... but at least I have presents for all my ghoulish friends!"
   },
   {
     "key": "y3ijakmt",
@@ -312,35 +305,35 @@ var ghostData = [
     "category": "Wayfinding",
     "sign": "Portrait Corner Directions",
     "slug": "portrait-corner-directions",
-    "clue": ""
+    "clue": "Getting your portrait taken is always fun. You get to dress up, smile politely... and then you get put onto Christmas cards sent to your grandma! I prefer when I can prepare for the photos over candid shots."
   },
   {
     "key": "0fecayq2",
     "category": "Misc",
     "sign": "Potty Monster Black",
     "slug": "potty-monster-black",
-    "clue": "The potty is no place for the likes of you... Don't even think about telling G.H.O.S.T you saw me... Nobody will believe you..."
+    "clue": "The potty is no place for the likes of you... Don't even think about telling G.H.O.S.T. you saw me... Nobody will believe you..."
   },
   {
     "key": "bkckxq55",
     "category": "Misc",
     "sign": "Potty Monster Blue",
     "slug": "potty-monster-blue",
-    "clue": "HAHAHA! FEAR THE POTTY, FOR IT IS MY DOMAIN! THOSE BABIES AT G.H.O.S.T WILL NEVER CATCH ME!"
+    "clue": "HAHAHA! FEAR THE POTTY, FOR IT IS MY DOMAIN! THOSE BABIES AT G.H.O.S.T. WILL NEVER CATCH ME!"
   },
   {
     "key": "xde2xo8f",
     "category": "Outdoor",
     "sign": "Pumpkin Patch",
     "slug": "pumpkin-patch",
-    "clue": ""
+    "clue": "All of these pumpkins are gourdgeous. I wanna carve a pumpkin and show it off here!"
   },
   {
     "key": "j9zp7jsb",
     "category": "Misc",
     "sign": "Room Deco Contest",
     "slug": "room-deco-contest",
-    "clue": ""
+    "clue": "Do I get extra points for posessing my decorations? No? What do you mean that's an unfair advantage???"
   },
   {
     "key": "eolbh9f6",
@@ -368,6 +361,6 @@ var ghostData = [
     "category": "Temporary",
     "sign": "Trick or Treat Lounge",
     "slug": "trick-or-treat-lounge",
-    "clue": ""
+    "clue": "I ate too much candy... I <b>imagined</b> I could eat way more... I'm seeing <b>stars</b>... Agghhhhh..."
   }
 ]
