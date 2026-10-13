@@ -39,8 +39,8 @@
                                 I've been looking for a friend for a long time. I know we just met, but I can tell you are a <span class="text-bfc-orange affi">AFFI</span> soul. Do you...want to be friends?
                             </p>
                             <p>
-                                <button class="btn btn-lg btn-block btn-outline-light mx-2" id="friendYes">Yes</button>
-                                <button class="btn btn-lg btn-block btn-outline-light mx-2" id="friendNo">No</button>
+                                <button class="btn btn-outline-light border-light-subtle mx-2" id="friendYes">Yes</button>
+                                <button class="btn btn-outline-light border-light-subtle mx-2" id="friendNo">No</button>
                             </p>
                         </div>
                     </section>
@@ -67,7 +67,7 @@
                                 <input type="text" class="form-control" placeholder="Preferred Name" aria-label="Preferred Name" id="preferredName">
                             </p>
                             <p>
-                                <button class="btn btn-outline-light" type="button" id="preferredNameButton">Tell Them</button>
+                                <button class="btn btn-outline-light border-light-subtle" type="button" id="preferredNameButton">Tell Them</button>
                             </p>
                         </div>
                     </section>
@@ -75,7 +75,7 @@
                         <p class="fs-2 blur-in ghost-font scanlines-text-strong">
                             Nice to meet you <b id="kiddoName">Kiddo</b>!
                         </p>
-                        <p class="blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-5 blur-in ghost-font scanlines-text-strong">
                             I've heard a lot of people call you that, but I just wanted to make sure.
                         </p>
                         <p class="fs-4 blur-in ghost-font scanlines-text-strong">
@@ -135,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="btn btn-lg btn-block btn-info blur-in" id="pawPrintButton">
+                        <div class="btn btn-outline-light border-light-subtle blur-in" id="pawPrintButton">
                             Share
                         </div>
                     </section>
@@ -146,13 +146,13 @@
                         <p class="fs-4 blur-in ghost-font scanlines-text-strong">
                             Last thing...can I follow you on BlueSky? Well, next time I haunt a computer. Totally okay if you don't want me to.
                         </p>
-                        <div class="input-group blur-in">
-                            <input type="text" class="form-control" placeholder="BlueSky User" id="bskyUser">
+                        <div class="input-group blur-in mb-3">
+                            <input type="text" class="form-control" placeholder="BlueSky Username" id="bskyUser">
                             <input type="text" class="form-control" placeholder=".bsky.social" id="bskyNetwork">
                         </div>
                         <p class="blur-in">
-                            <button class="btn btn-outline-light" type="button" id="bskyButtonYes">Sure!</button>
-                            <button class="btn btn-outline-light" type="button" id="bskyButtonNo">No Thanks</button>
+                            <button class="btn btn-outline-light border-light-subtle" type="button" id="bskyButtonYes">Sure!</button>
+                            <button class="btn btn-outline-light border-light-subtle" type="button" id="bskyButtonNo">No Thanks</button>
                         </p>
                     </section>
                     <section id="friendNameSection" class="d-none">
@@ -160,17 +160,19 @@
                             Okay! So one last thing...
                         </p>
                         <p class="fs-4 blur-in ghost-font scanlines-text-strong">
-                            You don't know my name, because...I don't have one. We don't really have names. But I'd love one.
+                            I can't tell you my name because...I don't have one. We don't really have names. But I'd love one like you.
                         </p>
                         <p class="fs-2 blur-in ghost-font scanlines-text-strong">
-                            Do you think you could give me a name?
+                            Can you give me a name?
                         </p>
-                        <div class="form-group blur-in">
-                            <input type="text" class="form-control" placeholder="New Friend's New Name" id="newFriendName">
+                        <div class="blur-in">
+                            <p>
+                                <input class="form-control" placeholder="Ghost's New Name" id="newFriendName">
+                            </p>
+                            <p>
+                                <button class="btn btn-outline-light" type="button" id="newFriendNameButton">Share with Them</button>
+                            </p>
                         </div>
-                        <p class="blur-in">
-                            <button class="btn btn-outline-light" type="button" id="newFriendNameButton">Share with Them</button>
-                        </p>
                     </section>
                     <section id="finalSection" class="d-none">
                         <p class="fs-2 blur-in ghost-font scanlines-text-strong">
@@ -180,7 +182,7 @@
                             That's all the questions I have for now! It's time to make some proof of our new friendship so you can become an official member of <b>G.H.O.S.T.</b>!
                         </p>
                         <p>
-                            <a href="../proof/" class="blur-in btn btn-outline-light">Create Proof</a>
+                            <a href="../proof/" class="blur-in btn btn-outline-light border-light-subtle">Create Proof</a>
                         </p>
                     </section>
                 </div>
@@ -193,7 +195,11 @@
             if(friendKey == null) window.location.href = '../';
             friend = ghostFriends.find(x => x.key == friendKey);
             if(friend == null) window.location.href = '../';
-            
+
+            // force reset of all inputs
+            $("input").val("");
+            $("select").prop("selectedIndex", 0);
+
             // state 1
             $("#newFriend").attr("src", `../assets/ghosts/${friend.ghost}`);
             $("#attrText").html(friend.attrText);
@@ -217,6 +223,11 @@
             
             // state 3
             $("#preferredNameButton").on("click", function(){
+                if($("#preferredName").val() == ""){
+                    $("#preferredName").addClass("border-danger");
+                    return false;
+                }
+
                 $("#answerYes").fadeOut()
                 
                 var preferredName = $("#preferredName").val();
@@ -229,11 +240,25 @@
             
             // state 4
             $("#pawPrintButton").on("click", function(){
-                $("#preferencesSection").fadeOut()
-                
                 var attr = $("#qual1").val();
                 var aura = $("#qual2").val();
                 var affi = $("#qual3").val();
+
+                if(attr == ""){
+                    $("#qual1").addClass("border-danger");
+                    return false;
+                }
+                if(aura == ""){
+                    $("#qual2").addClass("border-danger");
+                    return false;
+                }
+                if(affi == ""){
+                    $("#qual3").addClass("border-danger");
+                    return false;
+                }
+
+                $("#preferencesSection").fadeOut()
+
                 localStorage.setItem("playerAttr", attr);
                 localStorage.setItem("playerAura", aura);
                 localStorage.setItem("playerAffi", affi);
@@ -241,12 +266,18 @@
                 setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);
             });
             
-            // state 5
+            // state 5 yes
             $("#bskyButtonYes").on("click", function(){
+                if($("#bskyUser").val() == ""){
+                    $("#bskyUser").addClass("border-danger");
+                    return false;
+                }
+
                 $("#socialSection").fadeOut()
                 
                 var bskyUser = $("#bskyUser").val();
                 var bskyNetwork = $("#bskyNetwork").val();
+                if(bskyUser != "" && bskyNetwork == "") bskyNetwork = '.bsky.social';
                 localStorage.setItem("bskyUser", bskyUser);
                 localStorage.setItem("bskyNetwork", bskyNetwork);
                 
@@ -263,12 +294,26 @@
                 setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
             });
             
+            // state 5 no
+            $("#bskyButtonNo").on("click", function(){
+                $("#socialSection").fadeOut()
+                
+                //TODO: Let users pick a boilerplate icon
+                
+                setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
+            });
             // state 6: new friend name
             $("#newFriendNameButton").on("click", function(){
+                if($("#newFriendName").val() == ""){
+                    $("#newFriendName").addClass("border-danger");
+                    return false;
+                }
+
                 $("#friendNameSection").fadeOut()
                 
                 var newFriendName = $("#newFriendName").val();
                 localStorage.setItem("newFriendName", newFriendName);
+                $("#newFriendNameRepeat").html(newFriendName);
                                 
                 setTimeout(() => { $("#finalSection").removeClass("d-none") }, 1500);
             });
