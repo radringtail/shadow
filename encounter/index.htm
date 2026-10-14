@@ -93,12 +93,10 @@
         </div>
     </div>
     <script>
-        friendCount = 1;
-
         $(function(){
             checkAttempts();
 
-            var ghostPrintVal = getFriend(friendCount);
+            var ghostPrintVal = getFriend();
             friend = ghostFriends.find(x => x.key == ghostPrintVal);
             
             $("#ghostPrint").attr("src", `../assets/prints/${friend.print}`);
@@ -125,7 +123,8 @@
             })
         })
         
-        function getFriend(friendCount){
+        function getFriend(){
+            var friendCount = ghostFriends.length;            
             var friendKey = localStorage.getItem("ghostFriend");
             if(friendKey != null) return friendKey;
 

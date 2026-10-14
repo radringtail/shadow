@@ -1,8 +1,8 @@
-var ghostFriends = [
+ghostFriends = [
     {
         "key": "1",
         "print": "print-01.png",
-        "ghost": "ghost1.png",
+        "ghost": "ash-pink-1.png",
         "bgClass": "bg-secondary",
         "attr": "Surprise",
         "aura": "Satisfaction",
@@ -13,7 +13,7 @@ var ghostFriends = [
     {
         "key": "2",
         "print": "print-02.png",
-        "ghost": "ghost2.png",
+        "ghost": "ash-pink-1.png",
         "bgClass": "bg-secondary",
         "attr": "Learning",
         "aura": "Confidence",
