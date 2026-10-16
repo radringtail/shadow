@@ -54,7 +54,7 @@
     </header>
     <section class="mt-0 pb-3 pb-lg-5 bg-dark shadow" id="hero">
         <div class="container py-5 text-center">
-            <div class="row mx-sm-3 mx-1 mb-3 mb-lg-5">
+            <div class="row mx-sm-3 mx-1 mb-3 mb-lg-4">
                 <div class="col-lg-8 mx-auto text-white rounded-5 border shadow p-4 bg-success-subtle border-success-subtle border-5" style="opacity: 0.9;"">
                     <h1 class="display-2 fw-bold ghost-font ghost-glow">G.H.O.S.T.</h1>
                     <p class="lead fs-4 lh-sm mb-0">
@@ -353,25 +353,23 @@
         </div>
     </div>
     <div id="paperGhostModal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title"></div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-9 ghost-font ghost-glow">
-                            <p class="fs-4">
-                                Good job <b>Seeker</b>, you solved my riddle. I feel more confident about letting you investigate my friends. If you're ready for your G.H.O.S.T. test, scan for a ghost print.
-                            </p>
-                        </div>
-                        <div class="col-sm-3">
-                            <img src="assets/images/ghost1.png" class="img-fluid scanlines-image" width="200">
-                        </div>
+                    <div class="ghost-font text-center">
+                        <img src="assets/images/ghost1.png" class="img-fluid scanlines-image" width="200">
+                        <p class="fs-5">
+                            Good job <b>Seeker</b>, you solved my riddle! I feel more confident about someone like you investigating my friends.
+                        </p>
+                        <p class="fs-5">
+                            But there's one more test I have for you, to make sure you truly know us. Are you ready?
+                        </p>
                     </div>
                     <p class="text-center">
-                        <a href="./encounter/" class="btn btn-lg btn-primary shadow">Investigate Print</a>
+                        <a href="./encounter/" class="btn btn-lg btn-warning shadow">Proceed</a>
                     </p>
                 </div>
             </div>
@@ -424,40 +422,40 @@
                 "cards": ["stamp-vendors", "stamp-tp", "stamp-vendors", "stamp-tp"],
                 "clearStorage": ["stamp-changing", "stamp-changing", "stamp-changing", "stamp-changing", "stamp-changing"]
             }
-
+            
             var currentStampCode = [];
             $(".tapper").on("click", function(){
                 currentStampCode.push($(this).prop('id'));
                 var isValid = isValidCode(currentStampCode, stampCodes);
-
+                
                 if(!isValid){
                     console.log("Invalid code: " + currentStampCode)
                     currentStampCode = [];
                     return;
                 }
-
+                
                 var exactCode = isExactCode(currentStampCode, stampCodes);
                 if(!exactCode) return;
-
+                
                 switch(exactCode){
                     case "guide":
-                        const guideModal = new bootstrap.Modal("#guideModal");
-                        guideModal.show();
-                        currentStampCode = [];
-                        return;
+                    const guideModal = new bootstrap.Modal("#guideModal");
+                    guideModal.show();
+                    currentStampCode = [];
+                    return;
                     case "cards":
-                        const cardsModal = new bootstrap.Modal("#cardsModal");
-                        cardsModal.show();
-                        currentStampCode = [];
-                        return;
+                    const cardsModal = new bootstrap.Modal("#cardsModal");
+                    cardsModal.show();
+                    currentStampCode = [];
+                    return;
                     case "clearStorage":
-                        const localStorageModal = new bootstrap.Modal("#localStorageModal");
-                        localStorageModal.show();
-                        currentStampCode = [];
-                        return;
+                    const localStorageModal = new bootstrap.Modal("#localStorageModal");
+                    localStorageModal.show();
+                    currentStampCode = [];
+                    return;
                 }
             });
-
+            
             $("#enableGuideButton").on("click", function(){
                 localStorage.setItem("guideEnabled", true);
                 window.location.href = './guide/';
@@ -471,18 +469,18 @@
                 location.reload();
             });
         })
-
+        
         function isValidCode(current, validCodes) {
             return Object.values(validCodes).some(code => 
-                current.length <= code.length 
-                && current.every((val, i) => val === code[i])
+            current.length <= code.length 
+            && current.every((val, i) => val === code[i])
             );
         };
-
+        
         function isExactCode(current, validCodes) {
             var exactCode = Object.entries(validCodes)
-                .find(([key, code]) => current.length === code.length 
-                    && current.every((val, i) => val === code[i]));
+            .find(([key, code]) => current.length === code.length 
+            && current.every((val, i) => val === code[i]));
             return exactCode ? exactCode[0] : false;
         };
     </script>

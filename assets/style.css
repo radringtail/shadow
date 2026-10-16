@@ -99,12 +99,34 @@ body{
 }
 
 @keyframes spin {  
-from {  
-    -webkit-transform: rotate(0deg);  
-}  
-to {  
-    -webkit-transform: rotate(360deg);  
-    } 
+  from { transform: rotate(0deg); }  
+  to { transform: rotate(360deg); } 
+}
+
+.bounce{
+  animation: bounce 1.25s ease-in-out;
+}
+
+@keyframes bounce {  
+  0% { transform: translateY(0%); }  
+  17% { transform: translateY(10%); }  
+  33% { transform: translateY(0%); } 
+  50% { transform: translateY(10%); }  
+  66% { transform: translateY(0%); } 
+  83% { transform: translateY(10%); }  
+  100% { transform: translateY(0%); } 
+}
+
+.sway{
+  animation: sway 3s ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sway {  
+  0% { transform: rotate(0deg); }  
+  25% { transform: rotate(15deg); }  
+  75% { transform: rotate(-15deg); }  
+  100% { transform: rotate(0deg); }
 }
 
 .blur-in {
@@ -179,4 +201,69 @@ to {
 
 .tapper{
     touch-action: manipulation;
+}
+
+.bg-spooky{
+  background-color: #333;
+  background-image: url(proof/bg-spooky.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #381480 !important;
+}
+
+.bg-festival{
+  background-color: #333;
+  background-image: url(proof/bg-festival.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #ffbd3b !important;
+}
+
+.bg-tot{
+  background-color: #333;
+  background-image: url(proof/bg-tot.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #793a9d !important;
+}
+
+.border-glass{
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+#friendshipCert{
+  box-shadow: 0 4px 20px 3px #000;
+}
+
+#friendshipCert .card-header{
+  font-weight: 800;
+}
+
+#friendshipCert .card-footer{
+  font-size: 0.667em;
+}
+
+#playerName, #ghostName{
+  letter-spacing: -2px;
+}
+
+.attributeText{
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.bg-blur{
+  backdrop-filter: blur(8px) brightness(60%);
+}
+
+.bg-blur-icon{
+  backdrop-filter: blur(5px) brightness(50%);
+}
+
+.bg-blur-dark{
+  backdrop-filter: blur(8px) brightness(33%);
+}
+
+.shadow-blur{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }

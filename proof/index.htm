@@ -17,95 +17,111 @@
     <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
-    <script src="../assets/packages/html2canvas.min.js"></script>
+    <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
-<body class="scanlines">
+<body class="scanlines bg-primary-subtle">
     <div class="container py-3 text-center">
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-5 col-xl-4 mx-auto">
-                <div class="card shadow rounded mb-4" id="friendshipCert">
-                    <div class="card-header">
-                        Official Friendship Certificate
+                <div class="card rounded-4 mb-4 bg-spooky" id="friendshipCert">
+                    <div class="card-header bg-transparent bg-blur-dark border-bottom-2 shadow-blur">
+                        G.H.O.S.T. Friendship Card
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row g-2 mb-2">
                             <div class="col">
-                                <img src="#" class="img-fluid rounded-circle border border-4 mb-2" id="playerIcon" width="200">
-                                <p class="h3" id="playerName"></p>
+                                <img src="#" class="img-fluid rounded-circle p-2 shadow-blur bg-blur-icon mb-2" id="playerIcon" width="200">
+                                <div class="fs-3 shadow-blur bg-blur rounded-top-3 ghost-font" id="playerName"></div>
+                                <div class="shadow-blur bg-blur-dark rounded-bottom-3">BFC Attendee</div>
                             </div>
                             <div class="col">
-                                <img src="#" class="img-fluid rounded-circle border border-4 mb-2 theme-purple" id="ghostIcon" width="200">
-                                <p class="h3 ghost-font" id="ghostName"></p>
+                                <img src="#" class="img-fluid rounded-circle p-2 bg-blur-icon shadow-blur mb-2" id="ghostIcon" width="200">
+                                <div class="fs-3 bg-blur shadow-blur rounded-top-3 ghost-font" id="ghostName"></div>
+                                <div class="bg-blur-dark shadow-blur rounded-bottom-3">Festival Ghost</div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col text-end">
-                                <p id="playerAttr"></p>
-                            </div>
-                            <div class="col">
-                                <p>
-                                    <b class="ghost-font ghost-glow">Attraction</b>
-                                </p>
-                            </div>
-                            <div class="col text-start">
-                                <p id="ghostAttr"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-end">
-                                <p id="playerAura"></p>
-                            </div>
-                            <div class="col">
-                                <p>
-                                    <b class="ghost-font ghost-glow">Aura</b>
-                                </p>
-                            </div>
-                            <div class="col text-start">
-                                <p id="ghostAura"></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-end">
-                                <p id="playerAffi"></p>
-                            </div>
-                            <div class="col">
-                                <p>
-                                    <b class="ghost-font ghost-glow">Affinity</b>
-                                </p>
-                            </div>
-                            <div class="col text-start">
-                                <p id="ghostAffi"></p>
+                        <div class="card rounded-3 bg-transparent bg-blur shadow-blur border-0">
+                            <div class="card-body">
+                                <div class="row attributeText g-2">
+                                    <div class="col text-end">
+                                        <p class="mb-1" id="playerAttr"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-1">
+                                            <b class="ghost-font ghost-glow">Attraction</b>
+                                        </p>
+                                    </div>
+                                    <div class="col text-start">
+                                        <p class="mb-1" id="ghostAttr"></p>
+                                    </div>
+                                </div>
+                                <div class="row attributeText g-2">
+                                    <div class="col text-end">
+                                        <p class="mb-1" id="playerAura"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-1">
+                                            <b class="ghost-font ghost-glow">Aura</b>
+                                        </p>
+                                    </div>
+                                    <div class="col text-start">
+                                        <p class="mb-1" id="ghostAura"></p>
+                                    </div>
+                                </div>
+                                <div class="row attributeText g-2">
+                                    <div class="col text-end">
+                                        <p class="mb-1" id="playerAffi"></p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="mb-1">
+                                            <b class="ghost-font ghost-glow">Affinity</b>
+                                        </p>
+                                    </div>
+                                    <div class="col text-start">
+                                        <p class="mb-1" id="ghostAffi"></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <small>Babyfur Con 2026 &bull; Peek-a-BOO! Festival</small>
+                    <div class="card-footer bg-transparent bg-blur-dark border-top-2">
+                        Babyfur Con 2026 &bull; Peek-a-BOO! Festival
                     </div>
                 </div>
-                
                 <p>
-                    <a href="#" id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card (Soon)</a>
-                    <a href="#" id="downloadCard" data-bs-toggle="modal" data-bs-target="#downloadCardModal" class="btn btn-sm m-1 btn-primary bg-primary-subtle">Download Card</a>
+                    <a href="#" id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</a>
                     <a href="#" id="emailLink" class="btn btn-sm m-1 btn-success bg-success-subtle">Email to G.H.O.S.T.</a>
                 </p>
             </div>
         </div>
     </div>
-    <div id="downloadCardModal" class="modal fade" tabindex="-1">
+    <div id="editCardModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title">Download Friendship Certificate</div>
+                    <div class="modal-title">Edit Card Information</div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body text-center bg-primary-subtle" id="cardTarget">
-
+                <div class="modal-body">
+                    <div class="row row-cols-1 row-cols-md-3 mb-3">
+                        <div class="col">
+                            <label for="editPlayerName">Player Name</label>
+                            <input id="editPlayerName" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="editGhostName">Ghost Name</label>
+                            <input id="editGhostName" class="form-control">
+                        </div>
+                    </div>
+                    <p class="text-center">
+                        <button id="editCardButton" class="btn btn-lg btn-primary shadow">Edit Card</button>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+    
     <script>
         $(function(){
             var friendKey = localStorage.getItem("newFriend");
@@ -132,7 +148,7 @@
             var cluesFoundArray = JSON.parse(cluesFound);
             if(cluesFound == null) cluesFoundArray = [];
             
-            if(playerIcon == null || playerIcon == undefined) playerBsky = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
+            if(playerIcon == null || playerIcon == undefined) playerIcon = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
             if(ghostName == null || ghostName == undefined) ghostName = 'Gamma';
             
             $("#playerIcon").attr("src", playerIcon);
@@ -147,6 +163,24 @@
             $("#ghostAttr").html(ghostAttr);
             $("#ghostAura").html(ghostAura);
             $("#ghostAffi").html(ghostAffi);
+
+            $("#editPlayerName").val(playerName);
+            $("#editGhostName").val(ghostName);
+
+            $("#editCard").on("click", function(){
+                const editCardModal = new bootstrap.Modal("#editCardModal");
+                editCardModal.show();
+            });
+
+            $("#editCardButton").on("click", function(){
+                var editedPlayerName = $("#editPlayerName").val();
+                var editedGhostName = $("#editGhostName").val();
+
+                if(editedPlayerName != "") localStorage.setItem("preferredName", editedPlayerName);
+                if(editedGhostName != "") localStorage.setItem("newFriendName", editedGhostName);
+
+                window.location.reload();
+            });
             
             const cardVars = { playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint };
             var cardVarsString = btoa(JSON.stringify(cardVars));
@@ -175,14 +209,6 @@ Authenticity Code: ${cardVarsString}`;
             
             var emailLink = `mailto:${emailTo}?subject=${encodedSubject}&body=${emailBody}`;
             $("#emailLink").attr("href", emailLink);
-
-            setTimeout(() => {
-                html2canvas(document.querySelector("#friendshipCert"),
-                    { backgroundColor : null, allowTaint: true })
-                .then(function(canvas) {
-                    document.querySelector('#cardTarget').appendChild(canvas);
-                });
-            }, 1500);
         })
     </script>
 </body>

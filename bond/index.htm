@@ -57,7 +57,7 @@
                     </section>
                     <section id="answerYes" class="d-none blur-in">
                         <p class="fs-2 ghost-font ghost-glow">
-                            Whoa no way! I finally made a friend! This is so cool!
+                            Whoa no way! I finally made a friend! So cool!
                         </p>
                         <p class="fs-4 ghost-font ghost-glow">
                             Gosh I have SO many things I want to ask you about, but first thing's first...what should I call you?
@@ -206,14 +206,14 @@
             $("#auraText").html(friend.auraText);
             $(".affi").html(friend.affi);
 
-            setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 1000);
+            setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 500);
             setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 5000);
-            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 9000);
+            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 10000);
 
             // state 2
             $("#friendYes").on("click", function(){
                 $("#ghostWelcome").fadeOut()
-                $("#newFriend").addClass("spin");
+                $("#newFriend").addClass("bounce").removeClass("blur-in");
                 setTimeout(() => { $("#answerYes").removeClass("d-none") }, 1500);
             });
             $("#friendNo").on("click", function(){
