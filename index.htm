@@ -23,13 +23,13 @@
     
     <header class="py-2 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid ghost-font scanlines-text-strong">
                     <a class="navbar-brand fs-4 fw-bold text-wrap" href="#">
                         G.H.O.S.T.
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <small>Navigation</small>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="main-nav">
                         <ul class="navbar-nav" id="main-nav-list">
@@ -38,6 +38,9 @@
                             </li>
                             <li class="nav-item">
                                 <a href="./notes/" class="nav-link">Field Notes</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-guide">
+                                <a href="./guide/" class="nav-link">Guide</a>
                             </li>
                         </ul>
                     </div>
@@ -75,54 +78,54 @@
             </div>
             <div class="row pb-3 pb-lg-5">
                 <div class="col-lg-10 mx-auto">
-                    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 mb-5 g-3 g-lg-4 justify-content-center rounded-4 my-1 text-center ghost-font">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 mb-5 g-3 g-lg-4 justify-content-center rounded-4 my-1 text-center ghost-font" id="stamps">
                         <div class="col">
-                            <img src="assets/stamps/stamp-panels.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Panels Stamp
+                            <img src="assets/stamps/stamp-panels.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-panels">
+                            Panel Room
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-school.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            School Stamp
+                            <img src="assets/stamps/stamp-school.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-school">
+                            BFC School
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-dance.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            DJ Stamp
+                            <img src="assets/stamps/stamp-dance.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-dance">
+                            DJs and Dances
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-photography.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Photography Stamp
+                            <img src="assets/stamps/stamp-photography.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-photo">
+                            Photography
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-playrooms.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Playrooms Stamp
+                            <img src="assets/stamps/stamp-playrooms.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-playroom">
+                            Playroom
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-backyard.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Backyard Stamp
+                            <img src="assets/stamps/stamp-backyard.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-backyard">
+                            Backyard
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-nursery.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Nursery Stamp
+                            <img src="assets/stamps/stamp-nursery.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-nursery">
+                            Nursery
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-changing.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Changing Room Stamp
+                            <img src="assets/stamps/stamp-changing.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-changing">
+                            Changing Room
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-vendors.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Vendor Hall Stamp
+                            <img src="assets/stamps/stamp-vendors.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-vendors">
+                            Vendors &amp; Con Store
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-conops.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Con Ops Stamp
+                            <img src="assets/stamps/stamp-conops.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-ops">
+                            Con Ops
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-trading.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Trading Post Stamp
+                            <img src="assets/stamps/stamp-trading.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-tp">
+                            Trading Post
                         </div>
                         <div class="col">
-                            <img src="assets/stamps/stamp-restaurant.png" class="img-fluid paper p-2 rounded-4 shadow tapper">
-                            Restaurant Stamp
+                            <img src="assets/stamps/stamp-restaurant.png" class="img-fluid paper p-2 rounded-4 shadow tapper mb-1" id="stamp-food">
+                            Restaurant
                         </div>
                     </div>
                 </div>
@@ -290,6 +293,37 @@
             <div class="spacer py-5"></div>
         </div>
     </section>
+    <div id="guideModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Code Entered: <b>Unlock Ghost Guide</b></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-3">
+                            <img src="assets/images/ghost2.png" class="img-fluid scanlines-image">
+                        </div>
+                        <div class="col-sm-9 ghost-font">
+                            <p class="fs-2 scanlines-text-strong">
+                                Whoa, secret codes!
+                            </p>
+                            <p class="fs-5">
+                                If you're having any trouble reaching or interacting with my friends on the signs, click the button below to go to a <b>Ghost Guide</b> that lets you access all my friends long-distance!
+                            </p>
+                            <p class="fs-5">
+                                Once enabled, you'll find the Guide in the navigation above. Happy exploring <b>Seeker</b>!
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-center">
+                        <button id="enableGuideButton" class="btn btn-lg btn-outline-success">Enable Guide</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="paperGhostModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -325,9 +359,10 @@
     </footer>
     <script>
         $(function(){
-            let taps = 0;
-            let resetTaps = 0;
-            
+            if(localStorage.getItem("guideEnabled"))
+                $("#secret-guide").removeClass("d-none");
+
+            var taps = 0;            
             $("#ghost1").on("click", function(){
                 taps++;
                 if (taps >= 10){ 
@@ -336,14 +371,56 @@
                 }
             });
             
-            $("#resetGhost").on("click", function(){
-                resetTaps++;
-                if (resetTaps >= 3){
-                    localStorage.clear();
-                    location.reload();
+            const stampCodes = {
+                "guide": ["stamp-tp", "stamp-panels", "stamp-nursery", "stamp-backyard"],
+                "clearStorage": ["stamp-changing", "stamp-changing", "stamp-changing", "stamp-changing", "stamp-changing"]
+            }
+
+            var currentStampCode = [];
+            $("#stamps img").on("click", function(){
+                currentStampCode.push($(this).prop('id'));
+                var isValid = isValidCode(currentStampCode, stampCodes);
+
+                if(!isValid){
+                    console.log("Invalid code: " + currentStampCode)
+                    currentStampCode = [];
+                    return;
+                }
+
+                var exactCode = isExactCode(currentStampCode, stampCodes);
+                if(!exactCode) return;
+
+                switch(exactCode){
+                    case "guide":
+                        const modal = new bootstrap.Modal("#guideModal");
+                        modal.show();
+                        return;
+                    case "clearStorage":
+                        localStorage.clear();
+                        location.reload();
+                        return;
                 }
             });
+
+            $("#enableGuideButton").on("click", function(){
+                localStorage.setItem("guideEnabled", true);
+                window.location.href = './guide/';
+            });
         })
+
+        function isValidCode(current, validCodes) {
+            return Object.values(validCodes).some(code => 
+                current.length <= code.length 
+                && current.every((val, i) => val === code[i])
+            );
+        };
+
+        function isExactCode(current, validCodes) {
+            var exactCode = Object.entries(validCodes)
+                .find(([key, code]) => current.length === code.length 
+                    && current.every((val, i) => val === code[i]));
+            return exactCode ? exactCode[0] : false;
+        };
     </script>
 </body>
 </html>

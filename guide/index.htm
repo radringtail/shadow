@@ -51,6 +51,9 @@
         </div>
     </div>    
     <script>
+        if(!localStorage.getItem("guideEnabled")) 
+            window.location.href = '../';
+
         var app = new Vue({
             el: "#ghostsGuide",
             data: {
