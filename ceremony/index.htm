@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Ceremomy &bull; G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/">
+    <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
+    <meta property="og:type" content="website">
+    
+    <title>Ceremony &bull; G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/common.js"></script>
+</head>
+<body class="scanlines theme-purple">
+    <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
+    
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid ghost-font ghost-glow">
+                    <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
+                        G.H.O.S.T.
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <small>Navigation</small>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                        <ul class="navbar-nav" id="main-nav-list">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../notes/" class="nav-link">Field Notes</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-guide">
+                                <a href="../guide/" class="nav-link">Guide</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-cards">
+                                <a href="../cards/" class="nav-link">Postcards</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="ghostsGuide" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7 mx-auto mb-5 text-center">
+                    <h2 class="display-2 ghost-font scanlines-text-strong">Ghost Guide</h2>
+                    <hr class="border border-2 opacity-100 border-primary-subtle">
+                    <p class="fs-3 ghost-font">
+                        Congratulations <span class="scanlines-text-strong" id="playerName">Seeker</span>! You've been invited to join G.H.O.S.T.!
+                    </p>
+                    <p class="fs-5">
+                        Please view our schedule for the <i>Peek-a-BOO! Festival</i> below.
+                    </p>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-4 g-3 text-center">
+                <div class="col">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <section class="bg-dark shadow" id="footer"></section>
+    <footer class="site-footer scanlines py-4 theme-purple border-top border-purple border-2">
+        <div class="container">
+            <p class="my-2">
+                &copy; 2026 BFC &bull; <b>Peek-a-BOO! Festival</b>
+            </p>
+        </div>
+    </footer>
+    <script>
+        $(function(){
+            var friendKey = localStorage.getItem("newFriend");
+            if(friendKey == null) window.location.href = '../';
+            var playerName = localStorage.getItem("preferredName");
+            if(playerName == null) window.location.href = '../';
+
+            $("#playerName").html(playerName);
+        })
+    </script>
+</body>
+</html>

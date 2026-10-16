@@ -17,6 +17,7 @@
     <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/common.js"></script>
     <script src="../assets/ghosts.js"></script>
 </head>
 <body class="scanlines">
@@ -24,11 +25,11 @@
         <div class="row text-center">
             <div class="col-md-6 mx-auto">
                 <div id="gutter" class="px-3">
-                    <img src="../assets/images/ghost1.png" width="300" class="img-fluid mb-4 ghost-appear" id="ghostSpeaker">
-                    <h1 class="scanlines-text-strong mb-5 ghost-appear" id="ghostMessage">
+                    <img src="../assets/images/ghost1.png" width="300" class="img-fluid mb-4 blur-in" id="ghostSpeaker">
+                    <h1 class="ghost-glow mb-5 blur-in" id="ghostMessage">
                         "<span id="ghostClue"></span>"
                     </h1>
-                    <div class="btn btn-outline-secondary btn-lg scanlines-text-strong ghost-appear" id="closeButton">Depart</div>
+                    <div class="btn btn-outline-secondary btn-lg ghost-glow blur-in" id="closeButton">Depart</div>
                 </div>
             </div>
         </div>
@@ -65,10 +66,6 @@
                 localStorage.setItem("cluesFound", cluesFoundJson);
             }
         }
-    
-        function randomVal(min, max){
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-</script>
+    </script>
 </body>
 </html>

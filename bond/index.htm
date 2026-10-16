@@ -16,8 +16,8 @@
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
     <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
     <script src="../assets/packages/jquery.min.js"></script>
-    <script src="../assets/packages/jquery.validate.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
 <body class="scanlines">
@@ -25,16 +25,16 @@
         <div class="row text-center">
             <div class="col-md-5 mx-auto">
                 <div id="gutter" class="px-3">
-                    <img src="#" width="200" class="img-fluid mb-3 ghost-appear" id="newFriend">
-                    <section id="ghostWelcome" class="ghost-font scanlines-text-strong">
-                        <p class="fs-4 blur-in">
+                    <img src="#" width="200" class="img-fluid mb-3 blur-in" id="newFriend">
+                    <section id="ghostWelcome" class="ghost-font ghost-glow blur-in d-none">
+                        <p class="fs-4">
                             Wow, great job kid! You did so much work to learn about us. That makes me feel really special. 💙
                         </p>
-                        <p class="fs-5 blur-in">
+                        <p id="secondFade" class="fs-5 blur-in d-none">
                             <span id="attrText" class="highlight">ATTR</span>
                             <span id="auraText" class="highlight">AURA</span>
                         </p>
-                        <div class="blur-in">
+                        <div id="thirdFade" class="blur-in d-none">
                             <p class="fs-4">
                                 I've been looking for a friend for a long time. I know we just met, but I can tell you are a <span class="text-bfc-orange affi">AFFI</span> soul. Do you...want to be friends?
                             </p>
@@ -44,22 +44,22 @@
                             </p>
                         </div>
                     </section>
-                    <section id="answerNo" class="d-none">
-                        <p class="fs-4 blur-in">
+                    <section id="answerNo" class="blur-in d-none">
+                        <p class="fs-4">
                             Aww, I understand. A true friendship needs to be mutual, and I appreciate you being honest with me. I'm sure you will find the perfect ghost for you. 🧡
                         </p>
-                        <p class="fs-2 blur-in">
+                        <p class="fs-2">
                             Thank you for all you are doing for us festival ghosts. It makes us so happy! Good luck!
                         </p>
                         <p class="print-submit-appear">
                             <a class="btn btn-lg btn-danger text-white" href="../">Bid Farewell</a>
                         </p>
                     </section>
-                    <section id="answerYes" class="d-none">
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                    <section id="answerYes" class="d-none blur-in">
+                        <p class="fs-2 ghost-font ghost-glow">
                             Whoa no way! I finally made a friend! This is so cool!
                         </p>
-                        <p class="fs-4 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-4 ghost-font ghost-glow">
                             Gosh I have SO many things I want to ask you about, but first thing's first...what should I call you?
                         </p>
                         <div class="blur-in">
@@ -72,13 +72,13 @@
                         </div>
                     </section>
                     <section id="preferencesSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-2 blur-in ghost-font ghost-glow">
                             Nice to meet you <b id="kiddoName">Kiddo</b>!
                         </p>
-                        <p class="fs-5 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-5 blur-in ghost-font ghost-glow">
                             I've heard a lot of people call you that, but I just wanted to make sure.
                         </p>
-                        <p class="fs-4 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-4 blur-in ghost-font ghost-glow">
                             So...what are YOU like, hmm? What would your, er...pawprints tell me?
                         </p>
                         <div class="row g-2 row-cols-1 mb-3 blur-in">
@@ -140,10 +140,10 @@
                         </div>
                     </section>
                     <section id="socialSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-2 blur-in ghost-font ghost-glow">
                             Wow that's so cool! But it makes sense...you gave off those vibes for sure.
                         </p>
-                        <p class="fs-4 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-4 blur-in ghost-font ghost-glow">
                             Last thing...can I follow you on BlueSky? Well, next time I haunt a computer. Totally okay if you don't want me to.
                         </p>
                         <div class="input-group blur-in mb-3">
@@ -156,13 +156,13 @@
                         </p>
                     </section>
                     <section id="friendNameSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-2 blur-in ghost-font ghost-glow">
                             Okay! So one last thing...
                         </p>
-                        <p class="fs-4 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-4 blur-in ghost-font ghost-glow">
                             I can't tell you my name because...I don't have one. We don't really have names. But I'd love one like you.
                         </p>
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-2 blur-in ghost-font ghost-glow">
                             Can you give me a name?
                         </p>
                         <div class="blur-in">
@@ -175,10 +175,10 @@
                         </div>
                     </section>
                     <section id="finalSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-2 blur-in ghost-font ghost-glow">
                             Thank you!! <b id="newFriendNameRepeat"></b> will take some getting used to.
                         </p>
-                        <p class="fs-4 blur-in ghost-font scanlines-text-strong">
+                        <p class="fs-4 blur-in ghost-font ghost-glow">
                             That's all the questions I have for now! It's time to make some proof of our new friendship so you can become an official member of <b>G.H.O.S.T.</b>!
                         </p>
                         <p>
@@ -205,7 +205,11 @@
             $("#attrText").html(friend.attrText);
             $("#auraText").html(friend.auraText);
             $(".affi").html(friend.affi);
-            
+
+            setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 1000);
+            setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 5000);
+            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 9000);
+
             // state 2
             $("#friendYes").on("click", function(){
                 $("#ghostWelcome").fadeOut()
@@ -302,6 +306,7 @@
                 
                 setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
             });
+
             // state 6: new friend name
             $("#newFriendNameButton").on("click", function(){
                 if($("#newFriendName").val() == ""){

@@ -16,105 +16,112 @@
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
     <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
     <script src="../assets/packages/jquery.min.js"></script>
-    <script src="../assets/packages/jquery.validate.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
 <body class="scanlines">
     <div class="container py-5 text-center">
-        <div class="row text-center mb-4 print-appear">
-            <div class="col-md-6 mx-auto">
-                <div id="gutter" class="p-3 mb-5 rounded-4 border-4 border-dark shadow scanlines">
+        <div class="row text-center mb-4 blur-in">
+            <div class="col-md-5 mx-auto">
+                <div id="gutter" class="p-3 mb-5 rounded-4 border-4 border-dark shadow scanlines blur-in d-none">
                     <img src="#" class="img-fluid scanlines-image" id="ghostPrint">
                 </div>
-                <form id="friendship" onsubmit="return false;">
-                    <div class="row g-2 row-cols-3 mb-3 print-test-appear">
-                        <div class="col">
-                            <label for="qual1" class="fs-4 mb-2">Attraction</label>
-                            <select name="Attraction" class="form-control form-control-lg required" id="qual1">
-                                <option></option>
-                                <option>Aid</option>
-                                <option>Burning</option>
-                                <option>Cameras</option>
-                                <option>Danger</option>
-                                <option>Laughter</option>
-                                <option>Learning</option>
-                                <option>Music</option>
-                                <option>Scents</option>
-                                <option>Shopping</option>
-                                <option>Silence</option>
-                                <option>Splashing</option>
-                                <option>Surprise</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="qual2" class="fs-4 mb-2">Aura</label>
-                            <select name="Aura" class="form-control form-control-lg required" id="qual2">
-                                <option></option>
-                                <option>Ambition</option>
-                                <option>Anxiety</option>
-                                <option>Clarity</option>
-                                <option>Comfort</option>
-                                <option>Confidence</option>
-                                <option>Curiosity</option>
-                                <option>Focus</option>
-                                <option>Gratitude</option>
-                                <option>Hope</option>
-                                <option>Imagination</option>
-                                <option>Purpose</option>
-                                <option>Satisfaction</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="qual3" class="fs-4 mb-2">Affinity</label>
-                            <select name="Affinity" class="form-control form-control-lg required" id="qual3">
-                                <option></option>
-                                <option>Adventurous</option>
-                                <option>Brave</option>
-                                <option>Creative</option>
-                                <option>Generous</option>
-                                <option>Humble</option>
-                                <option>Intelligent</option>
-                                <option>Kind</option>
-                                <option>Loud</option>
-                                <option>Patient</option>
-                                <option>Practical</option>
-                                <option>Silly</option>
-                                <option>Spontaneous</option>
-                            </select>
-                        </div>
+                <div class="row g-2 row-cols-3 mb-3 blur-in d-none" id="friendship">
+                    <div class="col">
+                        <label for="qual1" class="fs-4 mb-2">Attraction</label>
+                        <select name="Attraction" class="form-control form-control-lg" id="qual1">
+                            <option></option>
+                            <option>Aid</option>
+                            <option>Burning</option>
+                            <option>Cameras</option>
+                            <option>Danger</option>
+                            <option>Laughter</option>
+                            <option>Learning</option>
+                            <option>Music</option>
+                            <option>Scents</option>
+                            <option>Shopping</option>
+                            <option>Silence</option>
+                            <option>Splashing</option>
+                            <option>Surprise</option>
+                        </select>
                     </div>
-                    <div class="btn btn-lg btn-block btn-info print-submit-appear" id="identify">
+                    <div class="col">
+                        <label for="qual2" class="fs-4 mb-2">Aura</label>
+                        <select name="Aura" class="form-control form-control-lg" id="qual2">
+                            <option></option>
+                            <option>Ambition</option>
+                            <option>Anxiety</option>
+                            <option>Clarity</option>
+                            <option>Comfort</option>
+                            <option>Confidence</option>
+                            <option>Curiosity</option>
+                            <option>Focus</option>
+                            <option>Gratitude</option>
+                            <option>Hope</option>
+                            <option>Imagination</option>
+                            <option>Purpose</option>
+                            <option>Satisfaction</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="qual3" class="fs-4 mb-2">Affinity</label>
+                        <select name="Affinity" class="form-control form-control-lg" id="qual3">
+                            <option></option>
+                            <option>Adventurous</option>
+                            <option>Brave</option>
+                            <option>Creative</option>
+                            <option>Generous</option>
+                            <option>Humble</option>
+                            <option>Intelligent</option>
+                            <option>Kind</option>
+                            <option>Loud</option>
+                            <option>Patient</option>
+                            <option>Practical</option>
+                            <option>Silly</option>
+                            <option>Spontaneous</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="lastBlur" class="d-none blur-in">
+                    <div class="btn btn-lg btn-block btn-info blur-in" id="identify">
                         Identify Ghost
                     </div>
                     <div id="attemptsRemaining" class="print-submit-appear mt-2" style="visibility: hidden; font-size: 0.8em;"></div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <script>
         $(function(){
             checkAttempts();
-
-            var ghostPrintVal = getFriend();
-            friend = ghostFriends.find(x => x.key == ghostPrintVal);
             
+            var ghostPrintVal = getFriend();
+            friend = ghostFriends.find(x => x.key == ghostPrintVal);            
             $("#ghostPrint").attr("src", `../assets/prints/${friend.print}`);
             $("#gutter").addClass(friend.bgClass);
             
-            $("#friendship").validate({
-                errorClass: "border-danger",
-                errorPlacement: function(error, element) {}
-            });
+            setTimeout(() => { $("#gutter").removeClass("d-none"); }, 1000);
+            setTimeout(() => { $("#friendship").removeClass("d-none"); }, 4000);
+            setTimeout(() => { $("#lastBlur").removeClass("d-none"); }, 8000);
             
             $("#identify").on("click", function(){
-                $("#friendship").submit(); //trigger jquery validate
-                
                 var attr = $("#qual1").val();
                 var aura = $("#qual2").val();
                 var affi = $("#qual3").val();
                 
-                if(attr == "" || aura == "" || affi == "") return;                
+                if(attr == ""){
+                    $("#qual1").addClass("border-danger");
+                    return false;
+                }
+                if(aura == ""){
+                    $("#qual2").addClass("border-danger");
+                    return false;
+                }
+                if(affi == ""){
+                    $("#qual3").addClass("border-danger");
+                    return false;
+                }
+                
                 if(friend.attr == attr && friend.aura == aura && friend.affi == affi){
                     localStorage.setItem("newFriend", friend.key);
                     window.location.href = '../bond/';
@@ -127,26 +134,26 @@
             var friendCount = ghostFriends.length;            
             var friendKey = localStorage.getItem("ghostFriend");
             if(friendKey != null) return friendKey;
-
+            
             localStorage.setItem("ghostFriend", randomVal(1, friendCount));
             localStorage.setItem("attemptsLeft", 3);
             return randomFriend;
         }
-
+        
         function loseAttempt(){
             var attemptsLeft = localStorage.getItem("attemptsLeft");
             attemptsLeft--;
             localStorage.setItem("attemptsLeft", attemptsLeft);
             checkAttempts();
         }
-
+        
         function checkAttempts(){
             if(localStorage.getItem("newFriend") != null) window.location.href = '../bond/';
             var attemptsLeft = localStorage.getItem("attemptsLeft");
             if(attemptsLeft > 0){
                 if(attemptsLeft < 3){
                     $("#attemptsRemaining").css('visibility', 'visible')
-                        .html(`Attempts Remaining: ${attemptsLeft}`);
+                    .html(`Attempts Remaining: ${attemptsLeft}`);
                 }
                 return;
             }
@@ -156,7 +163,7 @@
                 location.reload();
             }
         }
-
+        
         function randomVal(min, max){
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }

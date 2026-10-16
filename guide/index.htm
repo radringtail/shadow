@@ -18,23 +18,51 @@
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/packages/vue.min.js"></script>
+    <script src="../assets/common.js"></script>
     <script src="../assets/ghosts.js"></script>
 </head>
 <body class="scanlines bg-primary-subtle">
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid ghost-font ghost-glow">
+                    <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
+                        G.H.O.S.T.
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <small>Navigation</small>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                        <ul class="navbar-nav" id="main-nav-list">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../notes/" class="nav-link">Field Notes</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-guide">
+                                <a href="../guide/" class="nav-link">Guide</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-cards">
+                                <a href="../cards/" class="nav-link">Postcards</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
     <div id="ghostsGuide" class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 mx-auto mb-5 text-center">
-                    <h2 class="display-2 ghost-font scanlines-text-strong">Ghost Guide</h2>
+                    <h2 class="display-2 ghost-font ghost-glow">Ghost Guide</h2>
                     <hr class="border border-2 opacity-100 border-primary-subtle">
                     <p class="fs-3 ghost-font">
-                        Welcome <span class="scanlines-text-strong">Seeker</span>! Having troubles with the signs? No problem! We've brought the signs to you!
+                        Welcome <span class="ghost-glow">Seeker</span>! Having troubles with the signs? No problem! We've brought the signs to you!
                     </p>
                     <p class="fs-5">
-                        Click on any sign below to scan for the same ghosts as on the physical signs. They'll join your <span class="scanlines-text-strong">Locator</span> and help you just as much as anyone else.
-                    </p>
-                    <p>
-                        <a href="../" class="btn btn-outline-light border-light-subtle btn-sm">Back to Home</a>
+                        Click on any sign below to scan for the same ghosts as on the physical signs. They'll join your <span class="ghost-glow">Locator</span> and help you just as much as anyone else.
                     </p>
                 </div>
             </div>
