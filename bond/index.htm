@@ -25,7 +25,9 @@
         <div class="row text-center">
             <div class="col-md-5 mx-auto">
                 <div id="gutter" class="px-3">
-                    <img src="#" width="200" class="img-fluid mb-3 blur-in" id="newFriend">
+                    <p class="sway">
+                        <img src="#" width="200" class="img-fluid blur-in" id="newFriend">
+                    </p>
                     <section id="ghostWelcome" class="ghost-font ghost-glow blur-in d-none">
                         <p class="fs-4">
                             Wow, great job kid! You did so much work to learn about us. That makes me feel really special. 💙
@@ -144,7 +146,7 @@
                             Wow that's so cool! But it makes sense...you gave off those vibes for sure.
                         </p>
                         <p class="fs-4 blur-in ghost-font ghost-glow">
-                            Last thing...can I follow you on BlueSky? Well, next time I haunt a computer. Totally okay if you don't want me to.
+                            Last thing...can I follow you on BlueSky? Next time I possess a PC. Totally okay if you don't wanna.
                         </p>
                         <div class="input-group blur-in mb-3">
                             <input type="text" class="form-control" placeholder="BlueSky Username" id="bskyUser">
@@ -160,7 +162,7 @@
                             Okay! So one last thing...
                         </p>
                         <p class="fs-4 blur-in ghost-font ghost-glow">
-                            I can't tell you my name because...I don't have one. We don't really have names. But I'd love one like you.
+                            I can't tell you my name because...I don't have one. We don't really have names like you do. But I'd love one.
                         </p>
                         <p class="fs-2 blur-in ghost-font ghost-glow">
                             Can you give me a name?
@@ -176,13 +178,13 @@
                     </section>
                     <section id="finalSection" class="d-none">
                         <p class="fs-2 blur-in ghost-font ghost-glow">
-                            Thank you!! <b id="newFriendNameRepeat"></b> will take some getting used to.
+                            <b id="newFriendNameRepeat"></b> huh? I like that! Thank you!
                         </p>
                         <p class="fs-4 blur-in ghost-font ghost-glow">
-                            That's all the questions I have for now! It's time to make some proof of our new friendship so you can become an official member of <b>G.H.O.S.T.</b>!
+                            Well <b id="kiddoName2">Kiddo</b>, I have a little something for you. A token of our new friendship to remember this. And you can use it to become a member of <b>G.H.O.S.T.</b>!
                         </p>
                         <p>
-                            <a href="../proof/" class="blur-in btn btn-outline-light border-light-subtle">Create Proof</a>
+                            <a href="../proof/" class="blur-in btn btn-outline-light border-light-subtle">Receive Gift</a>
                         </p>
                     </section>
                 </div>
@@ -213,7 +215,7 @@
             // state 2
             $("#friendYes").on("click", function(){
                 $("#ghostWelcome").fadeOut()
-                $("#newFriend").addClass("bounce").removeClass("blur-in");
+                $("#newFriend").addClass("spin").removeClass("blur-in");
                 setTimeout(() => { $("#answerYes").removeClass("d-none") }, 1500);
             });
             $("#friendNo").on("click", function(){
@@ -238,6 +240,7 @@
                 if(preferredName == null) preferredName = "Kiddo";
                 localStorage.setItem("preferredName", preferredName);
                 $("#kiddoName").html(preferredName);
+                $("#kiddoName2").html(preferredName);
                 
                 setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);
             });
@@ -284,17 +287,7 @@
                 if(bskyUser != "" && bskyNetwork == "") bskyNetwork = '.bsky.social';
                 localStorage.setItem("bskyUser", bskyUser);
                 localStorage.setItem("bskyNetwork", bskyNetwork);
-                
-                const url = `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${bskyUser}${bskyNetwork}`;
-                var bskyData = window.fetch(url)
-                .then((response) => {
-                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                    return response.json();
-                }).then((response) => {
-                    localStorage.setItem("avatarUrl", response.avatar);
-                    localStorage.setItem("bskyHandle", response.handle);
-                });
-                
+                storeBskyIcon(bskyUser+bskyNetwork);
                 setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
             });
             
@@ -319,8 +312,10 @@
                 var newFriendName = $("#newFriendName").val();
                 localStorage.setItem("newFriendName", newFriendName);
                 $("#newFriendNameRepeat").html(newFriendName);
-                                
+
                 setTimeout(() => { $("#finalSection").removeClass("d-none") }, 1500);
+
+                localStorage.setItem("madeFriend", true);
             });
         })
     </script>

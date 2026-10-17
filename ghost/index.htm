@@ -25,7 +25,9 @@
         <div class="row text-center">
             <div class="col-md-6 mx-auto">
                 <div id="gutter" class="px-3">
-                    <img src="../assets/images/ghost1.png" width="300" class="img-fluid mb-4 blur-in" id="ghostSpeaker">
+                    <p class="sway">
+                        <img src="../assets/images/ghost1.png" width="300" class="img-fluid blur-in" id="ghostSpeaker">
+                    </p>
                     <h1 class="ghost-glow mb-5 blur-in" id="ghostMessage">
                         "<span id="ghostClue"></span>"
                     </h1>
@@ -36,17 +38,26 @@
     </div>
     <script>
         $(function(){
+            $("#closeButton").on("click", function(){
+                window.close();
+            });
+
             const params = new Proxy(new URLSearchParams(window.location.search), {
                 get: (searchParams, prop) => searchParams.get(prop),
             });
             var ghostKey = params.key;
             foundGhost = ghostData.find(x => x.key === ghostKey);
-            $("#ghostClue").html(foundGhost.clue);   
-            updateStoredClues(ghostKey);
+            if(foundGhost == null || foundGhost == undefined){
+                $("#ghostClue").html("Hello? Who is this? Ah, must be a wrong number. Sorry!");
+                return;
+            }
 
-            $("#closeButton").on("click", function(){
-                window.close()
-            });
+            $("#ghostClue").html(foundGhost.clue);
+            if(foundGhost.image != undefined){
+                $("#ghostSpeaker").attr("src", `../assets/ghosts/${foundGhost.image}`);
+            }
+            
+            updateStoredClues(ghostKey);
         })
 
         function updateStoredClues(newClue){

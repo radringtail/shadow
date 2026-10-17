@@ -60,7 +60,7 @@
                         <h2 class="display-2 ghost-font ghost-glow">Art Postcards</h2>
                         <hr class="border border-2 opacity-100 border-primary-subtle">
                         <p class="fs-4 ghost-font">
-                            Below are all the postcards created for the <span class="ghost-glow">Peek-a-BOO! Festival</span>.
+                            All the postcards created for the <span class="ghost-glow">Peek-a-BOO! Festival</span>.
                         </p>
                     </div>
                     <div class="row row-cols-4 g-1 g-md-1" id="postcards">
@@ -190,6 +190,9 @@
         </div>
     </div>
     <script>
+        if(!localStorage.getItem("cardsEnabled")) 
+            window.location.href = '../';
+
         var cards = document.querySelector('#postcards');
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);

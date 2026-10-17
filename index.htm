@@ -46,6 +46,9 @@
                             <li class="nav-item d-none" id="secret-cards">
                                 <a href="./cards/" class="nav-link">Postcards</a>
                             </li>
+                            <li class="nav-item d-none" id="friendship">
+                                <a href="../proof/" class="nav-link">Friendship Card</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +65,9 @@
                     </p>
                 </div>
             </div>
-            <img src="assets/images/ghost1.png" width="400" class="img-fluid rounded rounded-5 scanlines-image tapper" id="ghost1">
+            <div class="boop">
+                <img src="assets/images/ghost1.png" width="400" class="img-fluid rounded rounded-5 scanlines-image sway tapper" id="ghost1">
+            </div>
         </div>
     </section>
     <section class="pt-5 scanlines theme-purple" style="border-bottom: 2px solid #381480; border-top: 2px solid #381480;">
@@ -223,7 +228,7 @@
                 <div class="col-md-8 mx-auto">
                     <div class="row g-3 g-lg-5 mb-5 align-items-lg-center justify-content-center">
                         <div class="col-lg-6 text-lg-end text-center">
-                            <img src="assets/images/ghost2.png" class="img-fluid scanlines-image tapper" id="resetGhost" width="350">
+                            <img src="assets/images/ghost2.png" class="img-fluid scanlines-image tapper sway" id="resetGhost" width="350">
                         </div>
                         <div class="col-lg-6 text-lg-start text-center">
                             <div class="fw-bold ghost-font ghost-glow lh-1" style="font-size: 750%">249</div>
@@ -238,7 +243,7 @@
                 </div>
             </div>
             
-            <h3 class="h1 mb-4 text-center ghost-font ghost-glow">Previous G.H.O.S.T. Friend-raisers</h3>
+            <h3 class="h1 mb-4 text-center ghost-font ghost-glow">Previous G.H.O.S.T. Studies</h3>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-3 mb-lg-5 justify-content-center">
                 <div class="col">
                     <div class="card bg-danger-subtle shadow h-100">
@@ -360,7 +365,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="ghost-font text-center">
-                        <img src="assets/images/ghost1.png" class="img-fluid scanlines-image" width="200">
+                        <img src="assets/images/ghost1.png" class="img-fluid scanlines-image sway" width="200">
                         <p class="fs-5">
                             Good job <b>Seeker</b>, you solved my riddle! I feel more confident about someone like you investigating my friends.
                         </p>
@@ -415,6 +420,13 @@
                     const modal = new bootstrap.Modal("#paperGhostModal");
                     modal.show();
                 }
+            });
+            
+            $(".boop").on("click", function(){
+                $(this).addClass("booped");
+                setTimeout(() => {
+                    $(this).removeClass("booped");
+                }, 250);
             });
             
             const stampCodes = {

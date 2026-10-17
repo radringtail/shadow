@@ -94,6 +94,7 @@
     <script>
         $(function(){
             checkAttempts();
+            $("select").prop("selectedIndex", 0);
             
             var ghostPrintVal = getFriend();
             friend = ghostFriends.find(x => x.key == ghostPrintVal);            

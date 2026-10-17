@@ -23,28 +23,38 @@
 <body class="scanlines bg-primary-subtle">
     <div class="container py-3 text-center">
         <div class="row">
-            <div class="col-sm-10 col-md-8 col-lg-5 col-xl-4 mx-auto">
-                <div class="card rounded-4 mb-4 bg-spooky" id="friendshipCert">
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xxl-4 mx-auto">
+                <div class="card rounded-4 mb-4" id="friendshipCert">
                     <div class="card-header bg-transparent bg-blur-dark border-bottom-2 shadow-blur">
                         G.H.O.S.T. Friendship Card
                     </div>
                     <div class="card-body">
-                        <div class="row g-2 mb-2">
+                        <div class="row g-3 mb-2">
                             <div class="col">
                                 <img src="#" class="img-fluid rounded-circle p-2 shadow-blur bg-blur-icon mb-2" id="playerIcon" width="200">
-                                <div class="fs-3 shadow-blur bg-blur rounded-top-3 ghost-font" id="playerName"></div>
-                                <div class="shadow-blur bg-blur-dark rounded-bottom-3">BFC Attendee</div>
                             </div>
                             <div class="col">
                                 <img src="#" class="img-fluid rounded-circle p-2 bg-blur-icon shadow-blur mb-2" id="ghostIcon" width="200">
-                                <div class="fs-3 bg-blur shadow-blur rounded-top-3 ghost-font" id="ghostName"></div>
-                                <div class="bg-blur-dark shadow-blur rounded-bottom-3">Festival Ghost</div>
                             </div>
                         </div>
-                        <div class="card rounded-3 bg-transparent bg-blur shadow-blur border-0">
+                        <div class="row g-3 mb-3">
+                            <div class="col">
+                                <div class="card rounded-3 h-100 bg-transparent bg-blur-dark shadow-blur border-2">
+                                    <div class="fs-3 ghost-font" id="playerName"></div>
+                                    <div class="mb-1" style="margin-top: -4px; font-size: 0.9em;">BFC Attendee</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card rounded-3 h-100 bg-transparent bg-blur-dark shadow-blur border-2">
+                                    <div class="fs-3 ghost-font" id="ghostName"></div>
+                                    <div class="mb-1" style="margin-top: -4px; font-size: 0.9em;">Festival Ghost</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card rounded-3 bg-transparent bg-blur-dark shadow-blur border-2">
                             <div class="card-body">
                                 <div class="row attributeText g-2">
-                                    <div class="col text-end">
+                                    <div class="col">
                                         <p class="mb-1" id="playerAttr"></p>
                                     </div>
                                     <div class="col">
@@ -52,12 +62,12 @@
                                             <b class="ghost-font ghost-glow">Attraction</b>
                                         </p>
                                     </div>
-                                    <div class="col text-start">
+                                    <div class="col">
                                         <p class="mb-1" id="ghostAttr"></p>
                                     </div>
                                 </div>
                                 <div class="row attributeText g-2">
-                                    <div class="col text-end">
+                                    <div class="col">
                                         <p class="mb-1" id="playerAura"></p>
                                     </div>
                                     <div class="col">
@@ -65,12 +75,12 @@
                                             <b class="ghost-font ghost-glow">Aura</b>
                                         </p>
                                     </div>
-                                    <div class="col text-start">
+                                    <div class="col">
                                         <p class="mb-1" id="ghostAura"></p>
                                     </div>
                                 </div>
                                 <div class="row attributeText g-2">
-                                    <div class="col text-end">
+                                    <div class="col">
                                         <p class="mb-1" id="playerAffi"></p>
                                     </div>
                                     <div class="col">
@@ -78,7 +88,7 @@
                                             <b class="ghost-font ghost-glow">Affinity</b>
                                         </p>
                                     </div>
-                                    <div class="col text-start">
+                                    <div class="col">
                                         <p class="mb-1" id="ghostAffi"></p>
                                     </div>
                                 </div>
@@ -89,29 +99,111 @@
                         Babyfur Con 2026 &bull; Peek-a-BOO! Festival
                     </div>
                 </div>
-                <p>
-                    <a href="#" id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</a>
-                    <a href="#" id="emailLink" class="btn btn-sm m-1 btn-success bg-success-subtle">Email to G.H.O.S.T.</a>
-                </p>
+            </div>
+        </div>
+        <p>
+            <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</button>
+            <button id="sendDataButton" class="btn btn-sm m-1 btn-danger bg-danger-subtle">Apply to G.H.O.S.T.</button>
+        </p>
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div id="gutter" class="px-3">
+                    <section id="ghostGoodbye" class="ghost-font ghost-glow blur-in d-none">
+                        <p class="fs-4">
+                            Here you go, an official G.H.O.S.T. Friendship Card!
+                        </p>
+                        <p class="">
+                            You can use this to apply! I'm sure they'll let you in when they see how much time, effort, and care you put into this journey. And what a cool friend you are.
+                        </p>
+                        <p class="fs-5">
+                            I'm gonna go tell everyone! Hope to see you at a Ceremony later! Bye!!
+                        </p>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
     <div id="editCardModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-dark-subtle">
                     <div class="modal-title">Edit Card Information</div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="row row-cols-1 row-cols-md-3 mb-3">
+                <div class="modal-body bg-primary-subtle scanlines">
+                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
                         <div class="col">
-                            <label for="editPlayerName">Player Name</label>
-                            <input id="editPlayerName" class="form-control">
+                            <label for="editPlayerName">Your Name</label>
+                            <input id="editPlayerName" class="form-control shadow">
                         </div>
                         <div class="col">
+                            <label for="editBskyHandle">Your BlueSky</label>
+                            <input type="text" class="form-control shadow" id="editBskyHandle" placeholder="username.bsky.social">
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
+                        <div class="col">
+                            <label for="editPlayerAttr">Your Attraction</label>
+                            <select class="form-control shadow" id="qual1">
+                                <option>Aid</option>
+                                <option>Cameras</option>
+                                <option>Laughter</option>
+                                <option>Learning</option>
+                                <option>Music</option>
+                                <option>Scents</option>
+                                <option>Shopping</option>
+                                <option>Surprise</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="editPlayerAura">Your Aura</label>
+                            <select class="form-control shadow" id="qual2">
+                                <option>Ambition</option>
+                                <option>Clarity</option>
+                                <option>Comfort</option>
+                                <option>Confidence</option>
+                                <option>Curiosity</option>
+                                <option>Focus</option>
+                                <option>Gratitude</option>
+                                <option>Hope</option>
+                                <option>Imagination</option>
+                                <option>Purpose</option>
+                                <option>Satisfaction</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="editPlayerAffi">Your Affinity</label>
+                            <select class="form-control shadow" id="qual3">
+                                <option>Adventurous</option>
+                                <option>Brave</option>
+                                <option>Creative</option>
+                                <option>Generous</option>
+                                <option>Humble</option>
+                                <option>Intelligent</option>
+                                <option>Kind</option>
+                                <option>Loud</option>
+                                <option>Patient</option>
+                                <option>Practical</option>
+                                <option>Silly</option>
+                                <option>Spontaneous</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
+                        <div class="col">
                             <label for="editGhostName">Ghost Name</label>
-                            <input id="editGhostName" class="form-control">
+                            <input id="editGhostName" class="form-control shadow">
+                        </div>
+                        <div class="col">
+                            <label for="editCardTheme">Card Theme</label>
+                            <select class="form-control shadow" id="editCardTheme">
+                                <option value="harvest">Harvest</option>
+                                <option value="festival">Fall Festival</option>
+                                <option value="tot">Trick-or-Treat</option>
+                                <option value="festivalnight">Festival Night</option>
+                                <option value="night">Ghost Market</option>
+                                <option value="spooky">Spooky Forest</option>
+                            </select>
                         </div>
                     </div>
                     <p class="text-center">
@@ -121,73 +213,144 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        $(function(){
-            var friendKey = localStorage.getItem("newFriend");
-            if(friendKey == null) window.location.href = '../';
-            friend = ghostFriends.find(x => x.key == friendKey);
-            if(friend == null) window.location.href = '../';
-            
-            // pull all available data
-            var playerName = localStorage.getItem("preferredName");
-            var playerIcon = localStorage.getItem("avatarUrl");
-            var playerBsky = localStorage.getItem("bskyHandle");
-            var playerAttr = localStorage.getItem("playerAttr");
-            var playerAura = localStorage.getItem("playerAura");
-            var playerAffi = localStorage.getItem("playerAffi");
-            
-            var ghostName = localStorage.getItem("newFriendName");
-            var ghostIcon = friend.ghost;
-            var ghostAttr = friend.attr;
-            var ghostAura = friend.aura;
-            var ghostAffi = friend.affi;
-            var ghostPrint = friend.print;
-            
-            var cluesFound = localStorage.getItem("cluesFound");
-            var cluesFoundArray = JSON.parse(cluesFound);
-            if(cluesFound == null) cluesFoundArray = [];
-            
-            if(playerIcon == null || playerIcon == undefined) playerIcon = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
-            if(ghostName == null || ghostName == undefined) ghostName = 'Gamma';
-            
-            $("#playerIcon").attr("src", playerIcon);
-            $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
-            
-            $("#playerName").html(playerName);
-            $("#ghostName").html(ghostName);
-            
-            $("#playerAttr").html(playerAttr);
-            $("#playerAura").html(playerAura);
-            $("#playerAffi").html(playerAffi);
-            $("#ghostAttr").html(ghostAttr);
-            $("#ghostAura").html(ghostAura);
-            $("#ghostAffi").html(ghostAffi);
+    <div id="sendDataModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header bg-dark-subtle">
+                    <div class="modal-title fs-4 ghost-font ghost-glow fw-bold">Apply to G.H.O.S.T.</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fs-5">
+                        Congratulations on being a new friend for a wayward soul!
+                    </p>
+                    <p class="fs-5">
+                        In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
+                    </p>
+                    <p>
+                        We have generated a unique code below that describes your personal journey. In order to apply, you must <b class="ghost-glow">send the code to G.H.O.S.T.</b> to authenicate your application.
+                    </p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-black">G.H.O.S.T. Code</span>
+                        <input class="form-control" id="authCodeContainer" disabled>
+                    </div>
+                    <p>
+                        If you'd rather not, we understand! But we will be unable to accept inductees that cannot be verified.
+                    </p>
+                </div>
+                <p class="text-center">
+                    <a href="#" target="_blank" id="emailLink" class="btn btn-sm btn-primary shadow mx-2">Send Via Email</a>
+                    <a href="#" target="_blank" id="smsLink" class="btn btn-sm btn-success shadow mx-2">Send Via Text</a>
+                    <button id="authCodeButton" class="btn btn-sm btn-warning shadow mx-2">Copy Code</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-            $("#editPlayerName").val(playerName);
-            $("#editGhostName").val(ghostName);
+<script>
+    $(function(){
+        var friendKey = localStorage.getItem("newFriend");
+        if(friendKey == null) window.location.href = '../';
+        friend = ghostFriends.find(x => x.key == friendKey);
+        if(friend == null) window.location.href = '../';
 
-            $("#editCard").on("click", function(){
-                const editCardModal = new bootstrap.Modal("#editCardModal");
-                editCardModal.show();
-            });
+        if(localStorage.getItem("cardReceived") == undefined){
+            localStorage.setItem("cardReceived", true);
+            $("#ghostGoodbye").removeClass("d-none");
+        }
 
-            $("#editCardButton").on("click", function(){
-                var editedPlayerName = $("#editPlayerName").val();
-                var editedGhostName = $("#editGhostName").val();
-
-                if(editedPlayerName != "") localStorage.setItem("preferredName", editedPlayerName);
-                if(editedGhostName != "") localStorage.setItem("newFriendName", editedGhostName);
-
+        // pull all available data
+        var playerName = localStorage.getItem("preferredName");
+        var playerIcon = localStorage.getItem("avatarUrl");
+        var playerBsky = localStorage.getItem("bskyHandle");
+        var playerAttr = localStorage.getItem("playerAttr");
+        var playerAura = localStorage.getItem("playerAura");
+        var playerAffi = localStorage.getItem("playerAffi");
+        var cardTheme = localStorage.getItem("cardTheme");
+        
+        var ghostName = localStorage.getItem("newFriendName");
+        var ghostIcon = friend.ghost;
+        var ghostAttr = friend.attr;
+        var ghostAura = friend.aura;
+        var ghostAffi = friend.affi;
+        var ghostPrint = friend.print;
+        
+        var cluesFound = localStorage.getItem("cluesFound");
+        var cluesFoundArray = JSON.parse(cluesFound);
+        if(cluesFound == null) cluesFoundArray = [];
+        
+        if(playerIcon == null || playerIcon == undefined) playerIcon = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
+        if(ghostName == null || ghostName == undefined) ghostName = 'Gamma';
+        
+        if(cardTheme != null && cardTheme != undefined){
+            $("#friendshipCert").addClass(`bg-${cardTheme}`);
+        }
+        else{
+            $("#friendshipCert").addClass(`bg-tot`);
+        }
+        
+        $("#playerIcon").attr("src", playerIcon);
+        $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
+        
+        $("#playerName").html(playerName);
+        $("#ghostName").html(ghostName);
+        
+        $("#playerAttr").html(playerAttr);
+        $("#playerAura").html(playerAura);
+        $("#playerAffi").html(playerAffi);
+        $("#ghostAttr").html(ghostAttr);
+        $("#ghostAura").html(ghostAura);
+        $("#ghostAffi").html(ghostAffi);
+        
+        $("#editPlayerName").val(playerName);
+        $("#editBskyUser").val(playerBsky);
+        $("#editBskyNetwork").val(playerBsky);
+        $("#qual1").val(playerAttr);
+        $("#qual2").val(playerAura);
+        $("#qual3").val(playerAffi);
+        $("#editGhostName").val(ghostName);
+        
+        $("#editCard").on("click", function(){
+            const editCardModal = new bootstrap.Modal("#editCardModal");
+            editCardModal.show();
+        });sendDataModal
+        
+        $("#sendDataButton").on("click", function(){
+            const sendDataModal = new bootstrap.Modal("#sendDataModal");
+            sendDataModal.show();
+        });
+        
+        $("#editCardButton").on("click", function(){
+            var editedPlayerName = $("#editPlayerName").val();
+            var editBskyHandle = $("#editBskyHandle").val();
+            var editedPlayerAttr = $("#qual1").val();
+            var editedPlayerAura = $("#qual2").val();
+            var editedPlayerAffi = $("#qual3").val();
+            var editedGhostName = $("#editGhostName").val();
+            var editCardTheme = $("#editCardTheme").val();
+            
+            if(editedPlayerName != "") localStorage.setItem("preferredName", editedPlayerName);
+            if(editedGhostName != "") localStorage.setItem("newFriendName", editedGhostName);
+            if(editedPlayerAttr != "") localStorage.setItem("playerAttr", editedPlayerAttr);
+            if(editedPlayerAura != "") localStorage.setItem("playerAura", editedPlayerAura);
+            if(editedPlayerAffi != "") localStorage.setItem("playerAffi", editedPlayerAffi);
+            localStorage.setItem("bskyHandle", editBskyHandle);
+            localStorage.setItem("cardTheme", editCardTheme);
+            storeBskyIcon(editBskyHandle);
+            
+            setTimeout(() => {
                 window.location.reload();
-            });
-            
-            const cardVars = { playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint };
-            var cardVarsString = btoa(JSON.stringify(cardVars));
-            
-            const emailTo = 'ghost@babyfurcon.com';
-            const emailSubject = `New Friendship | ${playerName} and ${ghostName}`;
-            var emailBody = 
+            }, 500);
+        });
+        
+        const cardVars = { playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme };
+        const cardVarsString = btoa(JSON.stringify(cardVars));
+        $("#authCodeContainer").val(cardVarsString);
+        
+        const emailTo = 'ghost@babyfurcon.com';
+        const emailSubject = `New Friendship | ${playerName} and ${ghostName}`;
+        var emailBody = 
 `New Friendship Report
 
 This email hereby certifies that I, "${playerName}":
@@ -200,16 +363,25 @@ This email hereby certifies that I, "${playerName}":
 I am formally requesting to apply to G.H.O.S.T., using this encounter as proof of successful ghost research, contact and friendship.
 
 Authenticity Code: ${cardVarsString}`;
-            
-            emailBody = emailBody.replace(/\r\n|\r|\n/g, "%0D%0A");
-            
-            const tempElement = document.createElement('div');
-            tempElement.textContent = emailSubject;
-            var encodedSubject = tempElement.innerHTML;
-            
-            var emailLink = `mailto:${emailTo}?subject=${encodedSubject}&body=${emailBody}`;
-            $("#emailLink").attr("href", emailLink);
+        
+        emailBody = emailBody.replace(/\r\n|\r|\n/g, "%0D%0A");
+        emailBody = emailBody.replace(/ /g, "%20");
+
+        const tempElement = document.createElement('div');
+        tempElement.textContent = emailSubject;
+        var encodedSubject = tempElement.innerHTML;
+        
+        var emailLink = `mailto:${emailTo}?subject=${encodedSubject}&body=${emailBody}`;
+        $("#emailLink").attr("href", emailLink);
+        
+        var smsLink = `sms:9197414177:?body=${emailBody}`;
+        $("#smsLink").attr("href", smsLink);
+        
+        $("#authCodeButton").on("click", function(){
+            navigator.clipboard.writeText(cardVarsString);
+            $(this).html("Code Copied!");
         })
-    </script>
+    })
+</script>
 </body>
 </html>

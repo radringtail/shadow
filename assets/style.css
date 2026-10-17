@@ -118,19 +118,28 @@ body{
 }
 
 .sway{
-  animation: sway 3s ease-in-out;
+  animation: sway 4s ease-in-out alternate;
   animation-iteration-count: infinite;
+  opacity: 0.9;
 }
 
 @keyframes sway {  
-  0% { transform: rotate(0deg); }  
-  25% { transform: rotate(15deg); }  
-  75% { transform: rotate(-15deg); }  
-  100% { transform: rotate(0deg); }
+  0% { transform: rotate(4deg); }  
+  100% { transform: rotate(-4deg); }  
+}
+
+.booped{
+  animation: booped 0.333s forwards;
+}
+
+@keyframes booped {  
+  0% { transform: scale(1); }  
+  50% { transform: scale(1.05); }  
+  100% { transform: scale(1); }  
 }
 
 .blur-in {
-  animation: blurIn 3s ease-in-out forwards;
+  animation: blurIn 3s ease-in-out;
 }
 
 @keyframes blurIn {
@@ -208,15 +217,15 @@ body{
   background-image: url(proof/bg-spooky.jpg);
   background-size: cover;
   background-position: 50% 50%;
-  border: solid 10px #381480 !important;
+  border: solid 10px #2a1480 !important;
 }
 
-.bg-festival{
+.bg-harvest{
   background-color: #333;
-  background-image: url(proof/bg-festival.jpg);
+  background-image: url(proof/bg-harvest.jpg);
   background-size: cover;
   background-position: 50% 50%;
-  border: solid 10px #ffbd3b !important;
+  border: solid 10px #bb7d2b !important;
 }
 
 .bg-tot{
@@ -225,6 +234,30 @@ body{
   background-size: cover;
   background-position: 50% 50%;
   border: solid 10px #793a9d !important;
+}
+
+.bg-festival{
+  background-color: #333;
+  background-image: url(proof/bg-festival.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #269ec9 !important;
+}
+
+.bg-festivalnight{
+  background-color: #333;
+  background-image: url(proof/bg-festivalnight.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #9d3a49 !important;
+}
+
+.bg-night{
+  background-color: #333;
+  background-image: url(proof/bg-night.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  border: solid 10px #104f29 !important;
 }
 
 .border-glass{
@@ -248,12 +281,12 @@ body{
 }
 
 .attributeText{
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: 600;
 }
 
 .bg-blur{
-  backdrop-filter: blur(8px) brightness(60%);
+  backdrop-filter: blur(10px) brightness(55%);
 }
 
 .bg-blur-icon{

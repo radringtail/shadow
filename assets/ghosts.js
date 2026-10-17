@@ -4,6 +4,7 @@ var ghostData = [
     "category": "Space",
     "sign": "Artist Alley",
     "slug": "artist-alley",
+    "image": "ash-yellow-1.png",
     "clue": "The art postcards are so cool, I'm gonna <b>collect them all!</b> Wait... <b>Is there something on the back?</b>"
   },
   {
