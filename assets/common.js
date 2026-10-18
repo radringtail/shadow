@@ -1,4 +1,5 @@
 const maxAttempts = 3;
+const applyEndpoint = 'https://script.google.com/macros/s/AKfycbwlEjbC3oea0ZNrFAHoa-yvli-PQbjhjSBtyfSNp0LZPYBMGUdY6tUuj178A5YOCE4G/exec';
 
 $(function(){
     if(localStorage.getItem("guideEnabled")){

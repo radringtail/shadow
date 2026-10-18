@@ -230,18 +230,17 @@
                     <p>
                         We have generated a unique code below that describes your personal journey. In order to apply, you must <b class="ghost-glow">send the code to G.H.O.S.T.</b> to authenicate your application.
                     </p>
-                    <div class="input-group mb-3">
+                    <div class="input-group shadow mb-3">
                         <span class="input-group-text bg-black">G.H.O.S.T. Code</span>
                         <input class="form-control" id="authCodeContainer" disabled>
+                        <button id="authCodeButton" class="btn btn-warning">Copy Code</button>
                     </div>
                     <p>
-                        If you'd rather not, we understand! But we will be unable to accept inductees that cannot be verified.
+                        <input type="number" id="playerId" class="form-control" placeholder="Badge Number">
                     </p>
                 </div>
                 <p class="text-center">
-                    <a href="#" target="_blank" id="emailLink" class="btn btn-sm btn-primary shadow mx-2">Send Via Email</a>
-                    <a href="#" target="_blank" id="smsLink" class="btn btn-sm btn-success shadow mx-2">Send Via Text</a>
-                    <button id="authCodeButton" class="btn btn-sm btn-warning shadow mx-2">Copy Code</button>
+                    <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</button>
                 </p>
             </div>
         </div>
@@ -254,12 +253,12 @@
         if(friendKey == null) window.location.href = '../';
         friend = ghostFriends.find(x => x.key == friendKey);
         if(friend == null) window.location.href = '../';
-
+        
         if(localStorage.getItem("cardReceived") == undefined){
             localStorage.setItem("cardReceived", true);
             $("#ghostGoodbye").removeClass("d-none");
         }
-
+        
         // pull all available data
         var playerName = localStorage.getItem("preferredName");
         var playerIcon = localStorage.getItem("avatarUrl");
@@ -310,6 +309,7 @@
         $("#qual2").val(playerAura);
         $("#qual3").val(playerAffi);
         $("#editGhostName").val(ghostName);
+        $("#editCardTheme").val(cardTheme);
         
         $("#editCard").on("click", function(){
             const editCardModal = new bootstrap.Modal("#editCardModal");
@@ -364,23 +364,42 @@ I am formally requesting to apply to G.H.O.S.T., using this encounter as proof o
 
 Authenticity Code: ${cardVarsString}`;
         
-        emailBody = emailBody.replace(/\r\n|\r|\n/g, "%0D%0A");
-        emailBody = emailBody.replace(/ /g, "%20");
-
-        const tempElement = document.createElement('div');
-        tempElement.textContent = emailSubject;
-        var encodedSubject = tempElement.innerHTML;
-        
-        var emailLink = `mailto:${emailTo}?subject=${encodedSubject}&body=${emailBody}`;
-        $("#emailLink").attr("href", emailLink);
-        
-        var smsLink = `sms:9197414177:?body=${emailBody}`;
-        $("#smsLink").attr("href", smsLink);
-        
         $("#authCodeButton").on("click", function(){
             navigator.clipboard.writeText(cardVarsString);
             $(this).html("Code Copied!");
         })
+        
+        $("#applyButton").on("click", function(){
+            var playerId = $('#playerId').val();
+            console.log(playerId);
+            
+            if(playerId == null || playerId == ""){
+                $('#playerId').addClass("border-danger");
+                return;
+            }
+            
+            const cardVars = { playerId, playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme };
+            const cardVarsString = JSON.stringify(cardVars);
+            const code = btoa(cardVarsString);
+            const postContainer = { code };
+            const postData = JSON.stringify(postContainer);
+            
+            try{
+                const ghostPost = fetch(applyEndpoint,
+                {
+                    redirect: "follow",
+                    method: "POST",
+                    body: postData,
+                    headers: { "Content-Type": "text/plain;charset=utf-8" }
+                })
+                .then((response) => { 
+                    // console.log(response); 
+                    window.location.href = '../ceremony/';
+                });
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
     })
 </script>
 </body>

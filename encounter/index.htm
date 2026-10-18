@@ -133,13 +133,13 @@
         })
         
         function getFriend(){
-            var friendCount = ghostFriends.length;            
             var friendKey = localStorage.getItem("ghostFriend");
             if(friendKey != null) return friendKey;
             return setFriend();
         }
 
         function setFriend(){
+            var friendCount = ghostFriends.length;            
             var randomFriend = randomVal(1, friendCount);
             localStorage.setItem("ghostFriend", randomFriend);
             localStorage.setItem("attemptsLeft", maxAttempts);
