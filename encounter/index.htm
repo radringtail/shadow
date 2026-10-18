@@ -17,6 +17,7 @@
     <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
 <body class="scanlines theme-purple">
@@ -135,38 +136,38 @@
             var friendCount = ghostFriends.length;            
             var friendKey = localStorage.getItem("ghostFriend");
             if(friendKey != null) return friendKey;
-            
-            localStorage.setItem("ghostFriend", randomVal(1, friendCount));
-            localStorage.setItem("attemptsLeft", 3);
+            return setFriend();
+        }
+
+        function setFriend(){
+            var randomFriend = randomVal(1, friendCount);
+            localStorage.setItem("ghostFriend", randomFriend);
+            localStorage.setItem("attemptsLeft", maxAttempts);
             return randomFriend;
         }
         
         function loseAttempt(){
-            var attemptsLeft = localStorage.getItem("attemptsLeft");
+            var attemptsLeft = parseInt(localStorage.getItem("attemptsLeft"));
             attemptsLeft--;
             localStorage.setItem("attemptsLeft", attemptsLeft);
             checkAttempts();
         }
         
         function checkAttempts(){
-            if(localStorage.getItem("newFriend") != null) window.location.href = '../bond/';
-            var attemptsLeft = localStorage.getItem("attemptsLeft");
-            if(attemptsLeft > 0){
-                if(attemptsLeft < 3){
-                    $("#attemptsRemaining").css('visibility', 'visible')
-                    .html(`Attempts Remaining: ${attemptsLeft}`);
-                }
-                return;
+            if(localStorage.getItem("newFriend") != null){
+                window.location.href = '../bond/';
             }
-            else{
+
+            var attemptsLeft = parseInt(localStorage.getItem("attemptsLeft"));
+            if(attemptsLeft == NaN || attemptsLeft <= 0){
                 localStorage.removeItem("ghostFriend");
                 localStorage.removeItem("attemptsLeft");
                 location.reload();
             }
-        }
-        
-        function randomVal(min, max){
-            return Math.floor(Math.random() * (max - min + 1)) + min;
+            if(attemptsLeft < maxAttempts){
+                $("#attemptsRemaining").css('visibility', 'visible')
+                .html(`Attempts Remaining: ${attemptsLeft}`);
+            }
         }
     </script>
 </body>

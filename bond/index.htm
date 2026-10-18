@@ -83,7 +83,7 @@
                         <p class="fs-4 blur-in ghost-font ghost-glow">
                             So...what are YOU like, hmm? What would your, er...pawprints tell me?
                         </p>
-                        <div class="row g-2 row-cols-1 mb-3 blur-in">
+                        <div class="row g-2 row-cols-2 mb-3 blur-in justify-content-center">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="qual1">What draws you in?</label>
@@ -216,7 +216,10 @@
             $("#friendYes").on("click", function(){
                 $("#ghostWelcome").fadeOut()
                 $("#newFriend").addClass("spin").removeClass("blur-in");
-                setTimeout(() => { $("#answerYes").removeClass("d-none") }, 1500);
+                setTimeout(() => { 
+                    $("#answerYes").removeClass("d-none") 
+                    $("#newFriend").removeClass("spin") 
+                }, 1500);
             });
             $("#friendNo").on("click", function(){
                 $("#ghostWelcome").fadeOut()

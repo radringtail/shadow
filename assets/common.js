@@ -1,3 +1,5 @@
+const maxAttempts = 3;
+
 $(function(){
     if(localStorage.getItem("guideEnabled")){
         $("#secret-guide").removeClass("d-none");
