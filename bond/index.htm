@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+THERE ARE NO INTENDED HINTS FOR THIS SCAVENGER HUNT IN CODE
+PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
+-->
 <html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
@@ -23,29 +27,38 @@
 <body class="scanlines">
     <div class="container py-3 text-center">
         <div class="row text-center">
-            <div class="col-md-5 mx-auto">
-                <div id="gutter" class="px-3">
+            <div class="col-sm-10 col-md-8 col-lg-6 col-xxl-4 mx-auto">
+                <div id="gutter" class="px-2">
                     <p class="sway">
-                        <img src="#" width="200" class="img-fluid blur-in" id="newFriend">
+                        <img src="#" width="200" class="img-fluid blur-in scanlines-image" id="newFriend">
                     </p>
+                    
+                    <!-- ------------------------------
+                    STATE: YES OR NO
+                    ------------------------------- -->
+                    
                     <section id="ghostWelcome" class="ghost-font ghost-glow blur-in d-none">
-                        <p class="fs-4">
+                        <p class="fs-5 lh-sm">
                             Wow, great job kid! You did so much work to learn about us. That makes me feel really special. 💙
                         </p>
-                        <p id="secondFade" class="fs-5 blur-in d-none">
-                            <span id="attrText" class="highlight">ATTR</span>
-                            <span id="auraText" class="highlight">AURA</span>
+                        <p id="secondFade" class="blur-in d-none bold-colors lh-sm">
+                            <span id="flavorText"></span>
                         </p>
                         <div id="thirdFade" class="blur-in d-none">
-                            <p class="fs-4">
+                            <p class="fs-5 lh-sm">
                                 I've been looking for a friend for a long time. I know we just met, but I can tell you are a <span class="text-bfc-orange affi">AFFI</span> soul. Do you...want to be friends?
                             </p>
                             <p>
-                                <button class="btn btn-outline-light border-light-subtle mx-2" id="friendYes">Yes</button>
-                                <button class="btn btn-outline-light border-light-subtle mx-2" id="friendNo">No</button>
+                                <button class="btn btn-outline-success text-light mx-1" id="friendYes">Yes, Of Course!</button>
+                                <button class="btn btn-outline-danger text-light mx-1" id="friendNo">No</button>
                             </p>
                         </div>
                     </section>
+                    
+                    <!-- ------------------------------
+                    ANSWER NO :(
+                    ------------------------------- -->
+                    
                     <section id="answerNo" class="blur-in d-none">
                         <p class="fs-4">
                             Aww, I understand. A true friendship needs to be mutual, and I appreciate you being honest with me. I'm sure you will find the perfect ghost for you. 🧡
@@ -54,137 +67,188 @@
                             Thank you for all you are doing for us festival ghosts. It makes us so happy! Good luck!
                         </p>
                         <p class="print-submit-appear">
-                            <a class="btn btn-lg btn-danger text-white" href="../">Bid Farewell</a>
+                            <a class="btn btn-lg btn-outline-danger text-light" href="../">Bid Farewell</a>
                         </p>
                     </section>
-                    <section id="answerYes" class="d-none blur-in">
-                        <p class="fs-2 ghost-font ghost-glow">
+                    
+                    <!-- ------------------------------
+                    STATE: PLAYER NAME
+                    ------------------------------- -->
+                    
+                    <section id="answerYes" class="d-none">
+                        <p id="yesPart1" class="fs-2 ghost-font ghost-glow blur-in d-none">
                             Whoa no way! I finally made a friend! So cool!
                         </p>
-                        <p class="fs-4 ghost-font ghost-glow">
-                            Gosh I have SO many things I want to ask you about, but first thing's first...what should I call you?
+                        <p id="yesPart2" class="fs-4 ghost-font ghost-glow bold-colors blur-in d-none">
+                            Gosh I have <b>so</b> many things I want to ask you about, but first thing's first...what should I call <b>you</b>?
                         </p>
-                        <div class="blur-in">
+                        <div id="yesPart3" class="blur-in d-none">
                             <p>
                                 <input type="text" class="form-control" placeholder="Preferred Name" aria-label="Preferred Name" id="preferredName">
                             </p>
                             <p>
-                                <button class="btn btn-outline-light border-light-subtle" type="button" id="preferredNameButton">Tell Them</button>
+                                <button class="btn btn-outline-primary text-light" type="button" id="preferredNameButton">Tell Them</button>
                             </p>
                         </div>
                     </section>
-                    <section id="preferencesSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font ghost-glow">
-                            Nice to meet you <b id="kiddoName">Kiddo</b>!
+                    
+                    <!-- ------------------------------
+                    STATE: PLAYER PAW PRINT
+                    ------------------------------- -->
+                    
+                    <section id="preferencesSection" class="blur-in d-none">
+                        <p id="pawPart1" class="fs-2 blur-in d-none ghost-font ghost-glow bold-colors">
+                            Nice to meet you <b class="kiddoName">Kiddo</b>!
                         </p>
-                        <p class="fs-5 blur-in ghost-font ghost-glow">
+                        <p id="pawPart2" class="blur-in d-none ghost-font ghost-glow lh-sm">
                             I've heard a lot of people call you that, but I just wanted to make sure.
                         </p>
-                        <p class="fs-4 blur-in ghost-font ghost-glow">
-                            So...what are YOU like, hmm? What would your, er...pawprints tell me?
+                        <p id="pawPart3" class="fs-4 blur-in d-none ghost-font ghost-glow lh-sm">
+                            So...what are YOU like, hmm? What would your, er, pawprints tell me?
                         </p>
-                        <div class="row g-2 row-cols-2 mb-3 blur-in justify-content-center">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="qual1">What draws you in?</label>
-                                    <select class="form-control required" id="qual1">
-                                        <option></option>
-                                        <option>Aid</option>
-                                        <option>Cameras</option>
-                                        <option>Laughter</option>
-                                        <option>Learning</option>
-                                        <option>Music</option>
-                                        <option>Scents</option>
-                                        <option>Shopping</option>
-                                        <option>Surprise</option>
-                                    </select>
-                                </div>
+                        <div id="pawPart4" class="blur-in d-none">
+                            <div class="input-group input-group-sm mb-2">
+                                <span class="input-group-text">What draws you in?</span>
+                                <select class="form-control" id="qual1">
+                                    <option></option>
+                                    <option>Aid</option>
+                                    <option>Cameras</option>
+                                    <option>Laughter</option>
+                                    <option>Learning</option>
+                                    <option>Music</option>
+                                    <option>Scents</option>
+                                    <option>Shopping</option>
+                                    <option>Surprise</option>
+                                </select>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="qual2">What do you enhance in others?</label>
-                                    <select class="form-control required" id="qual2">
-                                        <option></option>
-                                        <option>Clarity</option>
-                                        <option>Comfort</option>
-                                        <option>Confidence</option>
-                                        <option>Curiosity</option>
-                                        <option>Focus</option>
-                                        <option>Gratitude</option>
-                                        <option>Imagination</option>
-                                        <option>Satisfaction</option>
-                                    </select>
-                                </div>
+                            <div class="input-group input-group-sm mb-2">
+                                <span class="input-group-text">What do you give to others?</span>
+                                <select class="form-control" id="qual2">
+                                    <option></option>
+                                    <option>Clarity</option>
+                                    <option>Comfort</option>
+                                    <option>Confidence</option>
+                                    <option>Curiosity</option>
+                                    <option>Focus</option>
+                                    <option>Gratitude</option>
+                                    <option>Imagination</option>
+                                    <option>Satisfaction</option>
+                                </select>
                             </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="qual3">What kind of friend do you prefer most?</label>
-                                    <select class="form-control required" id="qual3">
-                                        <option></option>
-                                        <option>Adventurous</option>
-                                        <option>Brave</option>
-                                        <option>Creative</option>
-                                        <option>Generous</option>
-                                        <option>Humble</option>
-                                        <option>Intelligent</option>
-                                        <option>Kind</option>
-                                        <option>Loud</option>
-                                        <option>Patient</option>
-                                        <option>Practical</option>
-                                        <option>Silly</option>
-                                        <option>Spontaneous</option>
-                                    </select>
-                                </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text">What's your ideal friend like?</span>
+                                <select class="form-control" id="qual3">
+                                    <option></option>
+                                    <option>Adventurous</option>
+                                    <option>Brave</option>
+                                    <option>Creative</option>
+                                    <option>Generous</option>
+                                    <option>Humble</option>
+                                    <option>Kind</option>
+                                    <option>Patient</option>
+                                    <option>Practical</option>
+                                    <option>Silly</option>
+                                    <option>Spontaneous</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="btn btn-outline-light border-light-subtle blur-in" id="pawPrintButton">
-                            Share
+                            <p>
+                                <button class="btn btn-outline-primary text-light" id="pawPrintButton">
+                                    Share Paw Print
+                                </button>
+                            </p>
                         </div>
                     </section>
-                    <section id="socialSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font ghost-glow">
+                    
+                    <!-- ------------------------------
+                    STATE: FAV THING ABOUT FALL
+                    ------------------------------- -->
+                    
+                    <section id="themeSection" class="blur-in d-none">
+                        <p id="themePart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in">
                             Wow that's so cool! But it makes sense...you gave off those vibes for sure.
                         </p>
-                        <p class="fs-4 blur-in ghost-font ghost-glow">
-                            Last thing...can I follow you on BlueSky? Next time I possess a PC. Totally okay if you don't wanna.
+                        <p id="themePart2" class="fs-4 ghost-font ghost-glow lh-sm d-none blur-in">
+                            Hey <b class="kiddoName">Kiddo</b>? What is your favorite thing about this time of year?
                         </p>
-                        <div class="input-group blur-in mb-3">
-                            <input type="text" class="form-control" placeholder="BlueSky Username" id="bskyUser">
-                            <input type="text" class="form-control" placeholder=".bsky.social" id="bskyNetwork">
+                        <div id="themePart3" class="d-none blur-in text-center">
+                            <select class="form-control mb-3" id="themeRadio">
+                                <option></option>
+                                <option value="harvest">Harvest</option>
+                                <option value="festival">Festival Days</option>
+                                <option value="tot">Trick-or-Treat</option>
+                                <option value="festivalnight">Festival Nights</option>
+                                <option value="night">Ghosts!</option>
+                                <option value="spooky">Spooky Forest</option>
+                            </select>
+                            <p>
+                                <button class="btn btn-outline-info text-light" id="themeButton">Share Preference</button>
+                            </p>
                         </div>
-                        <p class="blur-in">
-                            <button class="btn btn-outline-light border-light-subtle" type="button" id="bskyButtonYes">Sure!</button>
-                            <button class="btn btn-outline-light border-light-subtle" type="button" id="bskyButtonNo">No Thanks</button>
-                        </p>
                     </section>
+                    
+                    <!-- ------------------------------
+                    STATE: BLUESKY FOLLOWER
+                    ------------------------------- -->
+                    
+                    <section id="socialSection" class="blur-in d-none">
+                        <p id="bskyPart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in">
+                            Wow that's so cool! But it makes sense...you gave off those vibes for sure.
+                        </p>
+                        <p id="bskyPart2" class="fs-4 ghost-font ghost-glow lh-sm d-none blur-in">
+                            Can I follow you on <b class="text-bfc-blue">BlueSky</b>? Next time I possess a PC anyway.
+                        </p>
+                        <p id="bskyPart3" class="ghost-font ghost-glow d-none blur-in">
+                            Totally okay if you don't wanna, I just want to stay in touch!
+                        </p>
+                        <div id="bskyPart4" class="d-none blur-in">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Username" id="bskyUser">
+                                <input type="text" class="form-control" placeholder=".bsky.social" id="bskyNetwork">
+                            </div>
+                            <p>
+                                <button class="btn btn-outline-primary text-light" id="bskyButtonYes">Yeah Sure!</button>
+                                <button class="btn btn-outline-danger text-light" id="bskyButtonNo">No Thanks</button>
+                            </p>
+                        </div>
+                    </section>
+                    
+                    <!-- ------------------------------
+                    STATE: GHOST NAME
+                    ------------------------------- -->
+                    
                     <section id="friendNameSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font ghost-glow">
+                        <p id="gnamePart1" class="fs-2 d-none blur-in ghost-font ghost-glow">
                             Okay! So one last thing...
                         </p>
-                        <p class="fs-4 blur-in ghost-font ghost-glow">
+                        <p id="gnamePart2" class="fs-5 d-none blur-in ghost-font ghost-glow lh-sm">
                             I can't tell you my name because...I don't have one. We don't really have names like you do. But I'd love one.
                         </p>
-                        <p class="fs-2 blur-in ghost-font ghost-glow">
+                        <p id="gnamePart3" class="fs-2 d-none blur-in ghost-font ghost-glow">
                             Can you give me a name?
                         </p>
-                        <div class="blur-in">
+                        <div id="gnamePart4" class="d-none blur-in">
                             <p>
                                 <input class="form-control" placeholder="Ghost's New Name" id="newFriendName">
                             </p>
                             <p>
-                                <button class="btn btn-outline-light" type="button" id="newFriendNameButton">Share with Them</button>
+                                <button class="btn btn-outline-info text-light" type="button" id="newFriendNameButton">Name Your New Friend</button>
                             </p>
                         </div>
                     </section>
+                    
+                    <!-- ------------------------------
+                    LAST: LINK OUT TO /PROOF
+                    ------------------------------- -->
+                    
                     <section id="finalSection" class="d-none">
-                        <p class="fs-2 blur-in ghost-font ghost-glow">
+                        <p id="finalPart1" class="fs-2 d-none blur-in ghost-font ghost-glow lh-sm">
                             <b id="newFriendNameRepeat"></b> huh? I like that! Thank you!
                         </p>
-                        <p class="fs-4 blur-in ghost-font ghost-glow">
-                            Well <b id="kiddoName2">Kiddo</b>, I have a little something for you. A token of our new friendship to remember this. And you can use it to become a member of <b>G.H.O.S.T.</b>!
+                        <p id="finalPart2" class="fs-3 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
+                            Well <b class="kiddoName">Kiddo</b>, I have a little something for you. A token of our new friendship to remember this. And you can use it to become a member of <b>G.H.O.S.T.</b>!
                         </p>
-                        <p>
-                            <a href="../proof/" class="blur-in btn btn-outline-light border-light-subtle">Receive Gift</a>
+                        <p id="finalPart3" class="d-none blur-in">
+                            <a href="../proof/" class="btn btn-outline-warning text-light btn-lg">Receive Gift</a>
                         </p>
                     </section>
                 </div>
@@ -197,22 +261,27 @@
             if(friendKey == null) window.location.href = '../';
             friend = ghostFriends.find(x => x.key == friendKey);
             if(friend == null) window.location.href = '../';
-
+            
             // force reset of all inputs
             $("input").val("");
             $("select").prop("selectedIndex", 0);
-
-            // state 1
+            
+            // ------------------------------------------------- //
+            // state --- ask to be friends                       //
+            // ------------------------------------------------- //
+            
             $("#newFriend").attr("src", `../assets/ghosts/${friend.ghost}`);
-            $("#attrText").html(friend.attrText);
-            $("#auraText").html(friend.auraText);
+            $("#flavorText").html(friend.attrText + ' ' + friend.auraText);
             $(".affi").html(friend.affi);
-
+            
             setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 500);
-            setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 5000);
-            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 10000);
-
-            // state 2
+            setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 4000);
+            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 9000);
+            
+            // ------------------------------------------------- //
+            // state --- ask for name                            //
+            // ------------------------------------------------- //
+            
             $("#friendYes").on("click", function(){
                 $("#ghostWelcome").fadeOut()
                 $("#newFriend").addClass("spin").removeClass("blur-in");
@@ -220,69 +289,97 @@
                     $("#answerYes").removeClass("d-none") 
                     $("#newFriend").removeClass("spin") 
                 }, 1500);
+                
+                setTimeout(() => { $("#yesPart1").removeClass("d-none"); }, 3000);
+                setTimeout(() => { $("#yesPart2").removeClass("d-none"); }, 5000);
+                setTimeout(() => { $("#yesPart3").removeClass("d-none"); }, 7000);
             });
+            
             $("#friendNo").on("click", function(){
                 $("#ghostWelcome").fadeOut()
-                setTimeout(() => { $("#answerNo").removeClass("d-none") }, 1000);
-                
+                setTimeout(() => { $("#answerNo").removeClass("d-none") }, 1000);                
                 localStorage.removeItem("newFriend");
                 localStorage.removeItem("ghostFriend");
                 localStorage.removeItem("attemptsLeft");
             });
             
-            // state 3
+            // ------------------------------------------------- //
+            // state --- process name, ask for player prints     //
+            // ------------------------------------------------- //
+            
             $("#preferredNameButton").on("click", function(){
                 if($("#preferredName").val() == ""){
                     $("#preferredName").addClass("border-danger");
                     return false;
                 }
-
                 $("#answerYes").fadeOut()
                 
                 var preferredName = $("#preferredName").val();
                 if(preferredName == null) preferredName = "Kiddo";
                 localStorage.setItem("preferredName", preferredName);
-                $("#kiddoName").html(preferredName);
-                $("#kiddoName2").html(preferredName);
+                $(".kiddoName").html(preferredName);
                 
-                setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);
+                setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);                
+                setTimeout(() => { $("#pawPart1").removeClass("d-none"); }, 1000);
+                setTimeout(() => { $("#pawPart2").removeClass("d-none"); }, 4000);
+                setTimeout(() => { $("#pawPart3").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#pawPart4").removeClass("d-none"); }, 10000);
             });
             
-            // state 4
+            // ------------------------------------------------- //
+            // state --- process print, ask for theme pref       //
+            // ------------------------------------------------- //
+            
             $("#pawPrintButton").on("click", function(){
                 var attr = $("#qual1").val();
                 var aura = $("#qual2").val();
-                var affi = $("#qual3").val();
-
-                if(attr == ""){
-                    $("#qual1").addClass("border-danger");
-                    return false;
+                var affi = $("#qual3").val();                
+                if(attr == "" || aura == "" || affi == ""){
+                    if(attr == "") $("#qual1").addClass("border-danger");
+                    if(aura == "") $("#qual2").addClass("border-danger");
+                    if(affi == "") $("#qual3").addClass("border-danger");
+                    return;
                 }
-                if(aura == ""){
-                    $("#qual2").addClass("border-danger");
-                    return false;
-                }
-                if(affi == ""){
-                    $("#qual3").addClass("border-danger");
-                    return false;
-                }
-
-                $("#preferencesSection").fadeOut()
-
                 localStorage.setItem("playerAttr", attr);
                 localStorage.setItem("playerAura", aura);
-                localStorage.setItem("playerAffi", affi);
+                localStorage.setItem("playerAffi", affi);                
                 
-                setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);
+                $("#preferencesSection").fadeOut()
+                setTimeout(() => { $("#themeSection").removeClass("d-none") }, 1000);
+                setTimeout(() => { $("#themePart1").removeClass("d-none"); }, 1000);
+                setTimeout(() => { $("#themePart2").removeClass("d-none"); }, 3000);
+                setTimeout(() => { $("#themePart3").removeClass("d-none"); }, 3500);
+                setTimeout(() => { $("#themePart4").removeClass("d-none"); }, 5500);
             });
             
-            // state 5 yes
+            // ------------------------------------------------- //
+            // state --- process theme, ask for bluesky          //
+            // ------------------------------------------------- //
+            
+            $("#themeButton").on("click", function(){
+                var cardTheme = $('#themeRadio').val();
+                if(cardTheme == "") return;
+                localStorage.setItem("cardTheme", cardTheme);
+                
+                $("#themeSection").fadeOut()
+                
+                setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);                
+                setTimeout(() => { $("#bskyPart1").removeClass("d-none"); }, 1000);
+                setTimeout(() => { $("#bskyPart2").removeClass("d-none"); }, 3000);
+                setTimeout(() => { $("#bskyPart3").removeClass("d-none"); }, 6000);
+                setTimeout(() => { $("#bskyPart4").removeClass("d-none"); }, 7000);
+            });
+            
+            // ------------------------------------------------- //
+            // state --- process theme, ask for ghost name     //
+            // ------------------------------------------------- //
+            
             $("#bskyButtonYes").on("click", function(){
                 if($("#bskyUser").val() == ""){
                     $("#bskyUser").addClass("border-danger");
                     return false;
                 }
-
+                
                 $("#socialSection").fadeOut()
                 
                 var bskyUser = $("#bskyUser").val();
@@ -291,34 +388,47 @@
                 localStorage.setItem("bskyUser", bskyUser);
                 localStorage.setItem("bskyNetwork", bskyNetwork);
                 storeBskyIcon(bskyUser+bskyNetwork);
-                setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
+                
+                afterBsky();
             });
             
-            // state 5 no
             $("#bskyButtonNo").on("click", function(){
                 $("#socialSection").fadeOut()
                 
                 //TODO: Let users pick a boilerplate icon
                 
-                setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
+                afterBsky();
             });
-
-            // state 6: new friend name
+            
+            function afterBsky(){
+                setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
+                setTimeout(() => { $("#gnamePart1").removeClass("d-none"); }, 1500);
+                setTimeout(() => { $("#gnamePart2").removeClass("d-none"); }, 3000);
+                setTimeout(() => { $("#gnamePart3").removeClass("d-none"); }, 6000);
+                setTimeout(() => { $("#gnamePart4").removeClass("d-none"); }, 7000);
+            }
+            
+            // ------------------------------------------------- //
+            // state --- process ghost name, link out            //
+            // ------------------------------------------------- //
+            
             $("#newFriendNameButton").on("click", function(){
                 if($("#newFriendName").val() == ""){
                     $("#newFriendName").addClass("border-danger");
                     return false;
                 }
-
                 $("#friendNameSection").fadeOut()
                 
                 var newFriendName = $("#newFriendName").val();
                 localStorage.setItem("newFriendName", newFriendName);
-                $("#newFriendNameRepeat").html(newFriendName);
-
-                setTimeout(() => { $("#finalSection").removeClass("d-none") }, 1500);
-
                 localStorage.setItem("madeFriend", true);
+                
+                $("#newFriendNameRepeat").html(newFriendName);
+                setTimeout(() => { $("#finalSection").removeClass("d-none") }, 1500);
+                
+                setTimeout(() => { $("#finalPart1").removeClass("d-none"); }, 1500);
+                setTimeout(() => { $("#finalPart2").removeClass("d-none"); }, 3000);
+                setTimeout(() => { $("#finalPart3").removeClass("d-none"); }, 5000);
             });
         })
     </script>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+THERE ARE NO INTENDED HINTS FOR THIS SCAVENGER HUNT IN CODE
+PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
+-->
 <html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
@@ -61,16 +65,12 @@
         })
 
         function updateStoredClues(newClue){
-            if(newClue == null){
-                return;
-            }
+            if(newClue == null) return;
 
-            // get clues from localstorage
             var cluesFound = localStorage.getItem("cluesFound");
             var cluesFoundArray = JSON.parse(cluesFound);
             if(cluesFound == null) cluesFoundArray = [];
 
-            // write clues back to localstorage
             if(!cluesFoundArray.find(x => x == newClue)){
                 cluesFoundArray.push(newClue);
                 var cluesFoundJson = JSON.stringify(cluesFoundArray);

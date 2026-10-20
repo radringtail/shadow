@@ -300,3 +300,17 @@ body{
 .shadow-blur{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
+
+/* coloring alternating <b>, <strong> */
+
+.bold-colors b:nth-child(3n+0){
+  color: #00c4ee;
+}
+
+.bold-colors b:nth-child(3n-1){
+  color: #16b9ac;
+}
+
+.bold-colors b:nth-child(3n-2){
+  color: #dc4583;
+}

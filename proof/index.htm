@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+THERE ARE NO INTENDED HINTS FOR THIS SCAVENGER HUNT IN CODE
+PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
+-->
 <html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
@@ -131,17 +135,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-primary-subtle scanlines">
-                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
+                    <div class="row row-cols-2 row-cols-md-3 g-3 mb-3 justify-content-center">
                         <div class="col">
                             <label for="editPlayerName">Your Name</label>
                             <input id="editPlayerName" class="form-control shadow">
                         </div>
                         <div class="col">
-                            <label for="editBskyHandle">Your BlueSky</label>
-                            <input type="text" class="form-control shadow" id="editBskyHandle" placeholder="username.bsky.social">
+                            <label for="editGhostName">Ghost Name</label>
+                            <input id="editGhostName" class="form-control shadow">
                         </div>
-                    </div>
-                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
                         <div class="col">
                             <label for="editPlayerAttr">Your Attraction</label>
                             <select class="form-control shadow" id="qual1">
@@ -179,36 +181,32 @@
                                 <option>Creative</option>
                                 <option>Generous</option>
                                 <option>Humble</option>
-                                <option>Intelligent</option>
                                 <option>Kind</option>
-                                <option>Loud</option>
                                 <option>Patient</option>
                                 <option>Practical</option>
                                 <option>Silly</option>
                                 <option>Spontaneous</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row row-cols-1 row-cols-md-3 g-3 mb-3 justify-content-center">
-                        <div class="col">
-                            <label for="editGhostName">Ghost Name</label>
-                            <input id="editGhostName" class="form-control shadow">
-                        </div>
                         <div class="col">
                             <label for="editCardTheme">Card Theme</label>
                             <select class="form-control shadow" id="editCardTheme">
                                 <option value="harvest">Harvest</option>
-                                <option value="festival">Fall Festival</option>
+                                <option value="festival">Festival Days</option>
                                 <option value="tot">Trick-or-Treat</option>
-                                <option value="festivalnight">Festival Night</option>
-                                <option value="night">Ghost Market</option>
+                                <option value="festivalnight">Festival Nights</option>
+                                <option value="night">Ghosts!</option>
                                 <option value="spooky">Spooky Forest</option>
                             </select>
                         </div>
                     </div>
-                    <p class="text-center">
-                        <button id="editCardButton" class="btn btn-lg btn-primary shadow">Edit Card</button>
-                    </p>
+                    <div class="mb-4">
+                        <label for="editBskyHandle">Your BlueSky</label>
+                        <input type="text" class="form-control shadow" id="editBskyHandle" placeholder="username.bsky.social">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="editCardButton" class="btn btn-lg btn-primary shadow">Edit Card</button>
                 </div>
             </div>
         </div>
@@ -293,8 +291,7 @@
         $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
         
         $("#playerName").html(playerName);
-        $("#ghostName").html(ghostName);
-        
+        $("#ghostName").html(ghostName);        
         $("#playerAttr").html(playerAttr);
         $("#playerAura").html(playerAura);
         $("#playerAffi").html(playerAffi);
@@ -303,8 +300,7 @@
         $("#ghostAffi").html(ghostAffi);
         
         $("#editPlayerName").val(playerName);
-        $("#editBskyUser").val(playerBsky);
-        $("#editBskyNetwork").val(playerBsky);
+        $("#editBskyHandle").val(playerBsky);
         $("#qual1").val(playerAttr);
         $("#qual2").val(playerAura);
         $("#qual3").val(playerAffi);
@@ -335,6 +331,9 @@
             if(editedPlayerAttr != "") localStorage.setItem("playerAttr", editedPlayerAttr);
             if(editedPlayerAura != "") localStorage.setItem("playerAura", editedPlayerAura);
             if(editedPlayerAffi != "") localStorage.setItem("playerAffi", editedPlayerAffi);
+            if(editBskyHandle != "" && editBskyHandle.indexOf(".") < 0){
+                editBskyHandle = editBskyHandle+'.bsky.social';
+            }
             localStorage.setItem("bskyHandle", editBskyHandle);
             localStorage.setItem("cardTheme", editCardTheme);
             storeBskyIcon(editBskyHandle);
@@ -380,7 +379,8 @@ Authenticity Code: ${cardVarsString}`;
             
             const cardVars = { playerId, playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme };
             const cardVarsString = JSON.stringify(cardVars);
-            const code = btoa(cardVarsString);
+            const code = btoa(cardVarsString); //ghost code
+            
             const postContainer = { code };
             const postData = JSON.stringify(postContainer);
             
