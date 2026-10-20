@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+THERE ARE NO INTENDED HINTS FOR THIS SCAVENGER HUNT IN CODE
+PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
+-->
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Apply &bull; G.H.O.S.T.">   
+    <meta property="og:url" content="https://ghost.babyfurcon.com/bond/">
+    <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
+    <meta property="og:type" content="website">
+    
+    <title>Apply &bull; G.H.O.S.T.</title>    
+    <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/style.css" rel="stylesheet">
+    <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <script src="../assets/packages/jquery.min.js"></script>
+    <script src="../assets/packages/bootstrap.bundle.min.js"></script>
+    <script src="../assets/common.js"></script>
+    <script src="../assets/prints.js"></script>
+</head>
+<body class="scanlines theme-purple">
+    <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
+    
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid ghost-font ghost-glow">
+                    <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
+                        G.H.O.S.T.
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <small>Navigation</small>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                        <ul class="navbar-nav" id="main-nav-list">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../notes/" class="nav-link">Field Notes</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-guide">
+                                <a href="../guide/" class="nav-link">Guide</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-cards">
+                                <a href="../cards/" class="nav-link">Postcards</a>
+                            </li>
+                            <li class="nav-item d-none" id="friendship">
+                                <a href="../proof/" class="nav-link">Friendship Card</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="ghostsGuide" class="py-4 py-sm-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-sm-7 mx-auto mb-5">
+                    <h2 class="display-2 ghost-font ghost-glow">Apply to G.H.O.S.T.</h2>
+                    <hr class="border border-2 opacity-100 border-primary-subtle">
+                    <p class="fs-4 lh-sm">
+                        Congratulations on being a new friend for a wayward soul! In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
+                    </p>
+                    <p>
+                        We have generated a unique code below that describes your personal journey. In order to apply, you must <b class="ghost-glow">send your badge number to G.H.O.S.T.</b> to authenicate your application.
+                    </p>
+                    <hr class="border border-2 opacity-100 border-primary-subtle my-4">
+                    <div class="row mb-4">
+                        <div class="col-sm-10 mx-auto">
+                            <label for="playerId" class="fw-bold fs-4">G.H.O.S.T. Application</label>
+                            <textarea id="ghostApp" class="form-control" rows="14" disabled></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-sm-6 mx-auto">
+                            <img src="../assets/images/badge-num.png" class="img-fluid img-thumbnail bg-dark-subtle rounded-4 mb-3 shadow">
+                            <label for="playerId" class="fw-bold fs-4">BFC Badge Number</label>
+                            <input type="number" id="playerId" class="form-control" placeholder="Badge Number">
+                        </div>
+                    </div>
+                    <p>
+                        <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+<script>
+    $(function(){
+        var cardReceived = localStorage.getItem("cardReceived");
+        var friendKey = localStorage.getItem("newFriend");
+        if(friendKey == null || cardReceived == null) window.location.href = '../';
+        friend = ghostFriends.find(x => x.key == friendKey);
+        if(friend == null) window.location.href = '../';
+        
+        // pull all available data
+        var playerName = localStorage.getItem("preferredName");
+        var playerIcon = localStorage.getItem("avatarUrl");
+        var playerBsky = localStorage.getItem("bskyHandle");
+        var playerAttr = localStorage.getItem("playerAttr");
+        var playerAura = localStorage.getItem("playerAura");
+        var playerAffi = localStorage.getItem("playerAffi");
+        var cardTheme = localStorage.getItem("cardTheme");
+        var ghostName = localStorage.getItem("newFriendName");
+        var ghostIcon = friend.ghost;
+        var ghostAttr = friend.attr;
+        var ghostAura = friend.aura;
+        var ghostAffi = friend.affi;
+        var ghostPrint = friend.print;        
+        var cluesFound = localStorage.getItem("cluesFound");
+        var cluesFoundArray = JSON.parse(cluesFound);
+        if(cluesFound == null) cluesFoundArray = [];
+        cluesFoundCount = cluesFoundArray.length;
+        
+        var appBody = `G.H.O.S.T. Application
+
+This hereby certifies that I, "${playerName}":
+- Collected at least 8 Festival Stamps
+- Located ${cluesFoundArray.length} festival ghosts for clues
+- Solved the riddle of the Postcards ghost
+- Correctly identified a mystery ghost print
+- Made a genuine friendship with "${ghostName}", a newly-named festival ghost.
+
+I am formally requesting to apply to G.H.O.S.T., using this encounter as proof of successful ghost research, contact and friendship.`;
+        
+        $('#ghostApp').html(appBody);
+        
+        $("#applyButton").on("click", function(){
+            var playerId = $('#playerId').val();
+            console.log(playerId);
+            
+            if(playerId == null || playerId == ""){
+                $('#playerId').addClass("border-danger");
+                return;
+            }
+            
+            const cardVars = { playerId, playerName, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme, cluesFoundCount };
+            const cardVarsString = JSON.stringify(cardVars);
+            const code = btoa(cardVarsString); //ghost code
+            
+            const postContainer = { code };
+            const postData = JSON.stringify(postContainer);
+            
+            try{
+                const ghostPost = fetch(applyEndpoint,
+                {
+                    redirect: "follow",
+                    method: "POST",
+                    body: postData,
+                    headers: { "Content-Type": "text/plain;charset=utf-8" }
+                })
+                .then((response) => { 
+                    window.location.href = '../ceremony/';
+                });
+            } catch(err) {
+                console.log(err.message);
+            }
+        });
+    })
+</script>
+</body>
+</html>

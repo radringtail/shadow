@@ -25,10 +25,45 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
     <script src="../assets/prints.js"></script>
 </head>
 <body class="scanlines bg-primary-subtle">
+    <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
+    
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 d-none mb-3">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid ghost-font ghost-glow">
+                    <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
+                        G.H.O.S.T.
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <small>Navigation</small>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                        <ul class="navbar-nav" id="main-nav-list">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../notes/" class="nav-link">Field Notes</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-guide">
+                                <a href="../guide/" class="nav-link">Guide</a>
+                            </li>
+                            <li class="nav-item d-none" id="secret-cards">
+                                <a href="../cards/" class="nav-link">Postcards</a>
+                            </li>
+                            <li class="nav-item d-none" id="friendship">
+                                <a href="../proof/" class="nav-link">Friendship Card</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
     <div class="container py-3 text-center">
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-6 col-xxl-4 mx-auto">
-                <div class="card rounded-4 mb-4" id="friendshipCert">
+                <div class="card rounded-4 mb-4" id="cardFront">
                     <div class="card-header bg-transparent bg-blur-dark border-bottom-2 shadow-blur">
                         G.H.O.S.T. Friendship Card
                     </div>
@@ -105,18 +140,15 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 </div>
             </div>
         </div>
-        <p>
-            <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</button>
-            <button id="sendDataButton" class="btn btn-sm m-1 btn-danger bg-danger-subtle">Apply to G.H.O.S.T.</button>
-        </p>
-        <div class="row">
+        <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</button>
+        <div class="row" id="ghostGoodbye">
             <div class="col-md-5 mx-auto">
                 <div id="gutter" class="px-3">
-                    <section id="ghostGoodbye" class="ghost-font ghost-glow blur-in d-none">
+                    <section class="ghost-font ghost-glow blur-in d-none">
                         <p class="fs-4">
                             Here you go, an official G.H.O.S.T. Friendship Card!
                         </p>
-                        <p class="">
+                        <p>
                             You can use this to apply! I'm sure they'll let you in when they see how much time, effort, and care you put into this journey. And what a cool friend you are.
                         </p>
                         <p class="fs-5">
@@ -126,6 +158,9 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 </div>
             </div>
         </div>
+        <p class="text-center mt-3">
+            <a href="../apply/" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</a>
+        </p>
     </div>
     <div id="editCardModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -211,38 +246,6 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
             </div>
         </div>
     </div>
-    <div id="sendDataModal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header bg-dark-subtle">
-                    <div class="modal-title fs-4 ghost-font ghost-glow fw-bold">Apply to G.H.O.S.T.</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="fs-5">
-                        Congratulations on being a new friend for a wayward soul!
-                    </p>
-                    <p class="fs-5">
-                        In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
-                    </p>
-                    <p>
-                        We have generated a unique code below that describes your personal journey. In order to apply, you must <b class="ghost-glow">send the code to G.H.O.S.T.</b> to authenicate your application.
-                    </p>
-                    <div class="input-group shadow mb-3">
-                        <span class="input-group-text bg-black">G.H.O.S.T. Code</span>
-                        <input class="form-control" id="authCodeContainer" disabled>
-                        <button id="authCodeButton" class="btn btn-warning">Copy Code</button>
-                    </div>
-                    <p>
-                        <input type="number" id="playerId" class="form-control" placeholder="Badge Number">
-                    </p>
-                </div>
-                <p class="text-center">
-                    <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</button>
-                </p>
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>
@@ -252,12 +255,12 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
         friend = ghostFriends.find(x => x.key == friendKey);
         if(friend == null) window.location.href = '../';
         
-        if(localStorage.getItem("cardReceived") == undefined){
+        if(localStorage.getItem("cardReceived") == null){
             localStorage.setItem("cardReceived", true);
             $("#ghostGoodbye").removeClass("d-none");
         }
+        else $("header").removeClass("d-none");
         
-        // pull all available data
         var playerName = localStorage.getItem("preferredName");
         var playerIcon = localStorage.getItem("avatarUrl");
         var playerBsky = localStorage.getItem("bskyHandle");
@@ -265,31 +268,21 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
         var playerAura = localStorage.getItem("playerAura");
         var playerAffi = localStorage.getItem("playerAffi");
         var cardTheme = localStorage.getItem("cardTheme");
-        
         var ghostName = localStorage.getItem("newFriendName");
         var ghostIcon = friend.ghost;
         var ghostAttr = friend.attr;
         var ghostAura = friend.aura;
         var ghostAffi = friend.affi;
         var ghostPrint = friend.print;
-        
-        var cluesFound = localStorage.getItem("cluesFound");
-        var cluesFoundArray = JSON.parse(cluesFound);
-        if(cluesFound == null) cluesFoundArray = [];
-        
-        if(playerIcon == null || playerIcon == undefined) playerIcon = 'https://cdn.bsky.app/img/avatar/plain/did:plc:56xcru5bk2bsvsgufem7bah5/bafkreidwuvaogsgwpmanxpaoofavdhulczq5gmpooptvjj6ugyodumbk44';
-        if(ghostName == null || ghostName == undefined) ghostName = 'Gamma';
-        
-        if(cardTheme != null && cardTheme != undefined){
-            $("#friendshipCert").addClass(`bg-${cardTheme}`);
+              
+        if(playerIcon == null) playerIcon = '../assets/ghosts/ghost1.png';
+        if(ghostName == null || ghostName == undefined) ghostName = 'Ghost';
+        if(cardTheme == null || cardTheme == undefined){
+            cardTheme = 'tot';
         }
-        else{
-            $("#friendshipCert").addClass(`bg-tot`);
-        }
-        
+        $("#cardFront").addClass(`bg-${cardTheme}`);        
         $("#playerIcon").attr("src", playerIcon);
-        $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
-        
+        $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);        
         $("#playerName").html(playerName);
         $("#ghostName").html(ghostName);        
         $("#playerAttr").html(playerAttr);
@@ -310,11 +303,6 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
         $("#editCard").on("click", function(){
             const editCardModal = new bootstrap.Modal("#editCardModal");
             editCardModal.show();
-        });sendDataModal
-        
-        $("#sendDataButton").on("click", function(){
-            const sendDataModal = new bootstrap.Modal("#sendDataModal");
-            sendDataModal.show();
         });
         
         $("#editCardButton").on("click", function(){
@@ -336,68 +324,11 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
             }
             localStorage.setItem("bskyHandle", editBskyHandle);
             localStorage.setItem("cardTheme", editCardTheme);
-            storeBskyIcon(editBskyHandle);
+            storeBskyData(editBskyHandle);
             
             setTimeout(() => {
                 window.location.reload();
             }, 500);
-        });
-        
-        const cardVars = { playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme };
-        const cardVarsString = btoa(JSON.stringify(cardVars));
-        $("#authCodeContainer").val(cardVarsString);
-        
-        const emailTo = 'ghost@babyfurcon.com';
-        const emailSubject = `New Friendship | ${playerName} and ${ghostName}`;
-        var emailBody = 
-`New Friendship Report
-
-This email hereby certifies that I, "${playerName}":
-- Collected at least 8 Peek-a-BOO! Festival stamps
-- Personally located ${cluesFoundArray.length} festival ghosts for clues
-- Solved the riddle of the paper ghost
-- Correctly identified a mystery ghost print
-- Made a genuine friendship with "${ghostName}", a newly-named festival ghost.
-
-I am formally requesting to apply to G.H.O.S.T., using this encounter as proof of successful ghost research, contact and friendship.
-
-Authenticity Code: ${cardVarsString}`;
-        
-        $("#authCodeButton").on("click", function(){
-            navigator.clipboard.writeText(cardVarsString);
-            $(this).html("Code Copied!");
-        })
-        
-        $("#applyButton").on("click", function(){
-            var playerId = $('#playerId').val();
-            console.log(playerId);
-            
-            if(playerId == null || playerId == ""){
-                $('#playerId').addClass("border-danger");
-                return;
-            }
-            
-            const cardVars = { playerId, playerName, playerIcon, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme };
-            const cardVarsString = JSON.stringify(cardVars);
-            const code = btoa(cardVarsString); //ghost code
-            
-            const postContainer = { code };
-            const postData = JSON.stringify(postContainer);
-            
-            try{
-                const ghostPost = fetch(applyEndpoint,
-                {
-                    redirect: "follow",
-                    method: "POST",
-                    body: postData,
-                    headers: { "Content-Type": "text/plain;charset=utf-8" }
-                })
-                .then((response) => { 
-                    window.location.href = '../ceremony/';
-                });
-            } catch(err) {
-                console.log(err.message);
-            }
         });
     })
 </script>

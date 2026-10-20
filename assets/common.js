@@ -19,7 +19,7 @@ function randomVal(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function storeBskyIcon(handle){
+function storeBskyData(handle){
     const url = `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${handle}`;
     var bskyData = window.fetch(url)
     .then((response) => {

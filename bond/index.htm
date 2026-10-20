@@ -385,10 +385,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 var bskyUser = $("#bskyUser").val();
                 var bskyNetwork = $("#bskyNetwork").val();
                 if(bskyUser != "" && bskyNetwork == "") bskyNetwork = '.bsky.social';
-                localStorage.setItem("bskyUser", bskyUser);
-                localStorage.setItem("bskyNetwork", bskyNetwork);
-                storeBskyIcon(bskyUser+bskyNetwork);
-                
+                storeBskyData(bskyUser+bskyNetwork);                
                 afterBsky();
             });
             
