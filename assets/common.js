@@ -13,6 +13,10 @@ $(function(){
     if(localStorage.getItem("madeFriend")){
         $("#friendship").removeClass("d-none");
     }
+
+    if(localStorage.getItem("appliedToGHOST")){
+        $("#ceremony").removeClass("d-none");
+    }
 })
 
 function randomVal(min, max){

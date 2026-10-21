@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--
-THERE ARE NO INTENDED HINTS FOR THIS SCAVENGER HUNT IN CODE
-PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
+THERE ARE NO INTENDED HINTS IN CODE
+PLEASE PARTICIPATE WITHOUT CHEATING
+AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
 <head>
@@ -52,6 +53,9 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                             </li>
                             <li class="nav-item d-none" id="friendship">
                                 <a href="../proof/" class="nav-link">Friendship Card</a>
+                            </li>
+                            <li class="nav-item d-none" id="ceremony">
+                                <a href="../ceremony/" class="nav-link">Ceremony</a>
                             </li>
                         </ul>
                     </div>
@@ -189,8 +193,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
             var friendKey = localStorage.getItem("newFriend");
             if(friendKey == null) window.location.href = '../';
             var playerName = localStorage.getItem("preferredName");
-            if(playerName == null) window.location.href = '../';
-            
+            if(playerName == null) window.location.href = '../';            
             $("#playerName").html(playerName);
         })
     </script>
