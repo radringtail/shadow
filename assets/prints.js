@@ -85,7 +85,7 @@ ghostFriends = [
         "aura": "Curiosity",
         "affi": "Kind",
         "attrText": "I was touched anytime I saw someone coming to the <b>Aid</b> of another.",
-        "auraText": "My presence helped them be <b>curios</b> about one another's needs."
+        "auraText": "My presence helped them be <b>curious</b> about one another's needs."
     },
     {
         "key": "9",
@@ -96,7 +96,7 @@ ghostFriends = [
         "aura": "Curiosity",
         "affi": "Silly",
         "attrText": "I was touched anytime I saw someone coming to the <b>Aid</b> of another.",
-        "auraText": "My presence helped them be <b>curios</b> about one another's needs."
+        "auraText": "My presence helped them be <b>curious</b> about one another's needs."
     },
     {
         "key": "10",

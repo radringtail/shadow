@@ -27,7 +27,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
 <body class="scanlines bg-primary-subtle">
     <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
     
-    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 d-none mb-3">
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 mb-3">
         <div class="container">
             <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid ghost-font ghost-glow">
@@ -141,23 +141,6 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
             </div>
         </div>
         <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</button>
-        <div class="row" id="ghostGoodbye">
-            <div class="col-md-5 mx-auto">
-                <div id="gutter" class="px-3">
-                    <section class="ghost-font ghost-glow blur-in d-none">
-                        <p class="fs-4">
-                            Here you go, an official G.H.O.S.T. Friendship Card!
-                        </p>
-                        <p>
-                            You can use this to apply! I'm sure they'll let you in when they see how much time, effort, and care you put into this journey. And what a cool friend you are.
-                        </p>
-                        <p class="fs-5">
-                            I'm gonna go tell everyone! Hope to see you at a Ceremony later! Bye!!
-                        </p>
-                    </section>
-                </div>
-            </div>
-        </div>
         <p class="text-center mt-3">
             <a href="../apply/" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</a>
         </p>
@@ -226,12 +209,12 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                         <div class="col">
                             <label for="editCardTheme">Card Theme</label>
                             <select class="form-control shadow" id="editCardTheme">
-                                <option value="harvest">Harvest</option>
+                                <option value="harvest">Fall Weather</option>
                                 <option value="festival">Festival Days</option>
                                 <option value="tot">Trick-or-Treat</option>
-                                <option value="festivalnight">Festival Nights</option>
+                                <option value="festivalnight">Party Nights</option>
                                 <option value="night">Ghosts!</option>
-                                <option value="spooky">Spooky Forest</option>
+                                <option value="spooky">Spookiness</option>
                             </select>
                         </div>
                     </div>
@@ -254,12 +237,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
         if(friendKey == null) window.location.href = '../';
         friend = ghostFriends.find(x => x.key == friendKey);
         if(friend == null) window.location.href = '../';
-        
-        if(localStorage.getItem("cardReceived") == null){
-            localStorage.setItem("cardReceived", true);
-            $("#ghostGoodbye").removeClass("d-none");
-        }
-        else $("header").removeClass("d-none");
+        localStorage.setItem("cardReceived", true);
         
         var playerName = localStorage.getItem("preferredName");
         var playerIcon = localStorage.getItem("avatarUrl");

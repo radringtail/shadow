@@ -122,7 +122,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                                 </select>
                             </div>
                             <div class="input-group input-group-sm mb-2">
-                                <span class="input-group-text">What do you give to others?</span>
+                                <span class="input-group-text">What do you boost in others?</span>
                                 <select class="form-control" id="qual2">
                                     <option></option>
                                     <option>Clarity</option>
@@ -167,18 +167,18 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                         <p id="themePart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in">
                             Wow that's so cool! But it makes sense...you gave off those vibes for sure.
                         </p>
-                        <p id="themePart2" class="fs-4 ghost-font ghost-glow lh-sm d-none blur-in">
+                        <p id="themePart2" class="fs-4 ghost-font ghost-glow lh-sm d-none blur-in bold-colors">
                             Hey <b class="kiddoName">Kiddo</b>? What is your favorite thing about this time of year?
                         </p>
                         <div id="themePart3" class="d-none blur-in text-center">
                             <select class="form-control mb-3" id="themeRadio">
                                 <option></option>
-                                <option value="harvest">Harvest</option>
+                                <option value="harvest">Fall Weather</option>
                                 <option value="festival">Festival Days</option>
                                 <option value="tot">Trick-or-Treat</option>
-                                <option value="festivalnight">Festival Nights</option>
+                                <option value="festivalnight">Party Nights</option>
                                 <option value="night">Ghosts!</option>
-                                <option value="spooky">Spooky Forest</option>
+                                <option value="spooky">Spookiness</option>
                             </select>
                             <p>
                                 <button class="btn btn-outline-info text-light" id="themeButton">Share Preference</button>
@@ -191,8 +191,8 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                     ------------------------------- -->
                     
                     <section id="socialSection" class="blur-in d-none">
-                        <p id="bskyPart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in">
-                            Wow that's so cool! But it makes sense...you gave off those vibes for sure.
+                        <p id="bskyPart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in bold-colors">
+                            Good choice! Mine of course is wherever there's <b id="ghostAttr1"></b>.
                         </p>
                         <p id="bskyPart2" class="fs-4 ghost-font ghost-glow lh-sm d-none blur-in">
                             Can I follow you on <b class="text-bfc-blue">BlueSky</b>? Next time I possess a PC anyway.
@@ -245,9 +245,15 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                             <b id="newFriendNameRepeat"></b> huh? I like that! Thank you!
                         </p>
                         <p id="finalPart2" class="fs-3 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
-                            Well <b class="kiddoName">Kiddo</b>, I have a little something for you. A token of our new friendship to remember this. And you can use it to become a member of <b>G.H.O.S.T.</b>!
+                            Well <b class="kiddoName">Kiddo</b>, I have something for you: a friendship card!
                         </p>
-                        <p id="finalPart3" class="d-none blur-in">
+                        <p id="finalPart3" class="fs-5 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
+                            You can use this to apply to G.H.O.S.T.! I'm sure they'll let you in when they see how much time, effort, and care you put into this journey. And what a cool friend you are!
+                        </p>
+                        <p id="finalPart4" class="fs-4 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
+                            I'm gonna go tell everyone! Hope to see you later! Bye!!
+                        </p>
+                        <p id="finalPart5" class="d-none blur-in">
                             <a href="../proof/" class="btn btn-outline-warning text-light btn-lg">Receive Gift</a>
                         </p>
                     </section>
@@ -290,9 +296,9 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                     $("#newFriend").removeClass("spin") 
                 }, 1500);
                 
-                setTimeout(() => { $("#yesPart1").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#yesPart2").removeClass("d-none"); }, 5000);
-                setTimeout(() => { $("#yesPart3").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#yesPart1").removeClass("d-none"); }, 1500);
+                setTimeout(() => { $("#yesPart2").removeClass("d-none"); }, 4500);
+                setTimeout(() => { $("#yesPart3").removeClass("d-none"); }, 8000);
             });
             
             $("#friendNo").on("click", function(){
@@ -321,7 +327,7 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 
                 setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);                
                 setTimeout(() => { $("#pawPart1").removeClass("d-none"); }, 1000);
-                setTimeout(() => { $("#pawPart2").removeClass("d-none"); }, 4000);
+                setTimeout(() => { $("#pawPart2").removeClass("d-none"); }, 3000);
                 setTimeout(() => { $("#pawPart3").removeClass("d-none"); }, 7000);
                 setTimeout(() => { $("#pawPart4").removeClass("d-none"); }, 10000);
             });
@@ -347,9 +353,9 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 $("#preferencesSection").fadeOut()
                 setTimeout(() => { $("#themeSection").removeClass("d-none") }, 1000);
                 setTimeout(() => { $("#themePart1").removeClass("d-none"); }, 1000);
-                setTimeout(() => { $("#themePart2").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#themePart3").removeClass("d-none"); }, 3500);
-                setTimeout(() => { $("#themePart4").removeClass("d-none"); }, 5500);
+                setTimeout(() => { $("#themePart2").removeClass("d-none"); }, 4000);
+                setTimeout(() => { $("#themePart3").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#themePart4").removeClass("d-none"); }, 7000);
             });
             
             // ------------------------------------------------- //
@@ -362,12 +368,12 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 localStorage.setItem("cardTheme", cardTheme);
                 
                 $("#themeSection").fadeOut()
-                
+                $('#ghostAttr1').html(friend.attr);
                 setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);                
                 setTimeout(() => { $("#bskyPart1").removeClass("d-none"); }, 1000);
-                setTimeout(() => { $("#bskyPart2").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#bskyPart3").removeClass("d-none"); }, 6000);
-                setTimeout(() => { $("#bskyPart4").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#bskyPart2").removeClass("d-none"); }, 4000);
+                setTimeout(() => { $("#bskyPart3").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#bskyPart4").removeClass("d-none"); }, 10000);
             });
             
             // ------------------------------------------------- //
@@ -401,8 +407,8 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
                 setTimeout(() => { $("#gnamePart1").removeClass("d-none"); }, 1500);
                 setTimeout(() => { $("#gnamePart2").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#gnamePart3").removeClass("d-none"); }, 6000);
-                setTimeout(() => { $("#gnamePart4").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#gnamePart3").removeClass("d-none"); }, 9000);
+                setTimeout(() => { $("#gnamePart4").removeClass("d-none"); }, 11000);
             }
             
             // ------------------------------------------------- //
@@ -421,11 +427,17 @@ PLEASE PARTICIPATE AS IF YOU HAVE NO ACCESS TO CODE, THANKS
                 localStorage.setItem("madeFriend", true);
                 
                 $("#newFriendNameRepeat").html(newFriendName);
-                setTimeout(() => { $("#finalSection").removeClass("d-none") }, 1500);
-                
-                setTimeout(() => { $("#finalPart1").removeClass("d-none"); }, 1500);
-                setTimeout(() => { $("#finalPart2").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#finalPart3").removeClass("d-none"); }, 5000);
+
+                $("#newFriend").addClass("bounce");
+                setTimeout(() => { 
+                    $("#newFriend").removeClass("bounce");
+                    $("#finalSection").removeClass("d-none");
+                    $("#finalPart1").removeClass("d-none");
+                }, 1500);
+                setTimeout(() => { $("#finalPart2").removeClass("d-none"); }, 4000);
+                setTimeout(() => { $("#finalPart3").removeClass("d-none"); }, 7000);
+                setTimeout(() => { $("#finalPart4").removeClass("d-none"); }, 15000);
+                setTimeout(() => { $("#finalPart5").removeClass("d-none"); }, 17000);
             });
         })
     </script>
