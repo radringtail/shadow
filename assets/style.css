@@ -129,12 +129,12 @@ body{
 }
 
 .booped{
-  animation: booped 0.333s forwards;
+  animation: booped 0.25s forwards;
 }
 
 @keyframes booped {  
   0% { transform: scale(1); }  
-  50% { transform: scale(1.05); }  
+  50% { transform: scale(1.025); }  
   100% { transform: scale(1); }  
 }
 
