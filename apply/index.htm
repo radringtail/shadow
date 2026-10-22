@@ -98,8 +98,8 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     </div>
                     <p>
                         <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">
-                            <span class="spinner-grow spinner-grow-sm ghost-glow d-none" aria-hidden="true" id="throbber"></span>
-                            Submit Application
+                            <span class="spinner-grow spinner-grow-sm ghost-glow d-none me-2" aria-hidden="true" id="throbber"></span>
+                            <span id="applyButtonText">Submit Application</span>
                         </button>
                     </p>
                 </div>
@@ -146,12 +146,14 @@ I am formally requesting to apply to G.H.O.S.T., using this encounter as proof o
             
             $("#applyButton").on("click", function(){
                 var playerId = $('#playerId').val();
-                if(playerId == null || playerId == ""){
-                    $('#playerId').addClass("border-danger");
+                if(playerId == null || playerId == "" || playerId < 1 || playerId > 5000){
+                    $('#playerId').addClass("border-danger").focus();
+                    document.getElementById('playerId').scrollIntoView({ 'block':"center" });
                     return;
                 }
 
                 $(this).attr("disabled", "disabled");
+                $('#applyButtonText').text("Submitting...")
                 $("#throbber").removeClass("d-none");
                 
                 const cardVars = { playerId, playerName, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme, cluesFoundCount };
