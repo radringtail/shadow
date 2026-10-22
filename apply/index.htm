@@ -63,25 +63,22 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </nav>
         </div>
     </header>
-    <div id="ghostsGuide" class="py-4 py-sm-5">
+    <div id="ghostsGuide" class="py-4 py-sm-5 mb-5">
         <div class="container text-center">
             <div class="row">
-                <div class="col-lg-10 mx-auto text-center">
+                <div class="col-lg-10 mx-auto text-center px-4">
                     <h2 class="display-2 ghost-font ghost-glow">Apply to G.H.O.S.T.</h2>
                     <hr class="border border-2 opacity-100 border-primary-subtle mb-4">
-                    <p class="fs-4 mb-4">
-                        Congratulations on being a new friend for a wayward soul! In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
+                    <p class="fs-4 mb-4 lh-sm">
+                        Thank you for being a new friend for a wayward soul! In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
                     </p>
-                    <p class="fs-5">
-                        We have generated a message that describes your personal journey. In order to apply, you must also <b class="ghost-glow">send your badge number to G.H.O.S.T.</b> to authenicate your application.
+                    <p class="fs-5 lh-sm">
+                        In order to apply, you must also <b class="ghost-glow">send your badge number to G.H.O.S.T.</b> to authenicate your application.
+                    </p>
+                    <p class="lh-1" style="font-size: 0.75em;">
+                        All personally-identifiable information will be wiped within 30 days of the convention, as per G.H.O.S.T. data retention policies. None of this information will be provided publicly without your express consent.
                     </p>
                     <hr class="border border-2 opacity-100 border-primary-subtle my-4">
-                    <div class="row mb-4">
-                        <div class="col-sm-10 mx-auto">
-                            <label for="playerId" class="fw-bold fs-4">G.H.O.S.T. Application</label>
-                            <textarea id="ghostApp" class="form-control" rows="14" disabled></textarea>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-sm-6 mx-auto">
                             <img src="../assets/images/badge-num.png" class="img-thumbnail bg-dark-subtle rounded-4 mb-3 shadow">
@@ -93,13 +90,22 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             <input type="number" id="playerId" class="form-control" placeholder="Badge Number">
                         </div>
                     </div>
+                    <div class="row mb-4">
+                        <div class="col-sm-10 mx-auto">
+                            <label for="playerId" class="fw-bold fs-4">G.H.O.S.T. Application</label>
+                            <textarea id="ghostApp" class="form-control" rows="15" disabled></textarea>
+                        </div>
+                    </div>
                     <p>
-                        <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</button>
+                        <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">
+                            <span class="spinner-grow spinner-grow-sm ghost-glow d-none" aria-hidden="true" id="throbber"></span>
+                            Submit Application
+                        </button>
                     </p>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <script>
         $(function(){
             var cardReceived = localStorage.getItem("cardReceived");
@@ -128,9 +134,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             if(cluesFound == null) cluesFoundArray = [];
             cluesFoundCount = cluesFoundArray.length;
             
-            var appBody = `G.H.O.S.T. Application
-
-This hereby certifies that I, "${playerName}":
+            var appBody = `I hereby certify that I, "${playerName}":
 - Collected at least 8 Festival Stamps
 - Located ${cluesFoundCount} festival ghosts for clues
 - Solved the riddle of the Postcards ghost
@@ -146,6 +150,9 @@ I am formally requesting to apply to G.H.O.S.T., using this encounter as proof o
                     $('#playerId').addClass("border-danger");
                     return;
                 }
+
+                $(this).attr("disabled", "disabled");
+                $("#throbber").removeClass("d-none");
                 
                 const cardVars = { playerId, playerName, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme, cluesFoundCount };
                 const cardVarsString = JSON.stringify(cardVars);

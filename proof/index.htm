@@ -28,7 +28,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 <body class="scanlines bg-primary-subtle">
     <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
     
-    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 mb-3">
+    <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 mb-3 d-none">
         <div class="container">
             <nav class="navbar navbar-expand-sm">
                 <div class="container-fluid ghost-font ghost-glow">
@@ -67,7 +67,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <div class="container py-3 text-center">
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-6 col-xxl-4 mx-auto">
-                <div class="card rounded-4 mb-4" id="cardFront">
+                <div class="card rounded-4 mb-1 d-none blur-in" id="cardFront">
                     <div class="card-header bg-transparent bg-blur-dark border-bottom-2 shadow-blur">
                         G.H.O.S.T. Friendship Card
                     </div>
@@ -144,10 +144,10 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 </div>
             </div>
         </div>
-        <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-light">Edit Card</button>
-        <p class="text-center mt-3">
+        <p id="applyButton" class="text-center mt-3 d-none blur-in">
             <a href="../apply/" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</a>
         </p>
+        <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-info d-none blur-in">Edit Card</button>
     </div>
     <div id="editCardModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -272,8 +272,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         $("#playerAffi").html(playerAffi);
         $("#ghostAttr").html(ghostAttr);
         $("#ghostAura").html(ghostAura);
-        $("#ghostAffi").html(ghostAffi);
-        
+        $("#ghostAffi").html(ghostAffi);        
         $("#editPlayerName").val(playerName);
         $("#editBskyHandle").val(playerBsky);
         $("#qual1").val(playerAttr);
@@ -281,7 +280,16 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         $("#qual3").val(playerAffi);
         $("#editGhostName").val(ghostName);
         $("#editCardTheme").val(cardTheme);
-        
+
+        if(localStorage.getItem("appliedToGHOST") != null){
+            $("header").removeClass("d-none");
+        }
+        else{
+            setTimeout(() => { $("#applyButton").removeClass("d-none"); }, 2000);
+        }
+        $("#cardFront").removeClass("d-none");
+        setTimeout(() => { $("#editCard").removeClass("d-none"); }, 2500);
+
         $("#editCard").on("click", function(){
             const editCardModal = new bootstrap.Modal("#editCardModal");
             editCardModal.show();
