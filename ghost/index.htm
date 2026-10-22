@@ -31,7 +31,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             <div class="col-md-6 mx-auto">
                 <div id="gutter" class="px-3">
                     <p class="sway">
-                        <img src="../assets/images/ghost1.png" width="300" class="img-fluid blur-in" id="ghostSpeaker">
+                        <img src="../assets/ghosts/ghost1.png" width="300" class="img-fluid blur-in" id="ghostSpeaker">
                     </p>
                     <h1 class="ghost-glow mb-5 blur-in" id="ghostMessage">
                         "<span id="ghostClue"></span>"
@@ -58,8 +58,8 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             }
 
             $("#ghostClue").html(foundGhost.clue);
-            if(foundGhost.image != undefined){
-                $("#ghostSpeaker").attr("src", `../assets/ghosts/${foundGhost.image}`);
+            if(foundGhost.ghost != ""){
+                $("#ghostSpeaker").attr("src", `../assets/ghosts/${foundGhost.ghost}`);
             }
             
             updateStoredClues(ghostKey);
