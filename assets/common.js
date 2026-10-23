@@ -10,7 +10,7 @@ $(function(){
         $("#secret-cards").removeClass("d-none");
     }
 
-    if(localStorage.getItem("madeFriend")){
+    if(localStorage.getItem("cardReceived")){
         $("#friendship").removeClass("d-none");
     }
 

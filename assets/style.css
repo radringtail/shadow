@@ -268,11 +268,11 @@ body{
   box-shadow: 0 4px 20px 3px #000;
 }
 
-#friendshipCert .card-header{
+#cardFront .card-header{
   font-weight: 800;
 }
 
-#friendshipCert .card-footer{
+#cardFront .card-footer{
   font-size: 0.667em;
 }
 
