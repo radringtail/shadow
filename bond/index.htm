@@ -5,26 +5,28 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Bond &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Bond &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/bond/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
-    <title>Bond &bull; G.H.O.S.T.</title>    
+
+    <title>Bond &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
-    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
+
 <body class="scanlines">
     <div class="container py-3 text-center">
         <div class="row text-center">
@@ -33,11 +35,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     <p class="sway">
                         <img src="#" width="200" class="img-fluid blur-in scanlines-image" id="newFriend">
                     </p>
-                    
+
                     <!-- ------------------------------
                     STATE: YES OR NO
                     ------------------------------- -->
-                    
+
                     <section id="ghostWelcome" class="ghost-font ghost-glow blur-in d-none">
                         <p class="fs-5 lh-sm">
                             Wow, great job kid! You did so much work to learn about us. That makes me feel really special. 💙
@@ -55,11 +57,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     ANSWER NO :(
                     ------------------------------- -->
-                    
+
                     <section id="answerNo" class="blur-in d-none">
                         <p class="fs-4">
                             Aww, I understand. A true friendship needs to be mutual, and I appreciate you being honest with me. I'm sure you will find the perfect ghost for you. 🧡
@@ -71,11 +73,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             <a class="btn btn-lg btn-outline-danger text-light" href="../">Bid Farewell</a>
                         </p>
                     </section>
-                    
+
                     <!-- ------------------------------
                     STATE: PLAYER NAME
                     ------------------------------- -->
-                    
+
                     <section id="answerYes" class="d-none">
                         <p id="yesPart1" class="fs-2 ghost-font ghost-glow blur-in d-none">
                             Whoa no way! I finally made a friend! So cool!
@@ -92,11 +94,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     STATE: PLAYER PAW PRINT
                     ------------------------------- -->
-                    
+
                     <section id="preferencesSection" class="blur-in d-none">
                         <p id="pawPart1" class="fs-2 blur-in d-none ghost-font ghost-glow bold-colors">
                             Nice to meet you <b class="kiddoName">Kiddo</b>!
@@ -159,11 +161,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     STATE: FAV THING ABOUT FALL
                     ------------------------------- -->
-                    
+
                     <section id="themeSection" class="blur-in d-none">
                         <p id="themePart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in">
                             Wow that's so cool! But it makes sense...you gave off those vibes for sure.
@@ -186,11 +188,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     STATE: BLUESKY FOLLOWER
                     ------------------------------- -->
-                    
+
                     <section id="socialSection" class="blur-in d-none">
                         <p id="bskyPart1" class="fs-3 ghost-font ghost-glow lh-sm d-none blur-in bold-colors">
                             Good choice! Mine of course is wherever there's <b id="ghostAttr1"></b>.
@@ -212,11 +214,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     STATE: GHOST NAME
                     ------------------------------- -->
-                    
+
                     <section id="friendNameSection" class="d-none">
                         <p id="gnamePart1" class="fs-2 d-none blur-in ghost-font ghost-glow">
                             Okay! So one last thing...
@@ -236,11 +238,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </p>
                         </div>
                     </section>
-                    
+
                     <!-- ------------------------------
                     LAST: LINK OUT TO /PROOF
                     ------------------------------- -->
-                    
+
                     <section id="finalSection" class="d-none">
                         <p id="finalPart1" class="fs-2 d-none blur-in ghost-font ghost-glow lh-sm">
                             <b id="newFriendNameRepeat"></b> huh? I like that! Thank you!
@@ -263,94 +265,94 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         </div>
     </div>
     <script>
-        $(function(){
+        $(function () {
             var friendKey = localStorage.getItem("newFriend");
-            if(friendKey == null) window.location.href = '../';
+            if (friendKey == null) window.location.href = '../';
             friend = ghostFriends.find(x => x.key == friendKey);
-            if(friend == null) window.location.href = '../';
-            
+            if (friend == null) window.location.href = '../';
+
             // force reset of all inputs
             $("input").val("");
             $("select").prop("selectedIndex", 0);
-            
+
             // ------------------------------------------------- //
             // state --- ask to be friends                       //
             // ------------------------------------------------- //
-            
+
             $("#newFriend").attr("src", `../assets/ghosts/${friend.ghost}`);
             $("#flavorText").html(friend.attrText + ' ' + friend.auraText);
             $(".affi").html(friend.affi);
-            
+
             setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 500);
             setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 4000);
             setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 9000);
-            
+
             // ------------------------------------------------- //
             // state --- ask for name                            //
             // ------------------------------------------------- //
-            
-            $("#friendYes").on("click", function(){
+
+            $("#friendYes").on("click", function () {
                 $("#ghostWelcome").fadeOut()
                 $("#newFriend").addClass("spin").removeClass("blur-in");
-                setTimeout(() => { 
-                    $("#answerYes").removeClass("d-none") 
-                    $("#newFriend").removeClass("spin") 
+                setTimeout(() => {
+                    $("#answerYes").removeClass("d-none")
+                    $("#newFriend").removeClass("spin")
                 }, 1500);
-                
+
                 setTimeout(() => { $("#yesPart1").removeClass("d-none"); }, 1500);
                 setTimeout(() => { $("#yesPart2").removeClass("d-none"); }, 4500);
                 setTimeout(() => { $("#yesPart3").removeClass("d-none"); }, 8000);
             });
-            
-            $("#friendNo").on("click", function(){
+
+            $("#friendNo").on("click", function () {
                 $("#ghostWelcome").fadeOut()
-                setTimeout(() => { $("#answerNo").removeClass("d-none") }, 1000);                
+                setTimeout(() => { $("#answerNo").removeClass("d-none") }, 1000);
                 localStorage.removeItem("newFriend");
                 localStorage.removeItem("ghostFriend");
                 localStorage.removeItem("attemptsLeft");
             });
-            
+
             // ------------------------------------------------- //
             // state --- process name, ask for player prints     //
             // ------------------------------------------------- //
-            
-            $("#preferredNameButton").on("click", function(){
-                if($("#preferredName").val() == ""){
+
+            $("#preferredNameButton").on("click", function () {
+                if ($("#preferredName").val() == "") {
                     $("#preferredName").addClass("border-danger");
                     return false;
                 }
                 $("#answerYes").fadeOut()
-                
+
                 var preferredName = $("#preferredName").val();
-                if(preferredName == null) preferredName = "Kiddo";
+                if (preferredName == null) preferredName = "Kiddo";
                 localStorage.setItem("preferredName", preferredName);
                 $(".kiddoName").html(preferredName);
-                
-                setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);                
+
+                setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);
                 setTimeout(() => { $("#pawPart1").removeClass("d-none"); }, 1000);
                 setTimeout(() => { $("#pawPart2").removeClass("d-none"); }, 3000);
                 setTimeout(() => { $("#pawPart3").removeClass("d-none"); }, 7000);
                 setTimeout(() => { $("#pawPart4").removeClass("d-none"); }, 10000);
             });
-            
+
             // ------------------------------------------------- //
             // state --- process print, ask for theme pref       //
             // ------------------------------------------------- //
-            
-            $("#pawPrintButton").on("click", function(){
+
+            $("#pawPrintButton").on("click", function () {
                 var attr = $("#qual1").val();
                 var aura = $("#qual2").val();
-                var affi = $("#qual3").val();                
-                if(attr == "" || aura == "" || affi == ""){
-                    if(attr == "") $("#qual1").addClass("border-danger");
-                    if(aura == "") $("#qual2").addClass("border-danger");
-                    if(affi == "") $("#qual3").addClass("border-danger");
+                var affi = $("#qual3").val();
+                if (attr == "" || aura == "" || affi == "") {
+                    if (attr == "") $("#qual1").addClass("border-danger");
+                    if (aura == "") $("#qual2").addClass("border-danger");
+                    if (affi == "") $("#qual3").addClass("border-danger");
                     return;
                 }
                 localStorage.setItem("playerAttr", attr);
                 localStorage.setItem("playerAura", aura);
-                localStorage.setItem("playerAffi", affi);                
-                
+                localStorage.setItem("playerAffi", affi);
+
                 $("#preferencesSection").fadeOut()
                 setTimeout(() => { $("#themeSection").removeClass("d-none") }, 1000);
                 setTimeout(() => { $("#themePart1").removeClass("d-none"); }, 1000);
@@ -358,79 +360,79 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 setTimeout(() => { $("#themePart3").removeClass("d-none"); }, 7000);
                 setTimeout(() => { $("#themePart4").removeClass("d-none"); }, 7000);
             });
-            
+
             // ------------------------------------------------- //
             // state --- process theme, ask for bluesky          //
             // ------------------------------------------------- //
-            
-            $("#themeButton").on("click", function(){
+
+            $("#themeButton").on("click", function () {
                 var cardTheme = $('#themeRadio').val();
-                if(cardTheme == "") return;
+                if (cardTheme == "") return;
                 localStorage.setItem("cardTheme", cardTheme);
-                
+
                 $("#themeSection").fadeOut()
                 $('#ghostAttr1').html(friend.attr);
-                setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);                
+                setTimeout(() => { $("#socialSection").removeClass("d-none") }, 1000);
                 setTimeout(() => { $("#bskyPart1").removeClass("d-none"); }, 1000);
                 setTimeout(() => { $("#bskyPart2").removeClass("d-none"); }, 4000);
                 setTimeout(() => { $("#bskyPart3").removeClass("d-none"); }, 7000);
                 setTimeout(() => { $("#bskyPart4").removeClass("d-none"); }, 10000);
             });
-            
+
             // ------------------------------------------------- //
             // state --- process theme, ask for ghost name     //
             // ------------------------------------------------- //
-            
-            $("#bskyButtonYes").on("click", function(){
-                if($("#bskyUser").val() == ""){
+
+            $("#bskyButtonYes").on("click", function () {
+                if ($("#bskyUser").val() == "") {
                     $("#bskyUser").addClass("border-danger");
                     return false;
                 }
-                
+
                 $("#socialSection").fadeOut()
-                
+
                 var bskyUser = $("#bskyUser").val();
                 var bskyNetwork = $("#bskyNetwork").val();
-                if(bskyUser != "" && bskyNetwork == "") bskyNetwork = '.bsky.social';
-                storeBskyData(bskyUser+bskyNetwork);                
+                if (bskyUser != "" && bskyNetwork == "") bskyNetwork = '.bsky.social';
+                storeBskyData(bskyUser + bskyNetwork);
                 afterBsky();
             });
-            
-            $("#bskyButtonNo").on("click", function(){
+
+            $("#bskyButtonNo").on("click", function () {
                 $("#socialSection").fadeOut()
-                
+
                 //TODO: Let users pick a boilerplate icon
-                
+
                 afterBsky();
             });
-            
-            function afterBsky(){
+
+            function afterBsky() {
                 setTimeout(() => { $("#friendNameSection").removeClass("d-none") }, 1500);
                 setTimeout(() => { $("#gnamePart1").removeClass("d-none"); }, 1500);
                 setTimeout(() => { $("#gnamePart2").removeClass("d-none"); }, 3000);
                 setTimeout(() => { $("#gnamePart3").removeClass("d-none"); }, 9000);
                 setTimeout(() => { $("#gnamePart4").removeClass("d-none"); }, 11000);
             }
-            
+
             // ------------------------------------------------- //
             // state --- process ghost name, link out            //
             // ------------------------------------------------- //
-            
-            $("#newFriendNameButton").on("click", function(){
-                if($("#newFriendName").val() == ""){
+
+            $("#newFriendNameButton").on("click", function () {
+                if ($("#newFriendName").val() == "") {
                     $("#newFriendName").addClass("border-danger");
                     return false;
                 }
                 $("#friendNameSection").fadeOut()
-                
+
                 var newFriendName = $("#newFriendName").val();
                 localStorage.setItem("newFriendName", newFriendName);
                 localStorage.setItem("madeFriend", true);
-                
+
                 $("#newFriendNameRepeat").html(newFriendName);
 
                 $("#newFriend").addClass("bounce");
-                setTimeout(() => { 
+                setTimeout(() => {
                     $("#newFriend").removeClass("bounce");
                     $("#finalSection").removeClass("d-none");
                     $("#finalPart1").removeClass("d-none");
@@ -443,4 +445,5 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         })
     </script>
 </body>
+
 </html>

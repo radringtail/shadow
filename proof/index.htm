@@ -5,29 +5,31 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Proof &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Proof &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/bond/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
-    <title>Proof &bull; G.H.O.S.T.</title>    
+
+    <title>Proof &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
-    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
+
 <body class="scanlines bg-primary-subtle">
     <a href="#content" class="visually-hidden-focusable">Skip to Main Content</a>
-    
+
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2 mb-3 d-none">
         <div class="container">
             <nav class="navbar navbar-expand-sm">
@@ -233,94 +235,95 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </div>
         </div>
     </div>
-</div>
+    </div>
 
-<script>
-    $(function(){
-        var friendKey = localStorage.getItem("newFriend");
-        if(friendKey == null) window.location.href = '../';
-        friend = ghostFriends.find(x => x.key == friendKey);
-        if(friend == null) window.location.href = '../';
-        localStorage.setItem("cardReceived", true);
-        
-        var playerName = localStorage.getItem("preferredName");
-        var playerIcon = localStorage.getItem("avatarUrl");
-        var playerBsky = localStorage.getItem("bskyHandle");
-        var playerAttr = localStorage.getItem("playerAttr");
-        var playerAura = localStorage.getItem("playerAura");
-        var playerAffi = localStorage.getItem("playerAffi");
-        var cardTheme = localStorage.getItem("cardTheme");
-        var ghostName = localStorage.getItem("newFriendName");
-        var ghostIcon = friend.ghost;
-        var ghostAttr = friend.attr;
-        var ghostAura = friend.aura;
-        var ghostAffi = friend.affi;
-        var ghostPrint = friend.print;
-              
-        if(playerIcon == null) playerIcon = '../assets/ghosts/ghost1.png';
-        if(ghostName == null || ghostName == undefined) ghostName = 'Ghost';
-        if(cardTheme == null || cardTheme == undefined){
-            cardTheme = 'tot';
-        }
-        $("#cardFront").addClass(`bg-${cardTheme}`);        
-        $("#playerIcon").attr("src", playerIcon);
-        $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);        
-        $("#playerName").html(playerName);
-        $("#ghostName").html(ghostName);        
-        $("#playerAttr").html(playerAttr);
-        $("#playerAura").html(playerAura);
-        $("#playerAffi").html(playerAffi);
-        $("#ghostAttr").html(ghostAttr);
-        $("#ghostAura").html(ghostAura);
-        $("#ghostAffi").html(ghostAffi);        
-        $("#editPlayerName").val(playerName);
-        $("#editBskyHandle").val(playerBsky);
-        $("#qual1").val(playerAttr);
-        $("#qual2").val(playerAura);
-        $("#qual3").val(playerAffi);
-        $("#editGhostName").val(ghostName);
-        $("#editCardTheme").val(cardTheme);
+    <script>
+        $(function () {
+            var friendKey = localStorage.getItem("newFriend");
+            if (friendKey == null) window.location.href = '../';
+            friend = ghostFriends.find(x => x.key == friendKey);
+            if (friend == null) window.location.href = '../';
+            localStorage.setItem("cardReceived", true);
 
-        if(localStorage.getItem("appliedToGHOST") != null){
-            $("header").removeClass("d-none");
-        }
-        else{
-            setTimeout(() => { $("#applyButton").removeClass("d-none"); }, 2000);
-        }
-        $("#cardFront").removeClass("d-none");
-        setTimeout(() => { $("#editCard").removeClass("d-none"); }, 2500);
+            var playerName = localStorage.getItem("preferredName");
+            var playerIcon = localStorage.getItem("avatarUrl");
+            var playerBsky = localStorage.getItem("bskyHandle");
+            var playerAttr = localStorage.getItem("playerAttr");
+            var playerAura = localStorage.getItem("playerAura");
+            var playerAffi = localStorage.getItem("playerAffi");
+            var cardTheme = localStorage.getItem("cardTheme");
+            var ghostName = localStorage.getItem("newFriendName");
+            var ghostIcon = friend.ghost;
+            var ghostAttr = friend.attr;
+            var ghostAura = friend.aura;
+            var ghostAffi = friend.affi;
+            var ghostPrint = friend.print;
 
-        $("#editCard").on("click", function(){
-            const editCardModal = new bootstrap.Modal("#editCardModal");
-            editCardModal.show();
-        });
-        
-        $("#editCardButton").on("click", function(){
-            var editedPlayerName = $("#editPlayerName").val();
-            var editBskyHandle = $("#editBskyHandle").val();
-            var editedPlayerAttr = $("#qual1").val();
-            var editedPlayerAura = $("#qual2").val();
-            var editedPlayerAffi = $("#qual3").val();
-            var editedGhostName = $("#editGhostName").val();
-            var editCardTheme = $("#editCardTheme").val();
-            
-            if(editedPlayerName != "") localStorage.setItem("preferredName", editedPlayerName);
-            if(editedGhostName != "") localStorage.setItem("newFriendName", editedGhostName);
-            if(editedPlayerAttr != "") localStorage.setItem("playerAttr", editedPlayerAttr);
-            if(editedPlayerAura != "") localStorage.setItem("playerAura", editedPlayerAura);
-            if(editedPlayerAffi != "") localStorage.setItem("playerAffi", editedPlayerAffi);
-            if(editBskyHandle != "" && editBskyHandle.indexOf(".") < 0){
-                editBskyHandle = editBskyHandle+'.bsky.social';
+            if (playerIcon == null) playerIcon = '../assets/ghosts/ghost1.png';
+            if (ghostName == null || ghostName == undefined) ghostName = 'Ghost';
+            if (cardTheme == null || cardTheme == undefined) {
+                cardTheme = 'tot';
             }
-            localStorage.setItem("bskyHandle", editBskyHandle);
-            localStorage.setItem("cardTheme", editCardTheme);
-            storeBskyData(editBskyHandle);
-            
-            setTimeout(() => {
-                window.location.reload();
-            }, 500);
-        });
-    })
-</script>
+            $("#cardFront").addClass(`bg-${cardTheme}`);
+            $("#playerIcon").attr("src", playerIcon);
+            $("#ghostIcon").attr("src", `../assets/ghosts/${ghostIcon}`);
+            $("#playerName").html(playerName);
+            $("#ghostName").html(ghostName);
+            $("#playerAttr").html(playerAttr);
+            $("#playerAura").html(playerAura);
+            $("#playerAffi").html(playerAffi);
+            $("#ghostAttr").html(ghostAttr);
+            $("#ghostAura").html(ghostAura);
+            $("#ghostAffi").html(ghostAffi);
+            $("#editPlayerName").val(playerName);
+            $("#editBskyHandle").val(playerBsky);
+            $("#qual1").val(playerAttr);
+            $("#qual2").val(playerAura);
+            $("#qual3").val(playerAffi);
+            $("#editGhostName").val(ghostName);
+            $("#editCardTheme").val(cardTheme);
+
+            if (localStorage.getItem("appliedToGHOST") != null) {
+                $("header").removeClass("d-none");
+            }
+            else {
+                setTimeout(() => { $("#applyButton").removeClass("d-none"); }, 2000);
+            }
+            $("#cardFront").removeClass("d-none");
+            setTimeout(() => { $("#editCard").removeClass("d-none"); }, 2500);
+
+            $("#editCard").on("click", function () {
+                const editCardModal = new bootstrap.Modal("#editCardModal");
+                editCardModal.show();
+            });
+
+            $("#editCardButton").on("click", function () {
+                var editedPlayerName = $("#editPlayerName").val();
+                var editBskyHandle = $("#editBskyHandle").val();
+                var editedPlayerAttr = $("#qual1").val();
+                var editedPlayerAura = $("#qual2").val();
+                var editedPlayerAffi = $("#qual3").val();
+                var editedGhostName = $("#editGhostName").val();
+                var editCardTheme = $("#editCardTheme").val();
+
+                if (editedPlayerName != "") localStorage.setItem("preferredName", editedPlayerName);
+                if (editedGhostName != "") localStorage.setItem("newFriendName", editedGhostName);
+                if (editedPlayerAttr != "") localStorage.setItem("playerAttr", editedPlayerAttr);
+                if (editedPlayerAura != "") localStorage.setItem("playerAura", editedPlayerAura);
+                if (editedPlayerAffi != "") localStorage.setItem("playerAffi", editedPlayerAffi);
+                if (editBskyHandle != "" && editBskyHandle.indexOf(".") < 0) {
+                    editBskyHandle = editBskyHandle + '.bsky.social';
+                }
+                localStorage.setItem("bskyHandle", editBskyHandle);
+                localStorage.setItem("cardTheme", editCardTheme);
+                storeBskyData(editBskyHandle);
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
+            });
+        })
+    </script>
 </body>
+
 </html>

@@ -5,17 +5,18 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Ghost Guide &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Ghost Guide &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/guide/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
-    <title>Ghost Guide &bull; G.H.O.S.T.</title>    
+
+    <title>Ghost Guide &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
@@ -26,6 +27,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <script src="../assets/common.js"></script>
     <script src="../assets/ghosts.js"></script>
 </head>
+
 <body class="scanlines bg-primary-subtle">
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
@@ -88,9 +90,9 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <script>
-        if(!localStorage.getItem("guideEnabled")) 
+        if (!localStorage.getItem("guideEnabled"))
             window.location.href = '../';
 
         var app = new Vue({
@@ -102,19 +104,20 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             computed: {
                 cluesData() {
                     return this.ghostClues
-                    .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
+                        .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
                 }
             },
             methods: {
                 filteredClues() {
                     return this.ghostClues.slice()
-                    .filter(x => { 
-                        return x.sign.toLowerCase().indexOf(this.sign.toLowerCase()) > -1
-                    })
-                    .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
+                        .filter(x => {
+                            return x.sign.toLowerCase().indexOf(this.sign.toLowerCase()) > -1
+                        })
+                        .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
                 }
             }
         });
     </script>
 </body>
+
 </html>

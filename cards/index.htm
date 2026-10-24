@@ -5,16 +5,17 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Art Postcards &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Art Postcards &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/cards/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
+
     <title>Art Postcards &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
@@ -26,6 +27,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <script src="../assets/packages/jquery.flip.min.js"></script>
     <script src="../assets/common.js"></script>
 </head>
+
 <body class="scanlines bg-primary-subtle">
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
@@ -195,29 +197,29 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        if(!localStorage.getItem("cardsEnabled")) 
+        if (!localStorage.getItem("cardsEnabled"))
             window.location.href = '../';
 
         var cards = document.querySelector('#postcards');
         for (var i = cards.children.length; i >= 0; i--) {
             cards.appendChild(cards.children[Math.random() * i | 0]);
-        }        
+        }
         new Sortable(postcards, { swap: true, swapClass: 'card-swap', animation: 150 });
-        
+
         $(".art-postcard").flip({
             'trigger': 'manual'
         });
-        
-        $(".art-postcard").on("click", function(){
+
+        $(".art-postcard").on("click", function () {
             $(this).flip('toggle');
         });
     </script>
 </body>
-</html>
 
+</html>

@@ -5,17 +5,18 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Festival Ghost &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Festival Ghost &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/ghost/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
-    <title>Festival Ghost &bull; G.H.O.S.T.</title>    
+
+    <title>Festival Ghost &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
@@ -25,6 +26,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <script src="../assets/common.js"></script>
     <script src="../assets/ghosts.js"></script>
 </head>
+
 <body class="scanlines">
     <div class="container py-5">
         <div class="row text-center">
@@ -42,8 +44,8 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         </div>
     </div>
     <script>
-        $(function(){
-            $("#closeButton").on("click", function(){
+        $(function () {
+            $("#closeButton").on("click", function () {
                 window.close();
             });
 
@@ -52,27 +54,27 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             });
             var ghostKey = params.key;
             foundGhost = ghostData.find(x => x.key === ghostKey);
-            if(foundGhost == null || foundGhost == undefined){
+            if (foundGhost == null || foundGhost == undefined) {
                 $("#ghostClue").html("Hello? Who is this? Ah, must be a wrong number. Sorry!");
                 return;
             }
 
             $("#ghostClue").html(foundGhost.clue);
-            if(foundGhost.ghost != ""){
+            if (foundGhost.ghost != "") {
                 $("#ghostSpeaker").attr("src", `../assets/ghosts/${foundGhost.ghost}`);
             }
-            
+
             updateStoredClues(ghostKey);
         })
 
-        function updateStoredClues(newClue){
-            if(newClue == null) return;
+        function updateStoredClues(newClue) {
+            if (newClue == null) return;
 
             var cluesFound = localStorage.getItem("cluesFound");
             var cluesFoundArray = JSON.parse(cluesFound);
-            if(cluesFound == null) cluesFoundArray = [];
+            if (cluesFound == null) cluesFoundArray = [];
 
-            if(!cluesFoundArray.find(x => x == newClue)){
+            if (!cluesFoundArray.find(x => x == newClue)) {
                 cluesFoundArray.push(newClue);
                 var cluesFoundJson = JSON.stringify(cluesFoundArray);
                 localStorage.setItem("cluesFound", cluesFoundJson);
@@ -80,4 +82,5 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         }
     </script>
 </body>
+
 </html>

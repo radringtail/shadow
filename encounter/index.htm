@@ -5,26 +5,28 @@ PLEASE PARTICIPATE WITHOUT CHEATING
 AND, WOW YOU ARE CUTE! NICE OUTFIT!
 -->
 <html lang="en" data-bs-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="Encounter &bull; G.H.O.S.T.">   
+    <meta property="og:title" content="Encounter &bull; G.H.O.S.T.">
     <meta property="og:url" content="https://ghost.babyfurcon.com/encounter/">
     <meta property="og:image" content="https://ghost.babyfurcon.com/assets/images/ghost1.png">
     <meta property="og:type" content="website">
-    
-    <title>Encounter &bull; G.H.O.S.T.</title>    
+
+    <title>Encounter &bull; G.H.O.S.T.</title>
     <link href="../assets/packages/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/style.css" rel="stylesheet">
     <link href="../assets/images/site-icon.png" rel="icon" sizes="192x192">
-    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">    
+    <link href="../assets/images/site-icon-apple.png" rel="apple-touch-icon">
     <script src="../assets/packages/jquery.min.js"></script>
     <script src="../assets/packages/bootstrap.bundle.min.js"></script>
     <script src="../assets/common.js"></script>
     <script src="../assets/prints.js"></script>
 </head>
+
 <body class="scanlines theme-purple">
     <div class="container py-5 text-center">
         <div class="row text-center mb-4 blur-in">
@@ -98,82 +100,83 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         </div>
     </div>
     <script>
-        $(function(){
+        $(function () {
             checkAttempts();
             $("select").prop("selectedIndex", 0);
-            
+
             var ghostPrintVal = getFriend();
-            friend = ghostFriends.find(x => x.key == ghostPrintVal);            
+            friend = ghostFriends.find(x => x.key == ghostPrintVal);
             $("#ghostPrint").attr("src", `../assets/prints/${friend.print}`);
             $("#gutter").addClass(friend.bgClass);
-            
+
             setTimeout(() => { $("#gutter").removeClass("d-none"); }, 1000);
             setTimeout(() => { $("#friendship").removeClass("d-none"); }, 4000);
             setTimeout(() => { $("#lastBlur").removeClass("d-none"); }, 8000);
-            
-            $("#identify").on("click", function(){
+
+            $("#identify").on("click", function () {
                 var attr = $("#qual1").val();
                 var aura = $("#qual2").val();
                 var affi = $("#qual3").val();
-                
-                if(attr == ""){
+
+                if (attr == "") {
                     $("#qual1").addClass("border-danger");
                     return false;
                 }
-                if(aura == ""){
+                if (aura == "") {
                     $("#qual2").addClass("border-danger");
                     return false;
                 }
-                if(affi == ""){
+                if (affi == "") {
                     $("#qual3").addClass("border-danger");
                     return false;
                 }
-                
-                if(friend.attr == attr && friend.aura == aura && friend.affi == affi){
+
+                if (friend.attr == attr && friend.aura == aura && friend.affi == affi) {
                     localStorage.setItem("newFriend", friend.key);
                     window.location.href = '../bond/';
                 }
                 else loseAttempt();
             })
         })
-        
-        function getFriend(){
+
+        function getFriend() {
             var friendKey = localStorage.getItem("ghostFriend");
-            if(friendKey != null) return friendKey;
+            if (friendKey != null) return friendKey;
             return setFriend();
         }
 
-        function setFriend(){
-            var friendCount = ghostFriends.length;            
+        function setFriend() {
+            var friendCount = ghostFriends.length;
             var randomFriend = randomVal(1, friendCount);
             localStorage.setItem("ghostFriend", randomFriend);
             localStorage.setItem("attemptsLeft", maxAttempts);
             return randomFriend;
         }
-        
-        function loseAttempt(){
+
+        function loseAttempt() {
             var attemptsLeft = parseInt(localStorage.getItem("attemptsLeft"));
             attemptsLeft--;
             localStorage.setItem("attemptsLeft", attemptsLeft);
             checkAttempts();
         }
-        
-        function checkAttempts(){
-            if(localStorage.getItem("newFriend") != null){
+
+        function checkAttempts() {
+            if (localStorage.getItem("newFriend") != null) {
                 window.location.href = '../bond/';
             }
 
             var attemptsLeft = parseInt(localStorage.getItem("attemptsLeft"));
-            if(attemptsLeft == NaN || attemptsLeft <= 0){
+            if (attemptsLeft == NaN || attemptsLeft <= 0) {
                 localStorage.removeItem("ghostFriend");
                 localStorage.removeItem("attemptsLeft");
                 location.reload();
             }
-            if(attemptsLeft < maxAttempts){
+            if (attemptsLeft < maxAttempts) {
                 $("#attemptsRemaining").css('visibility', 'visible')
-                .html(`Attempts Remaining: ${attemptsLeft}`);
+                    .html(`Attempts Remaining: ${attemptsLeft}`);
             }
         }
     </script>
 </body>
+
 </html>
