@@ -31,7 +31,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 <body class="scanlines bg-primary-subtle">
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
-            <nav class="navbar navbar-expand-sm">
+            <nav class="navbar navbar-expand-md">
                 <div class="container-fluid ghost-font ghost-glow">
                     <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
                         G.H.O.S.T.
@@ -65,23 +65,23 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </nav>
         </div>
     </header>
-    <div id="ghostsGuide" class="py-5">
+    <div id="ghostsGuide" class="py-5 border-bottom border-3 border-primary-subtle">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-7 mx-auto mb-5 text-center">
+            <div class="row mb-5">
+                <div class="col-sm-7 mx-auto text-center">
                     <h2 class="display-2 ghost-font ghost-glow">Ghost Guide</h2>
                     <hr class="border border-2 opacity-100 border-primary-subtle">
                     <p class="fs-3 ghost-font">
-                        Welcome <span class="ghost-glow">Seeker</span>! Having troubles with the signs? No problem! We've brought the signs to you!
+                        <span class="ghost-glow">Seeker</span>! Having troubles with the signs? No problem! We've brought the signs to you!
                     </p>
                     <p class="fs-5">
-                        Click on any sign below to scan for the same ghosts as on the physical signs. They'll join your <span class="ghost-glow">Locator</span> and help you just as much as anyone else.
+                        Click on any sign below to scan for the same ghosts as on the physical signs. They'll join your <span class="ghost-glow ghost-font">Locator</span> and help you just as much as anyone else.
                     </p>
                 </div>
             </div>
-            <div class="row row-cols-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-4 justify-content-center">
+            <div class="row row-cols-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-4 justify-content-center mb-5">
                 <div class="col" v-for="ghost in cluesData">
-                    <div class="card h-100 bg-body-tertiary shadow-sm">
+                    <div class="card h-100 bg-warning-subtle shadow-sm">
                         <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank"><img :src="`../assets/signs/${ghost.slug}.jpg`" class="card-img-top shadow sign-thumb mb-3"></a>
                         <p>
                             <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank" class="link-light link-underline-opacity-0 link-underline-opacity-100-hover">{{ghost.sign}}</a>
@@ -91,6 +91,14 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </div>
         </div>
     </div>
+    <section class="bg-dark shadow" id="footer"></section>
+    <footer class="site-footer scanlines py-4 theme-purple border-top border-purple border-2">
+        <div class="container">
+            <p class="my-2">
+                &copy; 2026 BFC &bull; <b>Peek-a-BOO! Festival</b> &bull; Site by Rad 🦝
+            </p>
+        </div>
+    </footer>
     <script>
         if (!localStorage.getItem("guideEnabled"))
             window.location.href = '../';

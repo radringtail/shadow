@@ -31,7 +31,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 <body class="scanlines bg-danger-subtle">
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
-            <nav class="navbar navbar-expand-sm">
+            <nav class="navbar navbar-expand-md">
                 <div class="container-fluid ghost-font ghost-glow">
                     <a class="navbar-brand fs-4 fw-bold text-wrap" href="../">
                         G.H.O.S.T.
@@ -65,21 +65,26 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </nav>
         </div>
     </header>
-    <div id="ghostsGuide" class="pt-5">
+    <div id="ghostsGuide" class="py-5" style="border-bottom: 2px solid #663500;">
         <div class="container">
-            <div class="row mb-5">
+            <div class="row mb-4">
                 <div class="col-sm-8 mx-auto text-center">
                     <h2 class="display-2 ghost-font scanlines-text-strong">Field Notes</h2>
                     <hr class="border border-2 opacity-100 border-orange">
                     <p class="fs-5 ghost-font">
-                        Good job <span class="scanlines-text-strong">Seeker</span>! Here's all the ghosts you've found and talked to. You probably still want to bust out those crayons though!
+                        <span class="scanlines-text-strong">Seeker</span>! Below are all the ghosts you've found and investigated. You probably still want to bust out those crayons though!
                     </p>
-                    <div class="alert alert-danger text-center" v-if="foundClues.length == 0">No ghosts discovered.</div>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-6">
+                            <input v-model="search" class="form-control" id="ghostSearch" placeholder="Search Ghost Transcripts">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger text-center" v-if="foundClues.length == 0">No matching investigations found.</div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3 g-lg-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3 g-lg-4 mb-4 justify-content-center">
                 <div class="col" v-for="ghost in foundClues">
-                    <div class="card h-100 bg-dark shadow">
+                    <div class="card h-100 bg-primary-subtle border-primary-subtle shadow">
                         <div class="row g-0">
                             <div class="col-3">
                                 <div class="square-image my-3">
@@ -98,21 +103,30 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </div>
         </div>
     </div>
+    <section class="bg-dark shadow" id="footer"></section>
+    <footer class="site-footer scanlines py-4 theme-purple border-top border-purple border-2">
+        <div class="container">
+            <p class="my-2">
+                &copy; 2026 BFC &bull; <b>Peek-a-BOO! Festival</b> &bull; Site by Rad 🦝
+            </p>
+        </div>
+    </footer>
     <script>
         var cluesFound = localStorage.getItem("cluesFound");
         var cluesFoundArray = JSON.parse(cluesFound);
         if (cluesFound == null) cluesFoundArray = [];
         var app = new Vue({
             el: "#ghostsGuide",
-            data: {
-                search: '',
-                ghostClues: ghostData
-            },
+            data: { search: '', ghostClues: ghostData },
             computed: {
                 foundClues() {
                     return cluesFoundArray.reverse()
                         .map(key => this.ghostClues.find(x => x.key == key))
-                        .filter(x => x !== undefined);
+                        .filter(x => x !== undefined)
+                        .filter(x => {
+                            return x.clue.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+                                || x.sign.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+                        });
                 }
             }
         });
