@@ -68,7 +68,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <div id="ghostsGuide" class="py-5 border-bottom border-3 border-primary-subtle">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-sm-7 mx-auto text-center">
+                <div class="col-md-7 mx-auto text-center">
                     <h2 class="display-2 ghost-font ghost-glow">Ghost Guide</h2>
                     <hr class="border border-2 opacity-100 border-primary-subtle">
                     <p class="fs-3 ghost-font">
@@ -79,11 +79,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     </p>
                 </div>
             </div>
-            <div class="row row-cols-3 row-cols-md-4 row-cols-xl-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-4 justify-content-center mb-5">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xxl-6 text-center g-2 g-sm-3 g-lg-3 justify-content-center mb-5">
                 <div class="col" v-for="ghost in cluesData">
                     <div class="card h-100 bg-warning-subtle shadow-sm">
                         <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank"><img :src="`../assets/signs/${ghost.slug}.jpg`" class="card-img-top shadow sign-thumb mb-3"></a>
-                        <p>
+                        <p class="p-1 small">
                             <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank" class="link-light link-underline-opacity-0 link-underline-opacity-100-hover">{{ghost.sign}}</a>
                         </p>
                     </div>
