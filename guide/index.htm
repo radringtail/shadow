@@ -28,7 +28,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
     <script src="../assets/ghosts.js"></script>
 </head>
 
-<body class="scanlines bg-primary-subtle">
+<body class="scanlines theme-purple">
     <header class="py-1 sticky-top shadow scanlines bg-primary-subtle border-bottom border-primary-subtle border-2">
         <div class="container">
             <nav class="navbar navbar-expand-md">
@@ -65,16 +65,16 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             </nav>
         </div>
     </header>
-    <div id="ghostsGuide" class="py-5 border-bottom border-3 border-primary-subtle">
+    <div id="ghostsGuide" class="py-5" style="border-bottom: 3px solid #381480;">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md-7 mx-auto text-center">
                     <h2 class="display-2 ghost-font ghost-glow">Ghost Guide</h2>
-                    <hr class="border border-2 opacity-100 border-primary-subtle">
-                    <p class="fs-3 ghost-font">
+                    <hr class="border border-2 opacity-100 border-purple">
+                    <p class="fs-3 ghost-font lh-sm">
                         <span class="ghost-glow">Seeker</span>! Having troubles with the signs? No problem! We've brought the signs to you!
                     </p>
-                    <p class="fs-5">
+                    <p class="fs-5 lh-sm">
                         Click on any sign below to scan for the same ghosts as on the physical signs. They'll join your <span class="ghost-glow ghost-font">Locator</span> and help you just as much as anyone else.
                     </p>
                 </div>
@@ -83,7 +83,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 <div class="col" v-for="ghost in cluesData">
                     <div class="card h-100 bg-warning-subtle shadow-sm">
                         <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank"><img :src="`../assets/signs/${ghost.slug}.jpg`" class="card-img-top shadow sign-thumb mb-3"></a>
-                        <p class="p-1 small">
+                        <p class="py-1 px-3 lh-sm">
                             <a :href="`../ghost/index.htm?key=${ghost.key}`" target="_blank" class="link-light link-underline-opacity-0 link-underline-opacity-100-hover">{{ghost.sign}}</a>
                         </p>
                     </div>

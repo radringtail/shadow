@@ -41,16 +41,18 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     ------------------------------- -->
 
                     <section id="ghostWelcome" class="ghost-font ghost-glow blur-in d-none">
-                        <p class="fs-5 lh-sm">
-                            Wow, great job kid! You did so much work to learn about us. That makes me feel really special. 💙
+                        <p class="fs-5 lh-sm bold-colors">
+                            Wow, great job <b>Seeker</b>! You did so much work to learn about us. That makes me feel really special. 💙
                         </p>
-                        <p id="secondFade" class="blur-in d-none bold-colors lh-sm">
+                        <p id="secondFade" class="blur-in d-none bold-colors lh-sm fs-5">
                             <span id="flavorText"></span>
                         </p>
                         <div id="thirdFade" class="blur-in d-none">
                             <p class="fs-5 lh-sm">
                                 I've been looking for a friend for a long time. I know we just met, but I can tell you are a <span class="text-bfc-orange affi">AFFI</span> soul. Do you...want to be friends?
                             </p>
+                        </div>
+                        <div id="fourthFade" class="blur-in d-none">
                             <p>
                                 <button class="btn btn-outline-success text-light mx-1" id="friendYes">Yes, Of Course!</button>
                                 <button class="btn btn-outline-danger text-light mx-1" id="friendNo">No</button>
@@ -79,11 +81,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     ------------------------------- -->
 
                     <section id="answerYes" class="d-none">
-                        <p id="yesPart1" class="fs-2 ghost-font ghost-glow blur-in d-none">
+                        <p id="yesPart1" class="fs-2 ghost-font ghost-glow blur-in d-none lh-sm">
                             Whoa no way! I finally made a friend! So cool!
                         </p>
-                        <p id="yesPart2" class="fs-4 ghost-font ghost-glow bold-colors blur-in d-none">
-                            Gosh I have <b>so</b> many things I want to ask you about, but first thing's first...what should I call <b>you</b>?
+                        <p id="yesPart2" class="fs-4 ghost-font ghost-glow bold-colors blur-in d-none lh-sm">
+                            Wow I have <b>so</b> many things I want to ask you, but first thing's first: what should I call <b>you</b>?
                         </p>
                         <div id="yesPart3" class="blur-in d-none">
                             <p>
@@ -106,8 +108,8 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                         <p id="pawPart2" class="blur-in d-none ghost-font ghost-glow lh-sm">
                             I've heard a lot of people call you that, but I just wanted to make sure.
                         </p>
-                        <p id="pawPart3" class="fs-4 blur-in d-none ghost-font ghost-glow lh-sm">
-                            So...what are YOU like, hmm? What would your, er, pawprints tell me?
+                        <p id="pawPart3" class="fs-5 blur-in d-none ghost-font ghost-glow lh-sm">
+                            So... what are YOU like, hmm? What would your, er... paw prints tell me?
                         </p>
                         <div id="pawPart4" class="blur-in d-none">
                             <div class="input-group input-group-sm mb-2">
@@ -244,20 +246,20 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     ------------------------------- -->
 
                     <section id="finalSection" class="d-none">
-                        <p id="finalPart1" class="fs-2 d-none blur-in ghost-font ghost-glow lh-sm">
+                        <p id="finalPart1" class="fs-2 d-none blur-in ghost-font ghost-glow lh-sm bold-colors">
                             <b id="newFriendNameRepeat"></b> huh? I like that! Thank you!
                         </p>
                         <p id="finalPart2" class="fs-3 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
                             Well <b class="kiddoName">Kiddo</b>, I have something for you: a friendship card!
                         </p>
                         <p id="finalPart3" class="fs-5 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
-                            You can use this to apply to G.H.O.S.T.! I'm sure they'll let you in when they see how much time, effort, and care you put into this journey. And what a cool friend you are!
+                            Use it to apply to <b>G.H.O.S.T.</b>! I'm sure they'll let you in when they see how much <b>time, effort, and care</b> you put into this journey. And what a cool <b>friend</b> you are!
                         </p>
                         <p id="finalPart4" class="fs-4 d-none blur-in ghost-font ghost-glow bold-colors lh-sm">
                             I'm gonna go tell everyone! Hope to see you later! Bye!!
                         </p>
                         <p id="finalPart5" class="d-none blur-in">
-                            <a href="../proof/" class="btn btn-outline-warning text-light btn-lg">Receive Gift</a>
+                            <a href="../proof/" class="btn btn-outline-primary text-light btn-lg">Receive Gift</a>
                         </p>
                     </section>
                 </div>
@@ -284,8 +286,9 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
             $(".affi").html(friend.affi);
 
             setTimeout(() => { $("#ghostWelcome").removeClass("d-none"); }, 500);
-            setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 4000);
-            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 9000);
+            setTimeout(() => { $("#secondFade").removeClass("d-none"); }, 5000);
+            setTimeout(() => { $("#thirdFade").removeClass("d-none"); }, 11000);
+            setTimeout(() => { $("#fourthFade").removeClass("d-none"); }, 16000);
 
             // ------------------------------------------------- //
             // state --- ask for name                            //
@@ -331,8 +334,8 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 setTimeout(() => { $("#preferencesSection").removeClass("d-none") }, 1000);
                 setTimeout(() => { $("#pawPart1").removeClass("d-none"); }, 1000);
                 setTimeout(() => { $("#pawPart2").removeClass("d-none"); }, 3000);
-                setTimeout(() => { $("#pawPart3").removeClass("d-none"); }, 7000);
-                setTimeout(() => { $("#pawPart4").removeClass("d-none"); }, 10000);
+                setTimeout(() => { $("#pawPart3").removeClass("d-none"); }, 8000);
+                setTimeout(() => { $("#pawPart4").removeClass("d-none"); }, 12000);
             });
 
             // ------------------------------------------------- //

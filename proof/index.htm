@@ -149,7 +149,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         <p id="applyButton" class="text-center mt-3 d-none blur-in">
             <a href="../apply/" class="btn btn-lg btn-primary shadow mx-2">Apply To G.H.O.S.T.</a>
         </p>
-        <button id="editCard" class="btn btn-sm m-1 btn-info bg-info-subtle text-info d-none blur-in">Edit Card</button>
+        <button id="editCard" class="btn btn-sm my-2 btn-info bg-info-subtle text-info d-none blur-in">Edit Card</button>
     </div>
     <div id="editCardModal" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -167,6 +167,10 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                         <div class="col">
                             <label for="editGhostName">Ghost Name</label>
                             <input id="editGhostName" class="form-control shadow">
+                        </div>
+                        <div class="col">
+                            <label for="editBskyHandle">Your BlueSky</label>
+                            <input type="text" class="form-control shadow" id="editBskyHandle" placeholder="username.bsky.social">
                         </div>
                         <div class="col">
                             <label for="editPlayerAttr">Your Attraction</label>
@@ -224,13 +228,9 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                             </select>
                         </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="editBskyHandle">Your BlueSky</label>
-                        <input type="text" class="form-control shadow" id="editBskyHandle" placeholder="username.bsky.social">
-                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="editCardButton" class="btn btn-lg btn-primary shadow">Edit Card</button>
+                    <button id="editCardButton" class="btn btn-primary shadow">Edit Card</button>
                 </div>
             </div>
         </div>
@@ -285,12 +285,14 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 
             if (localStorage.getItem("appliedToGHOST") != null) {
                 $("header").removeClass("d-none");
+                $("#cardFront").removeClass("blur-in").removeClass("d-none");
+                $("#editCard").removeClass("blur-in").removeClass("d-none");
             }
             else {
                 setTimeout(() => { $("#applyButton").removeClass("d-none"); }, 1500);
+                $("#cardFront").removeClass("d-none");
+                setTimeout(() => { $("#editCard").removeClass("d-none"); }, 2000);
             }
-            $("#cardFront").removeClass("d-none");
-            setTimeout(() => { $("#editCard").removeClass("d-none"); }, 2000);
 
             $("#editCard").on("click", function () {
                 const editCardModal = new bootstrap.Modal("#editCardModal");

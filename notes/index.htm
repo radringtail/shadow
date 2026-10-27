@@ -69,10 +69,10 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
         <div class="container">
             <div class="row mb-4">
                 <div class="col-sm-8 mx-auto text-center">
-                    <h2 class="display-2 ghost-font scanlines-text-strong">Field Notes</h2>
+                    <h2 class="display-2 ghost-font ghost-glow">Field Notes</h2>
                     <hr class="border border-2 opacity-100 border-orange">
                     <p class="fs-5 ghost-font">
-                        <span class="scanlines-text-strong">Seeker</span>! Below are all the ghosts you've found and investigated. You probably still want to bust out those crayons though!
+                        <span class="ghost-glow">Seeker</span>! Below are all the ghosts you've found and investigated. You probably still want to bust out those crayons though!
                     </p>
                     <div class="row justify-content-center mb-3">
                         <div class="col-md-6">
@@ -82,19 +82,19 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     <div class="alert alert-danger text-center" v-if="foundClues.length == 0">No matching investigations found.</div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3 g-lg-4 mb-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-3 mb-4 justify-content-center">
                 <div class="col" v-for="ghost in foundClues">
                     <div class="card h-100 bg-primary-subtle border-primary-subtle shadow">
                         <div class="row g-0">
-                            <div class="col-3">
-                                <div class="square-image my-3">
+                            <div class="col-4">
+                                <div class="p-3">
                                     <img :src="`../assets/signs/${ghost.slug}.jpg`" class="img-fluid rounded-3 shadow-sm">
                                 </div>
                             </div>
-                            <div class="col-9">
-                                <div class="card-body">
-                                    <h2 class="h3 card-title ghost-font">{{ghost.sign}}</h2>
-                                    <p class="card-text lead highlight lh-sm">"<span v-html="ghost.clue"></span>"</p>
+                            <div class="col-8">
+                                <div class="py-3 pe-3">
+                                    <h2 class="fs-4 card-title ghost-font">{{ghost.sign}}</h2>
+                                    <p class="highlight lh-sm">"<span v-html="ghost.clue"></span>"</p>
                                 </div>
                             </div>
                         </div>

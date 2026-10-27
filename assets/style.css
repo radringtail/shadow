@@ -177,7 +177,7 @@ body {
 }
 
 .blur-in {
-  animation: blurIn 3s ease-in-out;
+  animation: blurIn 2.5s ease-in-out;
 }
 
 @keyframes blurIn {
@@ -352,4 +352,8 @@ body {
 
 .bold-colors b:nth-child(3n-2) {
   color: #dc4583;
+}
+
+select.form-control {
+  appearance: menulist;
 }
