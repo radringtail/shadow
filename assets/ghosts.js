@@ -19,10 +19,10 @@ var ghostData =
     {
       "key": "ad8pmvcg",
       "category": "Misc",
-      "ghost": "",
+      "ghost": "ash-black-1.png",
       "sign": "Attention: Photos Being Taken!",
       "slug": "attention--photos-being-taken-",
-      "clue": ""
+      "clue": "I try to photo bomb every picture, but never seem to show up in any..."
     },
     {
       "key": "bixvy81c",
@@ -59,7 +59,7 @@ var ghostData =
     {
       "key": "akx04y31",
       "category": "Rules",
-      "ghost": "",
+      "ghost": "ash-royalblue-1.png",
       "sign": "Bouncy House Rules",
       "slug": "bouncy-house-rules",
       "clue": "Do a flip! We could always use more ghosts in the festival..."
@@ -150,15 +150,15 @@ var ghostData =
       "ghost": "ash-teal-1.png",
       "sign": "Con Ops is Closed",
       "slug": "con-ops-is-closed",
-      "clue": ""
+      "clue": "A festive shape, two corners occur…in need of some <b>aid</b>? Call 206-BABYFUR!"
     },
     {
       "key": "agl8pd4n",
       "category": "Space",
-      "ghost": "",
+      "ghost": "ash-pink-2.png",
       "sign": "Con Store",
       "slug": "con-store",
-      "clue": "(vendor hall)"
+      "clue": "I'm tickled <b>pink</b> by how <b>generous</b> everyone is to PACI. They do a lot of good! And put on some really good festivals."
     },
     {
       "key": "9g9su68k",
@@ -170,7 +170,7 @@ var ghostData =
     },
     {
       "key": "cb9m4qor",
-      "category": "Misc",
+      "category": "Space",
       "ghost": "ash-orange-2.png",
       "sign": "DJ Schedule: Silent Disco",
       "slug": "dj-schedule--silent-disco",
@@ -179,10 +179,10 @@ var ghostData =
     {
       "key": "y3ijakmt",
       "category": "Rules",
-      "ghost": "ash-brown-2.png",
+      "ghost": "dinuggetz-white-1.png",
       "sign": "Don't Forget Your Badge",
       "slug": "don-t-forget-your-badge",
-      "clue": ""
+      "clue": "BAH! Did I scare you? I'm trying out something new..."
     },
     {
       "key": "cgirm74x",
@@ -203,26 +203,18 @@ var ghostData =
     {
       "key": "xf4zava3",
       "category": "Misc",
-      "ghost": "",
+      "ghost": "kircai-blue-1.png",
       "sign": "Event Full!",
       "slug": "event-full-",
-      "clue": ""
-    },
-    {
-      "key": "okz9m57s",
-      "category": "Wayfinding",
-      "ghost": "",
-      "sign": "Exit Only: Main Stage",
-      "slug": "exit-only--main-stage",
-      "clue": ""
+      "clue": "I really wanted to go to this one! Oh you too? Well that's okay. I hear Con Ops <b>might</b> give you a ticket for your troubles..."
     },
     {
       "key": "6k6bqefz",
       "category": "Wayfinding",
-      "ghost": "",
+      "ghost": "ghost1.png",
       "sign": "Exit Only: Vendors",
       "slug": "exit-only--vendors",
-      "clue": ""
+      "clue": "You weren't supposed to find me here! But since you're here... the final room is behind a voice-activated runic puzzle in the basement that only responds to a vocal trill that you must learn to perform by memorizing a sequence of musical notes found under the Changing Room tables. Good luck!"
     },
     {
       "key": "iqtkecwi",
@@ -259,10 +251,10 @@ var ghostData =
     {
       "key": "sk86bek9",
       "category": "Misc",
-      "ghost": "",
+      "ghost": "ash-white-1.png",
       "sign": "Line Starts Here!",
       "slug": "line-starts-here-",
-      "clue": ""
+      "clue": "Looks like it's the end of the line for you! I'll see myself out."
     },
     {
       "key": "afzqzsj4",
@@ -302,7 +294,7 @@ var ghostData =
       "ghost": "alby-purple-1.png",
       "sign": "Nursery: Night",
       "slug": "nursery--night",
-      "clue": ""
+      "clue": "The <b>music</b> in the nursery is so soothing! It really helps <b>smooth</b> out the sharp <b>corners</b> of stress. "
     },
     {
       "key": "86yz4etk",
@@ -334,7 +326,7 @@ var ghostData =
       "ghost": "ash-black-2.png",
       "sign": "Portrait Corner",
       "slug": "portrait-corner",
-      "clue": "I want my photo taken in <b>sepia</b> tones...or maybe some other <b>silly</b> style? Not much we can do with costumes..."
+      "clue": "I want my photo taken in vintage <b>brown</b> tones...or maybe some other <b>silly</b> style? Hmm..."
     },
     {
       "key": "aja0nn3i",
@@ -374,7 +366,7 @@ var ghostData =
       "ghost": "ash-darkpurple-1.png",
       "sign": "Room Decoration Contest Winners!",
       "slug": "room-decoration-contest-winners-",
-      "clue": ""
+      "clue": "Some people were not <b>adventurous</b> enough to take my advice and decorate with only <b>purple</b> crayon... those witches..."
     },
     {
       "key": "bded9bbp",
@@ -422,23 +414,23 @@ var ghostData =
       "ghost": "ash-purple-2.png",
       "sign": "Sticker Me! Festival",
       "slug": "sticker-me--festival",
-      "clue": "More stickers! Cover me in more! Give me more adhesive to sniff!"
+      "clue": "I've made my peace with being buried in babyfur stickers."
     },
     {
       "key": "trn3csc4",
       "category": "Misc",
-      "ghost": "",
+      "ghost": "yookie-green-1.png",
       "sign": "Sticker Me! Forest",
       "slug": "sticker-me--forest",
-      "clue": ""
+      "clue": "More stickers! Cover me in more! Give me more adhesive to sniff!"
     },
     {
       "key": "rojp0p7t",
       "category": "Misc",
-      "ghost": "",
+      "ghost": "paco-blue-1.png",
       "sign": "Sticker Me! Scarecrow",
       "slug": "sticker-me--scarecrow",
-      "clue": ""
+      "clue": "So many stickers on here are blatantly breaking the rules LOL, er, BOO!"
     },
     {
       "key": "n1cy4sk1",
@@ -446,7 +438,7 @@ var ghostData =
       "ghost": "ghost2.png",
       "sign": "Swing Rules Indoors",
       "slug": "swing-rules-indoors",
-      "clue": "This is such a great place for spiders to <b>weave</b> their webs. <b>Curious</b> that there aren’t anys webs here now..."
+      "clue": "I love watching spiders <b>weave</b> their webs. <b>Curious</b>, weren't there some here earlier?"
     },
     {
       "key": "5hxk6rkm",
@@ -454,7 +446,7 @@ var ghostData =
       "ghost": "ash-darkred-1.png",
       "sign": "Swing Rules Outdoors",
       "slug": "swing-rules-outdoors",
-      "clue": ""
+      "clue": "This is such a great place for spiders to <b>weave</b> their webs. <b>Curious</b> that there aren’t any webs here now..."
     },
     {
       "key": "qskhitae",
@@ -499,10 +491,10 @@ var ghostData =
     {
       "key": "ep7n73gl",
       "category": "Rules",
-      "ghost": "",
+      "ghost": "ash-yellow-1.png",
       "sign": "Tricycle Rules",
       "slug": "tricycle-rules",
-      "clue": ""
+      "clue": "Don’t go too fast on these! Tricycle wrecks take three times as long to deal with on average."
     },
     {
       "key": "od5fckpg",
