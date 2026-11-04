@@ -64,6 +64,11 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 $("#ghostSpeaker").attr("src", `../assets/ghosts/${foundGhost.ghost}`);
             }
 
+            const postcardKeys = ['j0zjj2dt', '', '70d22px4', 'xde2xo8f'];
+            if (postcardKeys.find(x => x == foundGhost.key)) {
+                localStorage.setItem("cardsEnabled", true);
+            }
+
             updateStoredClues(ghostKey);
         })
 

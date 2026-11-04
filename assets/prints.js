@@ -151,7 +151,7 @@ ghostFriends = [
         "aura": "Gratitude",
         "affi": "Adventurous",
         "attrText": "So many <b>smells</b> at this event! Some amazing, some disgusting, all interesting!",
-        "auraText": "My aurea helped kiddos feel <b>grateful</b> for the opportunity to experience such a cool event."
+        "auraText": "My aura helped kiddos feel <b>grateful</b> for the opportunity to experience such a cool event."
     },
     {
         "key": "15",
@@ -162,7 +162,7 @@ ghostFriends = [
         "aura": "Gratitude",
         "affi": "Creative",
         "attrText": "So many <b>smells</b> at this event! Some amazing, some disgusting, all interesting!",
-        "auraText": "My aurea helped kiddos feel <b>grateful</b> for the opportunity to experience such a cool event."
+        "auraText": "My aura helped kiddos feel <b>grateful</b> for the opportunity to experience such a cool event."
     },
     {
         "key": "16",

@@ -8,7 +8,6 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:title" content="Apply &bull; G.H.O.S.T.">
@@ -71,32 +70,31 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 <div class="col-lg-8 mx-auto text-center px-4">
                     <h2 class="display-2 ghost-font ghost-glow">Apply to G.H.O.S.T.</h2>
                     <hr class="border border-2 opacity-100 border-primary-subtle mb-4">
-                    <p class="fs-4 mb-4 lh-sm text-sm-start">
-                        Thank you for being a new friend for a wayward soul! In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
-                    </p>
-                    <p class="fs-5 lh-sm text-sm-start">
-                        In order to apply, you must also <b class="ghost-glow">send your badge number to G.H.O.S.T.</b> to authenicate your application.
-                    </p>
-                    <p class="lh-sm text-sm-start" style="font-size: 0.8em;">
-                        All personally-identifiable information will be wiped within 30 days of the convention, as per G.H.O.S.T. data retention policies. None of this information will be provided publicly without your express consent.
-                    </p>
-                    <hr class="border border-2 opacity-100 border-primary-subtle my-4">
                     <div class="row">
-                        <div class="col-sm-6 mx-auto">
-                            <img src="../assets/images/badge-num.png" class="img-thumbnail bg-dark-subtle rounded-4 mb-3 shadow">
+                        <div class="col-lg-9">
+                            <p class="fs-4 mb-4 text-sm-start">
+                                Thank you for being a new friend for a wayward soul! In recognition of your efforts to study the festival ghost population and foster friendship, you've been invited to join <b class="ghost-glow">G.H.O.S.T.</b>!
+                            </p>
+                            <p class="fs-5 text-sm-start">
+                                In order to apply, you must also <b class="ghost-glow">send your badge number to G.H.O.S.T.</b> to authenicate your application.
+                            </p>
+                            <p class="text-sm-start" style="font-size: 0.8em;">
+                                All personally-identifiable information will be wiped within 30 days of the convention, as per G.H.O.S.T. data retention policies. None of this information will be provided publicly without your express consent.
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <img src="../assets/images/badge-num.png" class="img-fluid bg-dark-subtle rounded-4 mb-3 shadow">
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-sm-6 mx-auto">
-                            <label for="playerId" class="fw-bold fs-4">BFC Badge Number</label>
-                            <input type="number" id="playerId" class="form-control" placeholder="Badge Number">
-                        </div>
+                    <hr class="border border-2 opacity-100 border-primary-subtle my-4">
+
+                    <div class="mb-4">
+                        <label for="playerId" class="fw-bold fs-5">G.H.O.S.T. Application</label>
+                        <textarea id="ghostApp" class="form-control" rows="10" disabled></textarea>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-sm-10 mx-auto">
-                            <label for="playerId" class="fw-bold fs-4">G.H.O.S.T. Application</label>
-                            <textarea id="ghostApp" class="form-control" rows="15" disabled></textarea>
-                        </div>
+                    <div class="mb-4">
+                        <label for="playerId" class="fw-bold fs-5">BFC Badge Number</label>
+                        <input type="number" id="playerId" class="form-control" placeholder="Disabled Post Con" disabled>
                     </div>
                     <p>
                         <button id="applyButton" class="btn btn-lg btn-primary shadow mx-2">
@@ -118,28 +116,17 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
 
             // pull all available data
             var playerName = localStorage.getItem("preferredName");
-            var playerIcon = localStorage.getItem("avatarUrl");
-            var playerBsky = localStorage.getItem("bskyHandle");
-            var playerAttr = localStorage.getItem("playerAttr");
-            var playerAura = localStorage.getItem("playerAura");
-            var playerAffi = localStorage.getItem("playerAffi");
-            var cardTheme = localStorage.getItem("cardTheme");
             var ghostName = localStorage.getItem("newFriendName");
-            var ghostIcon = friend.ghost;
-            var ghostAttr = friend.attr;
-            var ghostAura = friend.aura;
-            var ghostAffi = friend.affi;
-            var ghostPrint = friend.print;
-
             var cluesFound = localStorage.getItem("cluesFound");
             var cluesFoundArray = JSON.parse(cluesFound);
             if (cluesFound == null) cluesFoundArray = [];
             cluesFoundCount = cluesFoundArray.length;
 
             var appBody = `I hereby certify that I, "${playerName}":
+
 - Collected at least 8 Festival Stamps
-- Located ${cluesFoundCount} festival ghosts for clues
-- Solved the riddle of the Postcards ghost
+- Located ${cluesFoundCount} festival ghost(s) for clues
+- Solved the riddle of the Postcards
 - Correctly identified a mystery ghost print
 - Made a genuine friendship with "${ghostName}", a newly-named festival ghost.
 
@@ -147,38 +134,14 @@ I am formally requesting to apply to G.H.O.S.T., using this encounter as proof o
             $('#ghostApp').html(appBody);
 
             $("#applyButton").on("click", function () {
-                var playerId = $('#playerId').val();
-                if (playerId == null || playerId == "" || playerId < 1 || playerId > 5000) {
-                    $('#playerId').addClass("border-danger").focus();
-                    document.getElementById('playerId').scrollIntoView({ 'block': "center" });
-                    return;
-                }
-
                 $(this).attr("disabled", "disabled");
                 $('#applyButtonText').text("Submitting...")
                 $("#throbber").removeClass("d-none");
 
-                const cardVars = { playerId, playerName, playerBsky, playerAttr, playerAura, playerAffi, ghostName, ghostAttr, ghostAura, ghostAffi, ghostPrint, cardTheme, cluesFoundCount };
-                const cardVarsString = JSON.stringify(cardVars);
-                const code = btoa(cardVarsString); //ghost code
-
-                const postContainer = { code };
-                const postData = JSON.stringify(postContainer);
-                try {
-                    const ghostPost = fetch(applyEndpoint,
-                        {
-                            redirect: "follow",
-                            method: "POST",
-                            body: postData,
-                            headers: { "Content-Type": "text/plain;charset=utf-8" }
-                        })
-                        .then((response) => {
-                            localStorage.setItem("appliedToGHOST", true);
-                            window.location.href = '../ceremony/';
-                        });
-                } catch (err) {
-                    console.log(err.message);
-                }
+                setTimeout(() => {
+                    localStorage.setItem("appliedToGHOST", true);
+                    window.location.href = '../ceremony/';
+                }, 3000);
             });
         })
     </script>

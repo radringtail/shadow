@@ -114,15 +114,6 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                     return this.ghostClues
                         .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
                 }
-            },
-            methods: {
-                filteredClues() {
-                    return this.ghostClues.slice()
-                        .filter(x => {
-                            return x.sign.toLowerCase().indexOf(this.sign.toLowerCase()) > -1
-                        })
-                        .sort((a, b) => (a.sign > b.sign) ? 1 : -1)
-                }
             }
         });
     </script>

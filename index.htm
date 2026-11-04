@@ -226,7 +226,7 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 </div>
             </div>
             <p class="text-center pb-5">
-                <img src="assets/images/nfc.png" class="img-fluid scanlines-image" width="400">
+                <img src="assets/images/nfc.png" class="img-fluid scanlines-image" width="400" style="cursor: pointer;" id="nfc">
             </p>
         </div>
     </section>
@@ -510,13 +510,18 @@ AND, WOW YOU ARE CUTE! NICE OUTFIT!
                 }
             });
 
+            $('#nfc').on("click", function () {
+                const guideModal = new bootstrap.Modal("#guideModal");
+                guideModal.show();
+            })
+
             $("#enableGuideButton").on("click", function () {
                 localStorage.setItem("guideEnabled", true);
-                window.location.href = './guide/';
+                window.location.href = 'guide/';
             });
             $("#enableCardsButton").on("click", function () {
                 localStorage.setItem("cardsEnabled", true);
-                window.location.href = './cards/';
+                window.location.href = 'cards/';
             });
             $("#wipeLocalStorage").on("click", function () {
                 localStorage.clear();
